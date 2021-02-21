@@ -45,7 +45,37 @@ public class Grid {
         SetValue(0, 0, 20);
     }
 
+    public int GetValue(int x, int y) {
+        if (x >= 0 && y >= 0 && x < _width && y < _height) {
+            return _gridArray[x, y];
+        }
+        else {
+            return 0;
+        }
+    }
 
+    public int GetValue(Vector3 worldPosition) {
+        int x, y;
+        GetXY(worldPosition, out x, out y);
+        return GetValue(x, y);
+    }
+    
+    private void GetXY(Vector3 worldPosition, out int x, out int y) {
+        x = Mathf.FloorToInt(worldPosition.x / _cellSize);
+        y = Mathf.FloorToInt(worldPosition.y / _cellSize);
+    }
+
+    public Vector3 GetMouseWorldPosition() {
+        var vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
+        vec.z = 0;
+        return vec;
+    }
+
+    public Vector3 GetMouseWorldPositionWithZ(Vector3 screenPosition, Camera worldCamera) {
+        var worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
+        return worldPosition;
+    }
+    
     private Vector3 GetWorldPosition(int x, int y) => new Vector3(x, y) * _cellSize;
 
     private TextMesh CreateWorldText(
@@ -70,7 +100,7 @@ public class Grid {
         return textMesh;
     }
 
-    private void SetValue(int x, int y, int value) {
+    public void SetValue(int x, int y, int value) {
         if (x >= 0 && y >= 0 && x < _width && y < _height) {
             _gridArray[x, y] = value;
             _debugTextArray[x, y].text = _gridArray[x, y].ToString();
@@ -78,6 +108,12 @@ public class Grid {
         else {
             Debug.Log("Invalid values");
         }
+    }
+
+    public void SetValue(Vector3 worldPosition, int value) {
+        int x, y;
+        GetXY(worldPosition, out x, out y);
+        SetValue(x, y, value);
     }
 
     private void DrawDebugCoordinates(int x, int y) {

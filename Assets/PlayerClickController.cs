@@ -2,9 +2,7 @@
 
 public class PlayerClickController : MonoBehaviour {
     [SerializeField] private float moveSpeed = 10f;
-
     private Vector3 _velocityVector, _movePosition;
-
     private Rigidbody2D _rigidbody2D;
 
     private void Start() {
