@@ -5,15 +5,17 @@ public class Grid {
     private float _cellSize;
     private int[,] _gridArray;
     private TextMesh[,] _debugTextArray;
+    private Vector3 _originPosition;
     
     // TODO Debug mode - nice to have
     private bool _debugMode = false;
 
-    public Grid(int width, int height, float cellSize) {
+    public Grid(int width, int height, float cellSize, Vector3 originPosition) {
         _width = width;
         _height = height;
         _cellSize = cellSize;
-
+        _originPosition = originPosition;
+        
         _gridArray = new int[width, height];
         _debugTextArray = new TextMesh[width, height];
 
@@ -39,10 +41,8 @@ public class Grid {
                 DrawWall(x, y, x + 1, y);
             }
         }
-
         DrawWall(0, height, width, height);
         DrawWall(width, 0, width, height);
-        SetValue(0, 0, 20);
     }
 
     public int GetValue(int x, int y) {
@@ -61,8 +61,8 @@ public class Grid {
     }
     
     private void GetXY(Vector3 worldPosition, out int x, out int y) {
-        x = Mathf.FloorToInt(worldPosition.x / _cellSize);
-        y = Mathf.FloorToInt(worldPosition.y / _cellSize);
+        x = Mathf.FloorToInt((worldPosition - _originPosition).x / _cellSize);
+        y = Mathf.FloorToInt((worldPosition - _originPosition).y / _cellSize);
     }
 
     public Vector3 GetMouseWorldPosition() {
@@ -76,7 +76,7 @@ public class Grid {
         return worldPosition;
     }
     
-    private Vector3 GetWorldPosition(int x, int y) => new Vector3(x, y) * _cellSize;
+    private Vector3 GetWorldPosition(int x, int y) => new Vector3(x, y) * _cellSize + _originPosition;
 
     private TextMesh CreateWorldText(
         string text,

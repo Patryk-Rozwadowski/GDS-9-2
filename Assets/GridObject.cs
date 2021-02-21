@@ -3,7 +3,7 @@
 public class GridObject : MonoBehaviour {
     private Grid _grid;
     private void Start() {
-        _grid = new Grid(10, 15, 10f);
+        _grid = new Grid(10, 15, 10f, Vector3.zero);
     }
 
     private void Update() {
