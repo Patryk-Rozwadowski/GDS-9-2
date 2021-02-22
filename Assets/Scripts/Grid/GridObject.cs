@@ -8,11 +8,11 @@ public class GridObject : MonoBehaviour {
 
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {
-            _grid.SetValue(_grid.GetMouseWorldPosition(), 100);
+            _grid.SetValue(CursorUtils.GetMouseWorldPosition(), 100);
         }
 
         if (Input.GetMouseButtonDown(1)) {
-            Debug.Log(_grid.GetValue(_grid.GetMouseWorldPosition()));
+            Debug.Log(_grid.GetValue(CursorUtils.GetMouseWorldPosition()));
         }
     }
 }

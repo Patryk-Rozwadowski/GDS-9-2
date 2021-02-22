@@ -6,6 +6,7 @@ public class Grid {
     private int[,] _gridArray;
     private TextMesh[,] _debugTextArray;
     private Vector3 _originPosition;
+    private Camera _mainCamera;
     
     // TODO Debug mode - nice to have
     private bool _debugMode = false;
@@ -19,15 +20,17 @@ public class Grid {
         _gridArray = new int[width, height];
         _debugTextArray = new TextMesh[width, height];
 
+        _mainCamera = Camera.main;
+
         Debug.Log($"{nameof(Grid)} - Grid width {_width} and height {_height}");
 
         for (var x = 0; x < _gridArray.GetLength(0); x++) {
             for (var y = 0; y < _gridArray.GetLength(1); y++) {
-                if (_debugMode) DrawDebugCoordinates(x, y);
+                if (_debugMode) GridUtils.DrawDebugCoordinates(x, y, cellSize, originPosition);
 
                 var cellCenter = GetWorldPosition(x, y) + new Vector3(cellSize, cellSize) * .5f;
                 
-                _debugTextArray[x, y] = CreateWorldText(
+                _debugTextArray[x, y] = GridUtils.CreateWorldText(
                     _gridArray[x, y].ToString(),
                     null,
                     cellCenter,
@@ -54,52 +57,6 @@ public class Grid {
         }
     }
 
-    public int GetValue(Vector3 worldPosition) {
-        int x, y;
-        GetXY(worldPosition, out x, out y);
-        return GetValue(x, y);
-    }
-    
-    private void GetXY(Vector3 worldPosition, out int x, out int y) {
-        x = Mathf.FloorToInt((worldPosition - _originPosition).x / _cellSize);
-        y = Mathf.FloorToInt((worldPosition - _originPosition).y / _cellSize);
-    }
-
-    public Vector3 GetMouseWorldPosition() {
-        var vec = GetMouseWorldPositionWithZ(Input.mousePosition, Camera.main);
-        vec.z = 0;
-        return vec;
-    }
-
-    public Vector3 GetMouseWorldPositionWithZ(Vector3 screenPosition, Camera worldCamera) {
-        var worldPosition = worldCamera.ScreenToWorldPoint(screenPosition);
-        return worldPosition;
-    }
-    
-    private Vector3 GetWorldPosition(int x, int y) => new Vector3(x, y) * _cellSize + _originPosition;
-
-    private TextMesh CreateWorldText(
-        string text,
-        Transform parent,
-        Vector3 localPosition,
-        int fontSize,
-        Color color,
-        TextAlignment textAligment,
-        TextAnchor textAnchor
-    ) {
-        var gameObject = new GameObject("Grid_text", typeof(TextMesh));
-        var transform = gameObject.transform;
-        var textMesh = gameObject.GetComponent<TextMesh>();
-        transform.SetParent(parent, false);
-        transform.localPosition = localPosition;
-        textMesh.anchor = textAnchor;
-        textMesh.alignment = textAligment;
-        textMesh.text = text;
-        textMesh.fontSize = fontSize;
-        textMesh.color = color;
-        return textMesh;
-    }
-
     public void SetValue(int x, int y, int value) {
         if (x >= 0 && y >= 0 && x < _width && y < _height) {
             _gridArray[x, y] = value;
@@ -115,13 +72,19 @@ public class Grid {
         GetXY(worldPosition, out x, out y);
         SetValue(x, y, value);
     }
-
-    private void DrawDebugCoordinates(int x, int y) {
-        var cellCenter = GetWorldPosition(x, y) + new Vector3(_cellSize, _cellSize) * .5f;
-        CreateWorldText($"X:{x.ToString()}\nY:{y.ToString()}", null, cellCenter, 20, Color.black, TextAlignment.Center,
-            TextAnchor.MiddleCenter);
+    
+    public int GetValue(Vector3 worldPosition) {
+        GetXY(worldPosition, out var x, out var y);
+        return GetValue(x, y);
     }
 
+    private void GetXY(Vector3 worldPosition, out int x, out int y) {
+        x = Mathf.FloorToInt((worldPosition - _originPosition).x / _cellSize);
+        y = Mathf.FloorToInt((worldPosition - _originPosition).y / _cellSize);
+    }
+    
+    private Vector3 GetWorldPosition(int x, int y) => new Vector3(x, y) * _cellSize + _originPosition;
+    
     private void DrawWall(int startX, int startY, int endX, int endY) {
         Debug.DrawLine(GetWorldPosition(startX, startY), GetWorldPosition(endX, endY), Color.white, 100f);
     }
