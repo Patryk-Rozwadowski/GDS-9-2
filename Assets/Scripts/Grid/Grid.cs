@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
 
-public class Grid {
+public class Grid<TGridObject> {
     private int _width, _height;
     private float _cellSize;
-    private int[,] _gridArray;
+    private TGridObject[,] _gridArray;
     private TextMesh[,] _debugTextArray;
     private Vector3 _originPosition;
     private Camera _mainCamera;
 
     // TODO Debug mode - nice to have
-    private bool _debugMode = true;
+    private bool _debugMode = false;
 
     public Grid(int width, int height, float cellSize, Vector3 originPosition) {
         _width = width;
@@ -17,7 +17,7 @@ public class Grid {
         _cellSize = cellSize;
         _originPosition = originPosition;
 
-        _gridArray = new int[width, height];
+        _gridArray = new TGridObject[width, height];
         _debugTextArray = new TextMesh[width, height];
   
         _mainCamera = Camera.main;
@@ -49,21 +49,21 @@ public class Grid {
         DrawWall(width, 0, width, height);
     }
 
-    public int GetValue(int x, int y) {
+    public TGridObject GetValue(int x, int y) {
         if (x >= 0 && y >= 0 && x < _width && y < _height) {
             return _gridArray[x, y];
         }
         else {
-            return 0;
-        }
+            return default(TGridObject);
+        };
     }
 
-    public int GetValue(Vector3 worldPosition) {
+    public TGridObject GetValue(Vector3 worldPosition) {
         GetXY(worldPosition, out var x, out var y);
         return GetValue(x, y);
     }
 
-    public void SetValue(int x, int y, int value) {
+    public void SetValue(int x, int y, TGridObject value) {
         if (x >= 0 && y >= 0 && x < _width && y < _height) {
             _gridArray[x, y] = value;
             _debugTextArray[x, y].text = _gridArray[x, y].ToString();
@@ -73,7 +73,7 @@ public class Grid {
         }
     }
 
-    public void SetValue(Vector3 worldPosition, int value) {
+    public void SetValue(Vector3 worldPosition, TGridObject value) {
         int x, y;
         GetXY(worldPosition, out x, out y);
         SetValue(x, y, value);

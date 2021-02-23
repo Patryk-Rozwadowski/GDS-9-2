@@ -1,14 +1,13 @@
 ﻿using UnityEngine;
 
 public class GridObject : MonoBehaviour {
-    private Grid _grid;
+    private Grid<bool> _grid;
     private void Start() {
-        _grid = new Grid(10, 15, 10f, Vector3.zero);
+        _grid = new Grid<bool>(10, 15, 10f, Vector3.zero);
     }
 
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {
-            _grid.SetValue(CursorUtils.GetMouseWorldPosition(), 100);
         }
 
         if (Input.GetMouseButtonDown(1)) {
