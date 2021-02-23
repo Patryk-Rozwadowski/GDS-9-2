@@ -10,8 +10,6 @@ public class PlayerClickController : MonoBehaviour {
 
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {
-            Debug.Log("Click");
-            
             var mousePosition = Input.mousePosition;
             var worldPosition = Camera.main.ScreenToWorldPoint(mousePosition);
             transform.position = worldPosition;
