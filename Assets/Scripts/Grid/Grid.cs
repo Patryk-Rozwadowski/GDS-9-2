@@ -7,7 +7,7 @@ public class Grid<TGridObject> {
     public class OnGridObjectChangedEventArgs : EventArgs {
         public int x, y;
     }
-    
+
     private int _width, _height;
     private float _cellSize;
     private TGridObject[,] _gridArray;
@@ -18,7 +18,13 @@ public class Grid<TGridObject> {
     // TODO Debug mode - nice to have
     private bool _debugMode = false;
 
-    public Grid(int width, int height, float cellSize, Vector3 originPosition, Func<Grid<TGridObject>, int , int , TGridObject> createDefaultGridObject) {
+    public Grid(
+        int width,
+        int height,
+        float cellSize,
+        Vector3 originPosition,
+        Func<Grid<TGridObject>, int, int, TGridObject> createDefaultGridObject
+    ) {
         _width = width;
         _height = height;
         _cellSize = cellSize;
@@ -26,7 +32,7 @@ public class Grid<TGridObject> {
 
         _gridArray = new TGridObject[width, height];
         _debugTextArray = new TextMesh[width, height];
-  
+
         _mainCamera = Camera.main;
 
         Debug.Log($"{nameof(Grid)} - Grid width {_width} and height {_height}");
@@ -59,35 +65,15 @@ public class Grid<TGridObject> {
 
         DrawWall(0, height, width, height);
         DrawWall(width, 0, width, height);
-        
+
         OnGridObjectChanged += (object sender, OnGridObjectChangedEventArgs eventArgs) => {
             _debugTextArray[eventArgs.x, eventArgs.y].text = _gridArray[eventArgs.x, eventArgs.y]?.ToString();
-        };
-    }
-
-    public TGridObject GetGridObject(int x, int y) {
-        if (x >= 0 && y >= 0 && x < _width && y < _height) {
-            return _gridArray[x, y];
-        }
-        else {
-            return default(TGridObject);
         };
     }
 
     public TGridObject GetGridObject(Vector3 worldPosition) {
         GetXY(worldPosition, out var x, out var y);
         return GetGridObject(x, y);
-    }
-
-    public void SetGridObject(int x, int y, TGridObject value) {
-        if (x >= 0 && y >= 0 && x < _width && y < _height) {
-            _gridArray[x, y] = value;
-            _debugTextArray[x, y].text = _gridArray[x, y].ToString();
-            if (OnGridObjectChanged != null) OnGridObjectChanged(this, new OnGridObjectChangedEventArgs { x = x, y = y });
-        }
-        else {
-            Debug.Log("Invalid values");
-        }
     }
 
     public void TriggerGridObjectChanged(int x, int y) {
@@ -110,5 +96,25 @@ public class Grid<TGridObject> {
 
     private void DrawWall(int startX, int startY, int endX, int endY) {
         Debug.DrawLine(GetWorldPosition(startX, startY), GetWorldPosition(endX, endY), Color.white, 100f);
+    }
+    
+    private TGridObject GetGridObject(int x, int y) {
+        if (x >= 0 && y >= 0 && x < _width && y < _height) {
+            return _gridArray[x, y];
+        }
+        else {
+            return default(TGridObject);
+        }
+    }
+    
+    public void SetGridObject(int x, int y, TGridObject value) {
+        if (x >= 0 && y >= 0 && x < _width && y < _height) {
+            _gridArray[x, y] = value;
+            _debugTextArray[x, y].text = _gridArray[x, y].ToString();
+            if (OnGridObjectChanged != null) OnGridObjectChanged(this, new OnGridObjectChangedEventArgs {x = x, y = y});
+        }
+        else {
+            Debug.Log("Invalid values");
+        }
     }
 }
