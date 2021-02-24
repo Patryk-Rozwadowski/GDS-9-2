@@ -71,11 +71,23 @@ public class Grid<TGridObject> {
         };
     }
 
+    public int GetWidth() => _gridArray.GetLength(0);
+    public int GetHeight() => _gridArray.GetLength(1);
+    
     public TGridObject GetGridObject(Vector3 worldPosition) {
         GetXY(worldPosition, out var x, out var y);
         return GetGridObject(x, y);
     }
-
+    
+    public TGridObject GetGridObject(int x, int y) {
+        if (x >= 0 && y >= 0 && x < _width && y < _height) {
+            return _gridArray[x, y];
+        }
+        else {
+            return default(TGridObject);
+        }
+    }
+    
     public void TriggerGridObjectChanged(int x, int y) {
         Debug.Log("Changed ");
         OnGridObjectChanged?.Invoke(this, new OnGridObjectChangedEventArgs {x = x, y = y});
@@ -96,15 +108,6 @@ public class Grid<TGridObject> {
 
     private void DrawWall(int startX, int startY, int endX, int endY) {
         Debug.DrawLine(GetWorldPosition(startX, startY), GetWorldPosition(endX, endY), Color.white, 100f);
-    }
-    
-    private TGridObject GetGridObject(int x, int y) {
-        if (x >= 0 && y >= 0 && x < _width && y < _height) {
-            return _gridArray[x, y];
-        }
-        else {
-            return default(TGridObject);
-        }
     }
     
     public void SetGridObject(int x, int y, TGridObject value) {
