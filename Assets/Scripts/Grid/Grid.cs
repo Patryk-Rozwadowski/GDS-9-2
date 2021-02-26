@@ -99,9 +99,11 @@ public class Grid<TGridObject> {
         SetGridObject(x, y, value);
     }
 
-    private void GetXY(Vector3 worldPosition, out int x, out int y) {
+    public void GetXY(Vector3 worldPosition, out int x, out int y) {
         x = Mathf.FloorToInt((worldPosition - _originPosition).x / _cellSize);
         y = Mathf.FloorToInt((worldPosition - _originPosition).y / _cellSize);
+        Debug.Log($"GetXY: x: {x}, y: {y}");
+
     }
 
     private Vector3 GetWorldPosition(int x, int y) => new Vector3(x, y) * _cellSize + _originPosition;
