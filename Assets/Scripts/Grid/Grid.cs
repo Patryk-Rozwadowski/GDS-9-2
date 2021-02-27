@@ -73,7 +73,7 @@ public class Grid<TGridObject> {
 
     public int GetWidth() => _gridArray.GetLength(0);
     public int GetHeight() => _gridArray.GetLength(1);
-    
+    public float GetCellSize() => _cellSize;
     public TGridObject GetGridObject(Vector3 worldPosition) {
         GetXY(worldPosition, out var x, out var y);
         return GetGridObject(x, y);
@@ -89,7 +89,7 @@ public class Grid<TGridObject> {
     }
     
     public void TriggerGridObjectChanged(int x, int y) {
-        Debug.Log("Changed ");
+        Debug.Log($"TriggerGridObjectChanged event");
         OnGridObjectChanged?.Invoke(this, new OnGridObjectChangedEventArgs {x = x, y = y});
     }
 
@@ -102,8 +102,6 @@ public class Grid<TGridObject> {
     public void GetXY(Vector3 worldPosition, out int x, out int y) {
         x = Mathf.FloorToInt((worldPosition - _originPosition).x / _cellSize);
         y = Mathf.FloorToInt((worldPosition - _originPosition).y / _cellSize);
-        Debug.Log($"GetXY: x: {x}, y: {y}");
-
     }
 
     private Vector3 GetWorldPosition(int x, int y) => new Vector3(x, y) * _cellSize + _originPosition;
