@@ -2,28 +2,15 @@
 using UnityEngine;
 
 public class GridObject : MonoBehaviour {
-    private Pathfinding _pathfinding;
+    public static GridPathfinding gridPathfinding;
+
     private void Start() {
-        _pathfinding = new Pathfinding(10, 10);
-    }
+        //Sound_Manager.Init();
 
-    private void Update() {
-        if (Input.GetMouseButtonDown(0)) {
-            var mouseWorldPosition = CursorUtils.GetMouseWorldPosition();
-            _pathfinding.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
-            List<PathNode> path = _pathfinding.FindPath(0, 0, x, y);
+        //FunctionPeriodic.Create(SpawnEnemy, 1.5f);
+        //for (int i = 0; i < 1000; i++) SpawnEnemy();
         
-            if (path != null) {
-                for (var i = 0; i < path.Count - 1; i++) {
-                    Debug.DrawLine(new Vector3(path[i].x, path[i].y) * 10f + Vector3.one * 5f, new Vector3(path[i+1].x, path[i+1].y) * 10f + Vector3.one * 5f, Color.green, 5f);
-                }
-            }
-        }
-
-        if (Input.GetMouseButtonDown(1)) {
-            var mouseWorldPosition = CursorUtils.GetMouseWorldPosition();
-            _pathfinding.GetGrid().GetXY(mouseWorldPosition, out int x, out int y);
-            _pathfinding.GetNode(x, y).SetIsWalkable(!_pathfinding.GetNode(x ,y).isWalkable);
-        }
+        gridPathfinding = new GridPathfinding(new Vector3(-400, -400), new Vector3(400, 400), 5f);
+        gridPathfinding.RaycastWalkable();
     }
 }
