@@ -19,15 +19,21 @@ public class MovePositionPathfinding : MonoBehaviour, IMovePosition {
     }
 
     private void Update() {
+
         if (pathIndex != -1) {
             // Move to next path position
             Vector3 nextPathPosition = pathVectorList[pathIndex];
+            // Debug.Log($"next path position {nextPathPosition}");
             Vector3 moveVelocity = (nextPathPosition - transform.position).normalized;
+            // Debug.Log($"move velocity {moveVelocity}");
             GetComponent<IMoveVelocity>().SetVelocity(moveVelocity);
 
-            float reachedPathPositionDistance = 1f;
+            float reachedPathPositionDistance = 2f;
+            Debug.Log($"DISTANCE: {Vector3.Distance(transform.position, nextPathPosition)}");
+            Debug.Log($"REACHED POSITION DISTANCE: {reachedPathPositionDistance}");
             if (Vector3.Distance(transform.position, nextPathPosition) < reachedPathPositionDistance) {
                 pathIndex++;
+                Debug.Log($"pathIndex {pathIndex}");
                 if (pathIndex >= pathVectorList.Count) {
                     // End of path
                     pathIndex = -1;
