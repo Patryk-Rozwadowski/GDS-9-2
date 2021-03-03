@@ -2,15 +2,12 @@
 using UnityEngine;
 
 public class GridObject : MonoBehaviour {
+    [SerializeField] private GameObject walkablePrefab, unwalkable;
     public static GridPathfinding gridPathfinding;
 
     private void Start() {
-        //Sound_Manager.Init();
-
-        //FunctionPeriodic.Create(SpawnEnemy, 1.5f);
-        //for (int i = 0; i < 1000; i++) SpawnEnemy();
-        
-        gridPathfinding = new GridPathfinding(new Vector3(-400, -400), new Vector3(400, 400), 5f);
+        gridPathfinding = new GridPathfinding(Vector3.zero, new Vector3(100, 80), 10f);
         gridPathfinding.RaycastWalkable();
+        gridPathfinding.PrintMap(walkablePrefab.transform, unwalkable.transform);
     }
 }

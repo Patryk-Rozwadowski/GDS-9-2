@@ -28,10 +28,8 @@ public class MovePositionPathfinding : MonoBehaviour, IMovePosition {
             // Debug.Log($"move velocity {moveVelocity}");
             GetComponent<IMoveVelocity>().SetVelocity(moveVelocity);
 
-            float reachedPathPositionDistance = 2f;
-            Debug.Log($"DISTANCE: {Vector3.Distance(transform.position, nextPathPosition)}");
-            Debug.Log($"REACHED POSITION DISTANCE: {reachedPathPositionDistance}");
-            if (Vector3.Distance(transform.position, nextPathPosition) < reachedPathPositionDistance) {
+            int reachedPathPositionDistance = 1;
+            if (Vector3.Distance(transform.position, nextPathPosition) <= reachedPathPositionDistance) {
                 pathIndex++;
                 Debug.Log($"pathIndex {pathIndex}");
                 if (pathIndex >= pathVectorList.Count) {
