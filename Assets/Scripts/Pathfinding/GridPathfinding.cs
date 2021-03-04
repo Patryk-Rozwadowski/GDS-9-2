@@ -6,14 +6,9 @@ using UnityEngine;
 
 public class GridPathfinding {
     public static GridPathfinding instance;
-
+    public int gridMapWidth, gridMapHeight;
     public const int WALL_WEIGHT = 56000;
 
-    public enum UnitMovementCallbackType {
-        Simple,
-    }
-
-    //private List<PathNode> openList;
     private BinaryTree binaryTree;
     private int openListCount;
     private PathNode[][] mapNodes;
@@ -51,6 +46,9 @@ public class GridPathfinding {
         widthMax = mapWidth;
         heightMax = mapHeight;
 
+        gridMapWidth = mapWidth;
+        gridMapHeight = mapHeight;
+        
         Initialize(mapWidth, mapHeight);
     }
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class MovePositionPathfinding : MonoBehaviour, IMovePosition {
@@ -19,16 +20,13 @@ public class MovePositionPathfinding : MonoBehaviour, IMovePosition {
     }
 
     private void Update() {
-
         if (pathIndex != -1) {
             // Move to next path position
             Vector3 nextPathPosition = pathVectorList[pathIndex];
-            // Debug.Log($"next path position {nextPathPosition}");
             Vector3 moveVelocity = (nextPathPosition - transform.position).normalized;
-            // Debug.Log($"move velocity {moveVelocity}");
             GetComponent<IMoveVelocity>().SetVelocity(moveVelocity);
 
-            int reachedPathPositionDistance = 1;
+            float reachedPathPositionDistance = 0.1f;
             if (Vector3.Distance(transform.position, nextPathPosition) <= reachedPathPositionDistance) {
                 pathIndex++;
                 Debug.Log($"pathIndex {pathIndex}");
@@ -38,7 +36,6 @@ public class MovePositionPathfinding : MonoBehaviour, IMovePosition {
                 }
             }
         } else {
-            // Idle
             GetComponent<IMoveVelocity>().SetVelocity(Vector3.zero);
         }
     }
