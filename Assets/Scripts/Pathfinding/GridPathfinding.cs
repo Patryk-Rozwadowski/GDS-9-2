@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GridPathfinding {
     public static GridPathfinding instance;
-    public int gridMapWidth, gridMapHeight;
+
     public const int WALL_WEIGHT = 56000;
 
     private BinaryTree binaryTree;
@@ -46,9 +46,6 @@ public class GridPathfinding {
         widthMax = mapWidth;
         heightMax = mapHeight;
 
-        gridMapWidth = mapWidth;
-        gridMapHeight = mapHeight;
-        
         Initialize(mapWidth, mapHeight);
     }
 
