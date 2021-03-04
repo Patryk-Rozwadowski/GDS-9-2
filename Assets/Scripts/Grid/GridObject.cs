@@ -41,10 +41,11 @@ public class GridObject : MonoBehaviour {
     }
     
     private void LateUpdate() {
+        // TODO add method to eleminate duplicate code
         if (_debugMode == false) return;
         var testObjectForGridSnapTestsTransformPositon = testObjectForGridSnapTests.transform.position;
-        _objectOnGridPosition.x = Mathf.Floor(testObjectForGridSnapTestsTransformPositon.x / 10) * 10;
-        _objectOnGridPosition.y = Mathf.Floor(testObjectForGridSnapTestsTransformPositon.y / 10) * 10;
+        _objectOnGridPosition.x = Mathf.Floor(testObjectForGridSnapTestsTransformPositon.x / _nodeSize) * _nodeSize;
+        _objectOnGridPosition.y = Mathf.Floor(testObjectForGridSnapTestsTransformPositon.y / _nodeSize) * _nodeSize;
         _objectOnGridPosition.z = 0;
         testObjectForGridSnapTests.transform.position = _objectOnGridPosition;
     }
