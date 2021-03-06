@@ -19,7 +19,6 @@ namespace GridPathfindingSystem {
             this.pathNodeList = pathNodeList;
             pathVectorList = new List<Vector3>();
             foreach (PathNode pathNode in pathNodeList) {
-                Debug.Log(pathNode);
                 pathVectorList.Add(pathNode.GetWorldVector(worldOrigin, nodeSize));
             }
             this.finalPos = finalPos;

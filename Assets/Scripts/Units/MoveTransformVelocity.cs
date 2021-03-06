@@ -15,8 +15,7 @@ public class MoveTransformVelocity : MonoBehaviour, IMoveVelocity {
     public void SetVelocity(Vector3 velocityVector) {
         _velocityVector = velocityVector;
     }
-
-
+    
     private void FixedUpdate() {
         _rigidbody2D.velocity = _velocityVector * moveSpeed;
     }

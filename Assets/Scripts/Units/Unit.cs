@@ -1,12 +1,10 @@
-﻿using UnityEngine;
+﻿using System;
+using UnityEngine;
 
-public class Unit : MonoBehaviour
-{
-    // Start is called before the first frame update
-    void Start() {
-    }
-
-    // Update is called once per frame
-    void Update() {
+public class Unit : MonoBehaviour {
+    private bool isActive;
+    private void OnMouseDown() {
+        Debug.Log($"Mouse over {gameObject.name}");
+        GetComponent<MovePositionPathfinding>().isActive = !isActive;
     }
 }
