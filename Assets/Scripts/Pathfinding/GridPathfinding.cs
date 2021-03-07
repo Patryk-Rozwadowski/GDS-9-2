@@ -5,7 +5,7 @@ using GridPathfindingSystem;
 using UnityEngine;
 
 public class GridPathfinding {
-    public static GridPathfinding Instance { get; private set; }
+    public static GridPathfinding instance;
 
     public const int WALL_WEIGHT = 56000;
 
@@ -28,7 +28,7 @@ public class GridPathfinding {
     public OnVoidDelegate callbacks;
 
     public GridPathfinding(Vector3 worldLowerLeft, Vector3 worldUpperRight, float nodeSize) {
-        Instance = this;
+        instance = this;
         worldOrigin = worldLowerLeft;
         this.nodeSize = nodeSize;
 
@@ -177,8 +177,8 @@ public class GridPathfinding {
     }
 
     public void PrintMap(Transform prefabWalkable, Transform prefabUnwalkable) {
-        for (int x = 0; x < 4; x++) {
-            for (int y = 0; y < 4; y++) {
+        for (int x = 0; x < mapNodes.Length; x++) {
+            for (int y = 0; y < mapNodes[x].Length; y++) {
                 PathNode pathNode = mapNodes[x][y];
                 UnityEngine.Object.Instantiate(pathNode.IsWalkable() ? prefabWalkable : prefabUnwalkable,
                     new Vector3(x * nodeSize, y * nodeSize), Quaternion.identity);
@@ -229,14 +229,17 @@ public class GridPathfinding {
         );
     }
 
+    /*public void PrintMapUpdateable() {
+    }*/
     private bool IsValidShortcut(int startX, int startY, int endX, int endY) {
+        //Debug.Log("Testing Shortcut: " + startX + ", " + startY + " -> " + endX + ", " + endY);
         int shortcutWeight = mapNodes[startX][startY].weight;
         Vector3 dir = (new Vector3(endX, endY) - new Vector3(startX, startY)).normalized;
         Vector3 test = new Vector3(startX, startY) + dir;
         int testX = Mathf.RoundToInt(test.x);
         int testY = Mathf.RoundToInt(test.y);
-        
         // Check if shortcut is walkable
+        //Debug.Log("Testing: "+testX+","+testY);
         while (!(testX == endX && testY == endY)) {
             if (!IsWalkable(testX, testY) || mapNodes[testX][testY].weight != shortcutWeight) {
                 // Not walkable
@@ -247,10 +250,12 @@ public class GridPathfinding {
                 test += dir;
                 testX = Mathf.RoundToInt(test.x);
                 testY = Mathf.RoundToInt(test.y);
+                //Debug.Log("Testing: "+testX+","+testY);
             }
         }
 
         // Shortcut walkable
+        //Debug.Log("Shortcut valid!");
         return true;
     }
 
@@ -499,7 +504,6 @@ public class GridPathfinding {
         }
 
         int iterations = 0;
-        
         do {
             iterations++;
             currentNode = FindTarget(currentNode, targetNode);
@@ -643,10 +647,13 @@ public class GridPathfinding {
                 mapNodes[x][y].TestHitbox();
             }
         }
+
+        //Event_Speaker.Broadcast(Event_Trigger.Pathfinding_Refresh);
     }
 
     public void RefreshHitbox(MapPos mapPos) {
         mapNodes[mapPos.x][mapPos.y].TestHitbox();
+        //Event_Speaker.Broadcast(Event_Trigger.Pathfinding_Refresh);
     }
 
     public bool IsWalkable(MapPos mapPos) {

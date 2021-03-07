@@ -120,11 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5f38a9ee66ca944aaa99efd292ef8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  walkablePrefab: {fileID: 3914380743362191380, guid: d3cf455e280eb9b41bb6b2070cbdbba5,
-    type: 3}
-  unwalkable: {fileID: 7839473921682669286, guid: f93b901339f235245bc052eb36378a3e,
-    type: 3}
-  isActive: 0
 --- !u!114 &354017946055349602
 MonoBehaviour:
   m_ObjectHideFlags: 0
