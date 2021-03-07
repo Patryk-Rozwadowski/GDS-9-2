@@ -11,7 +11,7 @@ public class GridObject : MonoBehaviour {
     [Tooltip("Test object to check in editor mode how grid snapping is working.")]
     [SerializeField] private GameObject testObjectForGridSnapTests;
     
-    private static GridPathfinding gridPathfinding;
+    private static GridPathfinding _gridPathfinding;
     private Vector3 _objectOnGridPosition;
     private int _nodeSize;
     private bool _debugMode = true;
@@ -19,9 +19,9 @@ public class GridObject : MonoBehaviour {
     private void Start() {
         // TODO nice to have - scriptable objects for sizes
         _nodeSize = 10;
-        gridPathfinding = new GridPathfinding(Vector3.zero, new Vector3(100, 80), _nodeSize);
-        gridPathfinding.RaycastWalkable();
-        gridPathfinding.PrintMap(walkablePrefab.transform, unwalkable.transform);
+        _gridPathfinding = new GridPathfinding(Vector3.zero, new Vector3(100, 80), _nodeSize);
+        _gridPathfinding.RaycastWalkable();
+        _gridPathfinding.PrintMap(walkablePrefab.transform, unwalkable.transform);
 
         foreach (var objectOnMap in objectsOnMap) {
             if (objectOnMap == null) return;

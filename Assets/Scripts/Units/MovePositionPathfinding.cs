@@ -7,12 +7,10 @@ public class MovePositionPathfinding : MonoBehaviour, IMovePosition {
     private List<Vector3> pathVectorList;
     private int pathIndex = -1;
     private MoveTransformVelocity _moveVelocity;
-    private void Start() {
-    }
 
     public void SetMovePosition(Vector3 movePosition) {
         if (!isActive) return;
-        pathVectorList = GridPathfinding.instance.GetPathRouteWithShortcuts(transform.position, movePosition).pathVectorList;
+        pathVectorList = GridPathfinding.Instance.GetPathRouteWithShortcuts(transform.position, movePosition).pathVectorList;
         if (pathVectorList.Count > 0) {
             // Remove first position so he doesn't go backwards
             pathVectorList.RemoveAt(0);
