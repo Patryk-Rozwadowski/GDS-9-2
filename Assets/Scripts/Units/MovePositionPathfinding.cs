@@ -1,22 +1,18 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 
-public class MovePositionPathfinding : MonoBehaviour, IMovePosition {
+public class MovePositionPathfinding : MonoBehaviour {
     public bool isActive;
     
     private List<Vector3> pathVectorList;
     private int pathIndex = -1;
     private MoveTransformVelocity _moveVelocity;
-    private void Start() {
-    }
+    private Action _onReachedTargetPosition;
 
-    public void SetMovePosition(Vector3 movePosition) {
-        if (!isActive) return;
+    public void SetMovePosition(Vector3 movePosition, Action onReachedTargetPosition) {
+        _onReachedTargetPosition = onReachedTargetPosition;
         pathVectorList = GridPathfinding.instance.GetPathRouteWithShortcuts(transform.position, movePosition).pathVectorList;
-        if (pathVectorList.Count > 0) {
-            // Remove first position so he doesn't go backwards
-            pathVectorList.RemoveAt(0);
-        }
         if (pathVectorList.Count > 0) {
             pathIndex = 0;
         } else {
