@@ -485,6 +485,10 @@ public class GridPathfinding {
         MapPos endMapPos = GetClosestValidPos(Mathf.RoundToInt(end.x), Mathf.RoundToInt(end.y));
         return findPath(startMapPos.x, startMapPos.y, endMapPos.x, endMapPos.y);
     }
+    
+    public List<PathNode> GetPath(int startX, int startY, int endX, int endY) {
+        return findPath(startX, startY, endX, endY);
+    }
 
     public List<PathNode> findPath(int startX, int startY, int endX, int endY) {
         List<PathNode> ret = new List<PathNode>();
@@ -670,6 +674,10 @@ public class GridPathfinding {
 
     public bool HasWeight(int x, int y) {
         return mapNodes[x][y].weight > 0;
+    }
+    
+    public bool HasPath(int startX, int startY, int endX, int endY) {
+        return FindPath(startX, startY, new MapPos(endX, endY), (List<PathNode> path, MapPos finalPos) => { });
     }
 
 

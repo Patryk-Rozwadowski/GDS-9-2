@@ -47,16 +47,16 @@ public class Grid<TGridObject> {
             for (var y = 0; y < _gridArray.GetLength(1); y++) {
                 var cellCenter = GetWorldPosition(x, y) + new Vector3(cellSize, cellSize) * .5f;
                 if (_debugMode) GridUtils.DrawDebugCoordinates(x, y, cellSize, originPosition);
-                else
-                    _debugTextArray[x, y] = GridUtils.CreateWorldText(
-                        _gridArray[x, y]?.ToString(),
-                        null,
-                        cellCenter,
-                        20,
-                        Color.black,
-                        TextAlignment.Center,
-                        TextAnchor.MiddleCenter
-                    );
+                // else
+                //     _debugTextArray[x, y] = GridUtils.CreateWorldText(
+                //         _gridArray[x, y]?.ToString(),
+                //         null,
+                //         cellCenter,
+                //         20,
+                //         Color.black,
+                //         TextAlignment.Center,
+                //         TextAnchor.MiddleCenter
+                //     );
 
                 DrawWall(x, y, x, y + 1);
                 DrawWall(x, y, x + 1, y);

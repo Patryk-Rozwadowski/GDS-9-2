@@ -21,7 +21,7 @@ public class GridObject : MonoBehaviour {
         _nodeSize = 10;
         gridPathfinding = new GridPathfinding(Vector3.zero, new Vector3(100, 80), _nodeSize);
         gridPathfinding.RaycastWalkable();
-        gridPathfinding.PrintMap(walkablePrefab.transform, unwalkable.transform);
+        // gridPathfinding.PrintMap(walkablePrefab.transform, unwalkable.transform);
 
         foreach (var objectOnMap in objectsOnMap) {
             if (objectOnMap == null) return;
