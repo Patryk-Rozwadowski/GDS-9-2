@@ -23,8 +23,8 @@ public class GridCombatSystem : MonoBehaviour {
     void Start() {
         _leftTeam = new List<UnitCombatSystem>();
         _rightTeam = new List<UnitCombatSystem>();
-
-        foreach (var unit in unitCombatSystemsArray) {
+        
+        foreach (UnitCombatSystem unit in unitCombatSystemsArray) {
             CombatSystemUnitDebugLogger(unit);
             GameController_GridCombatSystem.Instance.GetGrid().GetGridObject(unit.GetPosition()).SetUnitGridCombat(unit);
             if (unit.GetTeam() == UnitCombatSystem.Team.Left) {
@@ -34,52 +34,48 @@ public class GridCombatSystem : MonoBehaviour {
                 _rightTeam.Add(unit);
             }
         }
+        
+        SelectNextActiveUnit();
+        UpdateValidMovePositions();
     }
     
     public void Damage(GridCombatSystem attacker, int damageAmount) {
         // TODO Hp damgage
         Debug.Log($"Damage done: {damageAmount}");
     }
-    
-    // private void SelectNextActiveUnit() {
-    //     if (_unitCombatSystem == null || _unitCombatSystem.GetTeam() == _unitCombatSystem.Team.Right) {
-    //         _unitCombatSystem = GetNextActiveUnit(_unitCombatSystem.Team.Left);
-    //     } else {
-    //         _unitCombatSystem = GetNextActiveUnit(_unitCombatSystem.Team.Right);
-    //     }
-    //     _canMoveThisTurn = true;
-    //     _canAttackThisTurn = true;
-    // }
 
     private UnitCombatSystem GetNextActiveUnit(UnitCombatSystem.Team team) {
         if (team == UnitCombatSystem.Team.Left) {
             _lefTeamActiveUnitIndex = (_lefTeamActiveUnitIndex + 1) % _leftTeam.Count;
             
             // TODO Hp system
-            // if (_leftTeam[_lefTeamActiveUnitIndex] == null || _leftTeam[_lefTeamActiveUnitIndex].IsDead()) {
-            //     // Unit is Dead, get next one
-            //     return GetNextActiveUnit(team);
-            // } else {
-            //     return _leftTeam[_lefTeamActiveUnitIndex];
-            // }
-            return _leftTeam[_lefTeamActiveUnitIndex];
+            if (_leftTeam[_lefTeamActiveUnitIndex] == null) {
+                // Unit is Dead, get next one
+                return GetNextActiveUnit(team);
+            } else {
+                return _leftTeam[_lefTeamActiveUnitIndex];
+            }
         } else {
             _rightTeamActiveUnitIndex = (_rightTeamActiveUnitIndex + 1) % _rightTeam.Count;
             
             // TODO hp system
-            // if (_rightTeam[_rightTeamActiveUnitIndex] == null || _rightTeam[_rightTeamActiveUnitIndex].IsDead()) {
-            //     // Unit is Dead, get next one
-            //     return GetNextActiveUnit(team);
-            // } else {
-            //     return _rightTeam[_rightTeamActiveUnitIndex];
-            // }
-            return _rightTeam[_rightTeamActiveUnitIndex];
+            if (_rightTeam[_rightTeamActiveUnitIndex] == null) {
+                // Unit is Dead, get next one
+                return GetNextActiveUnit(team);
+            } else {
+                return _rightTeam[_rightTeamActiveUnitIndex];
+            }
         }
     }
 
     private void Update() {
+      
         switch (_state) {
             case State.Normal:
+                if (Input.GetKeyDown(KeyCode.Space)) {
+                    Debug.Log("Force turn over.");
+                    ForceTurnOver();
+                }
                 if (Input.GetMouseButtonDown(0)) {
                     Grid<GridObject> grid = GameController_GridCombatSystem.Instance.GetGrid();
                     GridObject gridObject = grid.GetGridObject(CursorUtils.GetMouseWorldPosition());
@@ -94,11 +90,13 @@ public class GridCombatSystem : MonoBehaviour {
                                 if (_canAttackThisTurn) {
                                     _canAttackThisTurn = false;
                                     // Attack Enemy
-                                    _state = State.Waiting;
-                                    _unitCombatSystem.AttackUnit(gridObject.GetUnitGridCombat(), () => {
-                                        _state = State.Normal;
-                                        TestTurnOver();
-                                    });
+                                    // _state = State.Waiting;
+                                    _state = State.Normal;
+                                    TestTurnOver();
+                                    // _unitCombatSystem.AttackUnit(gridObject.GetUnitGridCombat(), () => {
+                                    //     _state = State.Normal;
+                                    //     TestTurnOver();
+                                    // });
                                 }
                             } else {
                                 // Cannot attack enemy
@@ -117,9 +115,9 @@ public class GridCombatSystem : MonoBehaviour {
 
                         if (_canMoveThisTurn) {
                             _canMoveThisTurn = false;
-
-                            _state = State.Waiting;
-
+                            Debug.Log($"{gameObject.name} Unit cannot move");
+                            // _state = State.Waiting;
+                            
                             // Remove Unit from current Grid Object
                             grid.GetGridObject(_unitCombatSystem.GetPosition()).ClearUnitGridCombat();
                             // Set Unit on target Grid Object
@@ -134,17 +132,20 @@ public class GridCombatSystem : MonoBehaviour {
                     }
                 }
 
-                if (Input.GetKeyDown(KeyCode.Space)) {
-                    ForceTurnOver();
-                }
+                
                 break;
             case State.Waiting:
+                if (Input.GetKeyDown(KeyCode.Space)) {
+                    Debug.Log("Force turn over.");
+                    ForceTurnOver();
+                }
                 break;
         }
     }
     
     private void TestTurnOver() {
         if (!_canMoveThisTurn && !_canAttackThisTurn) {
+            Debug.Log($"Unit: {gameObject.name} cannot move or attack");
             // Cannot move or attack, turn over
             ForceTurnOver();
         }
@@ -169,7 +170,7 @@ public class GridCombatSystem : MonoBehaviour {
             }
         }
 
-        int maxMoveDistance = 5;
+        int maxMoveDistance = 3;
         for (int x = unitX - maxMoveDistance; x <= unitX + maxMoveDistance; x++) {
             for (int y = unitY - maxMoveDistance; y <= unitY + maxMoveDistance; y++) {
                 if (gridPathfinding.IsWalkable(x, y)) {
@@ -193,11 +194,16 @@ public class GridCombatSystem : MonoBehaviour {
     }
     
     private void SelectNextActiveUnit() {
-        if (_unitCombatSystem == null || _unitCombatSystem.GetTeam() == UnitCombatSystem.Team.Right) {
+        Debug.Log("Select next unit");
+         if (_unitCombatSystem == null || _unitCombatSystem.GetTeam() == UnitCombatSystem.Team.Right) {
             _unitCombatSystem = GetNextActiveUnit(UnitCombatSystem.Team.Left);
+            Debug.Log($"Next unit is: {_unitCombatSystem}");
+
         } else {
             _unitCombatSystem = GetNextActiveUnit(UnitCombatSystem.Team.Right);
+            Debug.Log($"Next unit is: {_unitCombatSystem}");
         }
+        
         _canMoveThisTurn = true;
         _canAttackThisTurn = true;
     }
@@ -208,6 +214,7 @@ public class GridCombatSystem : MonoBehaviour {
     }
     
     private void CombatSystemUnitDebugLogger(UnitCombatSystem unit) {
+        if (unit == null) return;
         Debug.Log($"Unit name: {unit.name}, team: {unit.GetTeam()}");
     }
     
@@ -231,7 +238,11 @@ public class GridCombatSystem : MonoBehaviour {
         public void ClearUnitGridCombat() {
             SetUnitGridCombat(null);
         }
-        public UnitCombatSystem GetUnitGridCombat() => _unitCombatSystem;
-        public void SetUnitGridCombat(UnitCombatSystem unit) => _unitCombatSystem = unit;
+        public UnitCombatSystem GetUnitGridCombat() {
+            return _unitCombatSystem;
+        }
+        public void SetUnitGridCombat(UnitCombatSystem unit) {
+            _unitCombatSystem = unit;
+        }
     }
 }

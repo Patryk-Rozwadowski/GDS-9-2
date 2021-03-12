@@ -19,20 +19,20 @@ public class GridObject : MonoBehaviour {
     private void Start() {
         // TODO nice to have - scriptable objects for sizes
         _nodeSize = 10;
-        gridPathfinding = new GridPathfinding(Vector3.zero, new Vector3(100, 80), _nodeSize);
-        gridPathfinding.RaycastWalkable();
+        // gridPathfinding = new GridPathfinding(Vector3.zero, new Vector3(100, 80), _nodeSize);
+        // gridPathfinding.RaycastWalkable();
         // gridPathfinding.PrintMap(walkablePrefab.transform, unwalkable.transform);
 
-        foreach (var objectOnMap in objectsOnMap) {
-            if (objectOnMap == null) return;
-            
-            // Objects has to be in objectOnMap list in order to snap to grid
-            var objectOnMapTransformPosition = objectOnMap.transform.position;
-            _objectOnGridPosition.x = Mathf.Floor(objectOnMapTransformPosition.x / _nodeSize) * _nodeSize;
-            _objectOnGridPosition.y = Mathf.Floor(objectOnMapTransformPosition.y / _nodeSize) * _nodeSize;
-            _objectOnGridPosition.z = 0;
-            objectOnMap.transform.position = _objectOnGridPosition;
-        }
+        // foreach (var objectOnMap in objectsOnMap) {
+        //     if (objectOnMap == null) return;
+        //     
+        //     // Objects has to be in objectOnMap list in order to snap to grid
+        //     var objectOnMapTransformPosition = objectOnMap.transform.position;
+        //     _objectOnGridPosition.x = Mathf.Floor(objectOnMapTransformPosition.x / _nodeSize) * _nodeSize;
+        //     _objectOnGridPosition.y = Mathf.Floor(objectOnMapTransformPosition.y / _nodeSize) * _nodeSize;
+        //     _objectOnGridPosition.z = 0;
+        //     objectOnMap.transform.position = _objectOnGridPosition;
+        // }
         
         if (testObjectForGridSnapTests == null) {
             Debug.Log("No test object is provided");

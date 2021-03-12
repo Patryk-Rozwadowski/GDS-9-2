@@ -9,6 +9,11 @@ public class GridPathfinding {
 
     public const int WALL_WEIGHT = 56000;
 
+    public enum UnitMovementCallbackType {
+        Simple,
+    }
+
+    //private List<PathNode> openList;
     private BinaryTree binaryTree;
     private int openListCount;
     private PathNode[][] mapNodes;
@@ -297,6 +302,10 @@ public class GridPathfinding {
         return closest;
     }
 
+    public bool HasPath(int startX, int startY, int endX, int endY) {
+        return FindPath(startX, startY, new MapPos(endX, endY), (List<PathNode> path, MapPos finalPos) => { });
+    }
+
     public bool FindPath(int startX, int startY, MapPos finalPos, OnPathCallback callback) {
         return FindPath(startX, startY, new List<MapPos>() {finalPos}, callback);
     }
@@ -476,6 +485,10 @@ public class GridPathfinding {
         return new PathRoute(pathNodeList, worldOrigin, nodeSize, null);
     }
 
+    public List<PathNode> GetPath(int startX, int startY, int endX, int endY) {
+        return findPath(startX, startY, endX, endY);
+    }
+
     public List<PathNode> GetPath(Vector3 start, Vector3 end) {
         start = start - worldOrigin;
         end = end - worldOrigin;
@@ -484,10 +497,6 @@ public class GridPathfinding {
         MapPos startMapPos = GetClosestValidPos(Mathf.RoundToInt(start.x), Mathf.RoundToInt(start.y));
         MapPos endMapPos = GetClosestValidPos(Mathf.RoundToInt(end.x), Mathf.RoundToInt(end.y));
         return findPath(startMapPos.x, startMapPos.y, endMapPos.x, endMapPos.y);
-    }
-    
-    public List<PathNode> GetPath(int startX, int startY, int endX, int endY) {
-        return findPath(startX, startY, endX, endY);
     }
 
     public List<PathNode> findPath(int startX, int startY, int endX, int endY) {
@@ -665,7 +674,7 @@ public class GridPathfinding {
     }
 
     public bool IsWalkable(int x, int y) {
-        return mapNodes[x][y].weight != WALL_WEIGHT;
+        return true;
     }
 
     public bool IsWall(int x, int y) {
@@ -674,10 +683,6 @@ public class GridPathfinding {
 
     public bool HasWeight(int x, int y) {
         return mapNodes[x][y].weight > 0;
-    }
-    
-    public bool HasPath(int startX, int startY, int endX, int endY) {
-        return FindPath(startX, startY, new MapPos(endX, endY), (List<PathNode> path, MapPos finalPos) => { });
     }
 
 

@@ -14,16 +14,24 @@ public class UnitCombatSystem : MonoBehaviour {
     
     private MovePositionPathfinding _movePositionPathfinding;
     private State _state;
-
+    private SpriteRenderer _spriteRenderer;
+    
     private enum State {
         Normal,
         Moving,
         Attacking
     }
 
+    public void SetActive() {
+        _spriteRenderer.color = Color.red;
+        
+    }
+
     private void Start() {
+        _spriteRenderer = GetComponent<SpriteRenderer>();
         _movePositionPathfinding = GetComponent<MovePositionPathfinding>();
         _state = State.Normal;
+
     }
 
     private void Update() {
