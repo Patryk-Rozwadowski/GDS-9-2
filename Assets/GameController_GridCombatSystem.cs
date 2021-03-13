@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameController_GridCombatSystem : MonoBehaviour {
     public static GameController_GridCombatSystem Instance { get; private set; }
@@ -16,8 +13,8 @@ public class GameController_GridCombatSystem : MonoBehaviour {
     private void Awake() {
         Instance = this;
         
-        int mapWidth = 40;
-        int mapHeight = 25;
+        int mapWidth = 10;
+        int mapHeight = 8;
         float cellSize = 10f;
         Vector3 origin = new Vector3(0, 0);
 
