@@ -131,9 +131,8 @@ public class GridCombatSystem : MonoBehaviour {
                         }
                     }
                 }
-
-                
                 break;
+            
             case State.Waiting:
                 if (Input.GetKeyDown(KeyCode.Space)) {
                     Debug.Log("Force turn over.");
@@ -146,12 +145,12 @@ public class GridCombatSystem : MonoBehaviour {
     private void TestTurnOver() {
         if (!_canMoveThisTurn && !_canAttackThisTurn) {
             Debug.Log($"Unit: {gameObject.name} cannot move or attack");
-            // Cannot move or attack, turn over
             ForceTurnOver();
         }
     }
     
     private void ForceTurnOver() {
+        _unitCombatSystem.SetInactive();
         SelectNextActiveUnit();
         UpdateValidMovePositions();
     }
@@ -194,8 +193,7 @@ public class GridCombatSystem : MonoBehaviour {
     }
     
     private void SelectNextActiveUnit() {
-        Debug.Log("Select next unit");
-         if (_unitCombatSystem == null || _unitCombatSystem.GetTeam() == UnitCombatSystem.Team.Right) {
+        if (_unitCombatSystem == null || _unitCombatSystem.GetTeam() == UnitCombatSystem.Team.Right) {
             _unitCombatSystem = GetNextActiveUnit(UnitCombatSystem.Team.Left);
             Debug.Log($"Next unit is: {_unitCombatSystem}");
 
@@ -203,7 +201,7 @@ public class GridCombatSystem : MonoBehaviour {
             _unitCombatSystem = GetNextActiveUnit(UnitCombatSystem.Team.Right);
             Debug.Log($"Next unit is: {_unitCombatSystem}");
         }
-        
+        _unitCombatSystem.SetActive();
         _canMoveThisTurn = true;
         _canAttackThisTurn = true;
     }

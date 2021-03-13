@@ -7,6 +7,7 @@ using UnityEngine;
 public class UnitCombatSystem : MonoBehaviour {
     [SerializeField] private Team team;
 
+    
     public enum Team {
         Left,
         Right
@@ -15,6 +16,7 @@ public class UnitCombatSystem : MonoBehaviour {
     private MovePositionPathfinding _movePositionPathfinding;
     private State _state;
     private SpriteRenderer _spriteRenderer;
+    private IsActive _isUnitActive;
     
     private enum State {
         Normal,
@@ -23,15 +25,18 @@ public class UnitCombatSystem : MonoBehaviour {
     }
 
     public void SetActive() {
-        _spriteRenderer.color = Color.red;
-        
+        _isUnitActive.SetUnitActive(true);
     }
 
-    private void Start() {
+    public void SetInactive() {
+        _isUnitActive.SetUnitActive(false);
+    }
+    
+    private void Awake() {
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _movePositionPathfinding = GetComponent<MovePositionPathfinding>();
+        _isUnitActive = GetComponentInChildren<IsActive>();
         _state = State.Normal;
-
     }
 
     private void Update() {
