@@ -110,8 +110,6 @@ public class GridPathfinding {
         mapNodes = newMapNodes;
 
         UpdateNodeConnections();
-
-        //if (OnSizeModified != null) OnSizeModified(this, EventArgs.Empty);
     }
 
     public Vector3 GetWorldOffset() {
@@ -181,7 +179,7 @@ public class GridPathfinding {
         }
     }
 
-    public void PrintMap(Transform prefabWalkable, Transform prefabUnwalkable) {
+    public void PrintMap(Sprite prefabWalkable, Sprite prefabUnwalkable) {
         for (int x = 0; x < mapNodes.Length; x++) {
             for (int y = 0; y < mapNodes[x].Length; y++) {
                 PathNode pathNode = mapNodes[x][y];

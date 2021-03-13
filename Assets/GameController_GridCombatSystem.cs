@@ -1,12 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 
 public class GameController_GridCombatSystem : MonoBehaviour {
+    [SerializeField] private int cellSize = 10;
+    [SerializeField] private Sprite walkablePrefab, unwalkablePrefab;
     public static GameController_GridCombatSystem Instance { get; private set; }
     public GridPathfinding gridPathfinding;
     private Grid<GridCombatSystem.GridObject> _grid;
     
     
     public Texture2D tex;
+    
     private Sprite mySprite;
     private SpriteRenderer sr;
 
@@ -15,15 +19,13 @@ public class GameController_GridCombatSystem : MonoBehaviour {
         
         int mapWidth = 10;
         int mapHeight = 8;
-        float cellSize = 10f;
         Vector3 origin = new Vector3(0, 0);
 
         _grid = new Grid<GridCombatSystem.GridObject>(mapWidth, mapHeight, cellSize, origin, (Grid<GridCombatSystem.GridObject> g, int x, int y) => new GridCombatSystem.GridObject(g, x, y));
 
         gridPathfinding = new GridPathfinding(origin + new Vector3(1, 1) * cellSize * .5f, new Vector3(mapWidth, mapHeight) * cellSize, cellSize);
         gridPathfinding.RaycastWalkable();
-        
-
+        gridPathfinding.PrintMap(walkablePrefab, unwalkablePrefab);
     }
 
     private void Start() {
