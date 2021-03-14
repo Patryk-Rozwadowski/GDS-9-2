@@ -1,7 +1,8 @@
 ﻿using System;
 using UnityEngine;
 
-public class Grid<TGridObject> {
+public class Grid<TGridObject>: MonoBehaviour {
+    [SerializeField] private GameObject walkTile;
     public event EventHandler<OnGridObjectChangedEventArgs> OnGridObjectChanged;
 
     public class OnGridObjectChangedEventArgs : EventArgs {
@@ -16,7 +17,7 @@ public class Grid<TGridObject> {
     private Camera _mainCamera;
 
     // TODO Debug mode - nice to have
-    private bool _debugMode = false;
+    private bool _debugMode = true;
 
     public Grid(
         int width,
@@ -46,25 +47,29 @@ public class Grid<TGridObject> {
         for (var x = 0; x < _gridArray.GetLength(0); x++) {
             for (var y = 0; y < _gridArray.GetLength(1); y++) {
                 var cellCenter = GetWorldPosition(x, y) + new Vector3(cellSize, cellSize) * .5f;
-                if (_debugMode) GridUtils.DrawDebugCoordinates(x, y, cellSize, originPosition);
-                // else
-                //     _debugTextArray[x, y] = GridUtils.CreateWorldText(
-                //         _gridArray[x, y]?.ToString(),
-                //         null,
-                //         cellCenter,
-                //         20,
-                //         Color.black,
-                //         TextAlignment.Center,
-                //         TextAnchor.MiddleCenter
-                //     );
+                    // GridUtils.DrawDebugCoordinates(x, y, cellSize, originPosition);
+                    
+                    var gridTile = Instantiate(Resources.Load("Sprites/grid", typeof(GameObject)) as GameObject, cellCenter, Quaternion.identity);
+                    gridTile.transform.localScale = new Vector3(14,14,10);
+                    
+                    // else
+                    //     _debugTextArray[x, y] = GridUtils.CreateWorldText(
+                    //         _gridArray[x, y]?.ToString(),
+                    //         null,
+                    //         cellCenter,
+                    //         20,
+                    //         Color.black,
+                    //         TextAlignment.Center,
+                    //         TextAnchor.MiddleCenter
+                    //     );
 
-                DrawWall(x, y, x, y + 1);
-                DrawWall(x, y, x + 1, y);
+                    // DrawWall(x, y, x, y + 1);
+                    // DrawWall(x, y, x + 1, y);
             }
         }
 
-        DrawWall(0, height, width, height);
-        DrawWall(width, 0, width, height);
+        // DrawWall(0, height, width, height);
+        // DrawWall(width, 0, width, height);
 
         OnGridObjectChanged += (object sender, OnGridObjectChangedEventArgs eventArgs) => {
             _debugTextArray[eventArgs.x, eventArgs.y].text = _gridArray[eventArgs.x, eventArgs.y]?.ToString();
@@ -74,6 +79,8 @@ public class Grid<TGridObject> {
     public int GetWidth() => _gridArray.GetLength(0);
     public int GetHeight() => _gridArray.GetLength(1);
     public float GetCellSize() => _cellSize;
+    
+    // public Vector3 GetCellSizeCenter() => GetWorldPosition(x, y) + new Vector3(_cellSize, _cellSize) * .5f;
     public TGridObject GetGridObject(Vector3 worldPosition) {
         GetXY(worldPosition, out var x, out var y);
         return GetGridObject(x, y);

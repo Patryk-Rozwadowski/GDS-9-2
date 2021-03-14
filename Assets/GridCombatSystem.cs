@@ -23,6 +23,7 @@ public class GridCombatSystem : MonoBehaviour {
     void Start() {
         _leftTeam = new List<UnitCombatSystem>();
         _rightTeam = new List<UnitCombatSystem>();
+      
         
         foreach (UnitCombatSystem unit in unitCombatSystemsArray) {
             CombatSystemUnitDebugLogger(unit);
@@ -226,6 +227,7 @@ public class GridCombatSystem : MonoBehaviour {
             _grid = grid;
             _x = x;
             _y = y;
+     
         }
 
         public void SetIsValidMovePosition(bool set) {

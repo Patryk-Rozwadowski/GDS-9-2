@@ -16,40 +16,40 @@ public class GridObject : MonoBehaviour {
     private bool _debugMode = true;
     
     private void Start() {
-        // // TODO nice to have - scriptable objects for sizes
-        // _nodeSize = 17;
-        // int mapWidth = 10;
-        // int mapHeight = 8;
-        // Vector3 origin = new Vector3(0, 0);
-        //
-        // gridPathfinding = new GridPathfinding(origin + new Vector3(1, 1)  , new Vector3(mapWidth, mapHeight) * _nodeSize, _nodeSize);
-        // gridPathfinding.RaycastWalkable();
+        // TODO nice to have - scriptable objects for sizes
+        _nodeSize = 17;
+        int mapWidth = 10;
+        int mapHeight = 8;
+        Vector3 origin = new Vector3(0, 0);
+
+        gridPathfinding = new GridPathfinding(origin + new Vector3(1, 1)  , new Vector3(mapWidth, mapHeight) * _nodeSize, _nodeSize);
+        gridPathfinding.RaycastWalkable();
         // gridPathfinding.PrintMap(walkablePrefab.transform, unwalkable.transform);
-        //
-        // foreach (var objectOnMap in objectsOnMap) {
-        //     if (objectOnMap == null) return;
-        //     
-        //     // Objects has to be in objectOnMap list in order to snap to grid
-        //     var objectOnMapTransformPosition = objectOnMap.transform.position;
-        //     _objectOnGridPosition.x = Mathf.Floor(objectOnMapTransformPosition.x / _nodeSize) * _nodeSize;
-        //     _objectOnGridPosition.y = Mathf.Floor(objectOnMapTransformPosition.y / _nodeSize) * _nodeSize;
-        //     _objectOnGridPosition.z = 0;
-        //     objectOnMap.transform.position = _objectOnGridPosition;
-        // }
-        //
-        // if (testObjectForGridSnapTests == null) {
-        //     Debug.Log("No test object is provided");
-        //     _debugMode = false;
-        // };
+
+        foreach (var objectOnMap in objectsOnMap) {
+            if (objectOnMap == null) return;
+            
+            // Objects has to be in objectOnMap list in order to snap to grid
+            var objectOnMapTransformPosition = objectOnMap.transform.position;
+            _objectOnGridPosition.x = Mathf.Floor(objectOnMapTransformPosition.x / _nodeSize) * _nodeSize;
+            _objectOnGridPosition.y = Mathf.Floor(objectOnMapTransformPosition.y / _nodeSize) * _nodeSize;
+            _objectOnGridPosition.z = 0;
+            objectOnMap.transform.position = _objectOnGridPosition;
+        }
+        
+        if (testObjectForGridSnapTests == null) {
+            Debug.Log("No test object is provided");
+            _debugMode = false;
+        };
     }
     
-    // private void LateUpdate() {
-    //     // TODO add method to eleminate duplicate code
-    //     if (_debugMode == false) return;
-    //     var testObjectForGridSnapTestsTransformPositon = testObjectForGridSnapTests.transform.position;
-    //     _objectOnGridPosition.x = Mathf.Floor(testObjectForGridSnapTestsTransformPositon.x / _nodeSize) * _nodeSize;
-    //     _objectOnGridPosition.y = Mathf.Floor(testObjectForGridSnapTestsTransformPositon.y / _nodeSize) * _nodeSize;
-    //     _objectOnGridPosition.z = 0;
-    //     testObjectForGridSnapTests.transform.position = _objectOnGridPosition;
-    // }
+    private void LateUpdate() {
+        // TODO add method to eleminate duplicate code
+        if (_debugMode == false) return;
+        var testObjectForGridSnapTestsTransformPositon = testObjectForGridSnapTests.transform.position;
+        _objectOnGridPosition.x = Mathf.Floor(testObjectForGridSnapTestsTransformPositon.x / _nodeSize) * _nodeSize;
+        _objectOnGridPosition.y = Mathf.Floor(testObjectForGridSnapTestsTransformPositon.y / _nodeSize) * _nodeSize;
+        _objectOnGridPosition.z = 0;
+        testObjectForGridSnapTests.transform.position = _objectOnGridPosition;
+    }
 }

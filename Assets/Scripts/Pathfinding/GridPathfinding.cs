@@ -179,7 +179,7 @@ public class GridPathfinding {
         }
     }
 
-    public void PrintMap(Sprite prefabWalkable, Sprite prefabUnwalkable) {
+    public void PrintMap(Transform prefabWalkable, Transform prefabUnwalkable) {
         for (int x = 0; x < mapNodes.Length; x++) {
             for (int y = 0; y < mapNodes[x].Length; y++) {
                 PathNode pathNode = mapNodes[x][y];
