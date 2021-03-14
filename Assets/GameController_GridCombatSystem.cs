@@ -25,7 +25,10 @@ public class GameController_GridCombatSystem : MonoBehaviour {
         
         gridPathfinding = new GridPathfinding(origin + new Vector3(1, 1) * cellSize * .5f, new Vector3(mapWidth, mapHeight) * cellSize, cellSize);
         gridPathfinding.RaycastWalkable();
-        // gridPathfinding.PrintMap(walkablePrefab.transform, unwalkablePrefab.transform);
+        
+        var gridTile = Resources.Load("Sprites/grid", typeof(GameObject)) as GameObject;
+        gridTile.transform.localScale = new Vector3(14,14,10);
+        gridPathfinding.PrintMap(gridTile.transform, gridTile.transform);
     }
 
     private void Start() {

@@ -6,8 +6,6 @@ using UnityEngine;
 
 public class UnitCombatSystem : MonoBehaviour {
     [SerializeField] private Team team;
-
-    
     public enum Team {
         Left,
         Right

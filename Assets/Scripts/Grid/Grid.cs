@@ -1,8 +1,7 @@
 ﻿using System;
 using UnityEngine;
 
-public class Grid<TGridObject>: MonoBehaviour {
-    [SerializeField] private GameObject walkTile;
+public class Grid<TGridObject> {
     public event EventHandler<OnGridObjectChangedEventArgs> OnGridObjectChanged;
 
     public class OnGridObjectChangedEventArgs : EventArgs {
@@ -48,10 +47,6 @@ public class Grid<TGridObject>: MonoBehaviour {
             for (var y = 0; y < _gridArray.GetLength(1); y++) {
                 var cellCenter = GetWorldPosition(x, y) + new Vector3(cellSize, cellSize) * .5f;
                     // GridUtils.DrawDebugCoordinates(x, y, cellSize, originPosition);
-                    
-                    var gridTile = Instantiate(Resources.Load("Sprites/grid", typeof(GameObject)) as GameObject, cellCenter, Quaternion.identity);
-                    gridTile.transform.localScale = new Vector3(14,14,10);
-                    
                     // else
                     //     _debugTextArray[x, y] = GridUtils.CreateWorldText(
                     //         _gridArray[x, y]?.ToString(),
