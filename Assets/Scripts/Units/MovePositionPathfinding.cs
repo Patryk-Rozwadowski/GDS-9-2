@@ -9,7 +9,7 @@ public class MovePositionPathfinding : MonoBehaviour {
     private int pathIndex = -1;
     private MoveTransformVelocity _moveVelocity;
     private Action _onReachedTargetPosition;
-
+    
     public void SetMovePosition(Vector3 movePosition, Action onReachedTargetPosition) {
         _onReachedTargetPosition = onReachedTargetPosition;
         pathVectorList = GridPathfinding.instance.GetPathRouteWithShortcuts(transform.position, movePosition).pathVectorList;
@@ -19,7 +19,7 @@ public class MovePositionPathfinding : MonoBehaviour {
             pathIndex = -1;
         }
     }
-
+    
     private void Update() {
         if (pathIndex != -1) {
             // Move to next path position

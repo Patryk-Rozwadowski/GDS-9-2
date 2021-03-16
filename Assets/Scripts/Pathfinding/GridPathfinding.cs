@@ -12,8 +12,7 @@ public class GridPathfinding {
     public enum UnitMovementCallbackType {
         Simple,
     }
-
-    //private List<PathNode> openList;
+    
     private BinaryTree binaryTree;
     private int openListCount;
     private PathNode[][] mapNodes;
@@ -223,17 +222,13 @@ public class GridPathfinding {
         PrintMap(
             (int x, int y) => {
                 createSprite(worldOrigin + new Vector3(x * nodeSize, y * nodeSize), new Vector3(2, 2), Color.green);
-                //MyUtils.World_Sprite.Create(worldOrigin + new Vector3(x * nodeSize, y * nodeSize), new Vector3(2, 2), SpriteHolder.instance.s_White, Color.green);
             },
             (int x, int y) => {
                 createSprite(worldOrigin + new Vector3(x * nodeSize, y * nodeSize), new Vector3(2, 2), Color.red);
-                //MyUtils.World_Sprite.Create(worldOrigin + new Vector3(x * nodeSize, y * nodeSize), new Vector3(2, 2), SpriteHolder.instance.s_White, Color.red);
             }
         );
     }
 
-    /*public void PrintMapUpdateable() {
-    }*/
     private bool IsValidShortcut(int startX, int startY, int endX, int endY) {
         //Debug.Log("Testing Shortcut: " + startX + ", " + startY + " -> " + endX + ", " + endY);
         int shortcutWeight = mapNodes[startX][startY].weight;

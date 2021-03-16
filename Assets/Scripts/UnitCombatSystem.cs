@@ -1,8 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using UnityEngine;
-
-
 
 public class UnitCombatSystem : MonoBehaviour {
     [SerializeField] private Team team;

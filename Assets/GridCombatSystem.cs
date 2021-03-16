@@ -10,7 +10,7 @@ public class GridCombatSystem : MonoBehaviour {
     private List<UnitCombatSystem> _leftTeam, _rightTeam;
     private State _state;
     private bool _canMoveThisTurn, _canAttackThisTurn;
-    
+    private GameObject _gridTileBorder, _gridTileMovement;
     private enum State {
         Normal,
         Waiting
@@ -24,7 +24,9 @@ public class GridCombatSystem : MonoBehaviour {
         _leftTeam = new List<UnitCombatSystem>();
         _rightTeam = new List<UnitCombatSystem>();
       
-        
+        _gridTileMovement = Resources.Load("Sprites/grid-move", typeof(GameObject)) as GameObject;
+        _gridTileBorder = Resources.Load("Sprites/grid", typeof(GameObject)) as GameObject;
+
         foreach (UnitCombatSystem unit in unitCombatSystemsArray) {
             CombatSystemUnitDebugLogger(unit);
             GameController_GridCombatSystem.Instance.GetGrid().GetGridObject(unit.GetPosition()).SetUnitGridCombat(unit);
@@ -80,7 +82,7 @@ public class GridCombatSystem : MonoBehaviour {
                 if (Input.GetMouseButtonDown(0)) {
                     Grid<GridObject> grid = GameController_GridCombatSystem.Instance.GetGrid();
                     GridObject gridObject = grid.GetGridObject(CursorUtils.GetMouseWorldPosition());
-
+                    Debug.Log(gridObject);
                     // Check if clicking on a unit position
                     if (gridObject.GetUnitGridCombat() != null) {
                         // Clicked on top of a Unit
@@ -93,11 +95,10 @@ public class GridCombatSystem : MonoBehaviour {
                                     // Attack Enemy
                                     // _state = State.Waiting;
                                     _state = State.Normal;
-                                    TestTurnOver();
-                                    // _unitCombatSystem.AttackUnit(gridObject.GetUnitGridCombat(), () => {
-                                    //     _state = State.Normal;
-                                    //     TestTurnOver();
-                                    // });
+                                    _unitCombatSystem.AttackUnit(gridObject.GetUnitGridCombat(), () => {
+                                        _state = State.Normal;
+                                        TestTurnOver();
+                                    });
                                 }
                             } else {
                                 // Cannot attack enemy
@@ -159,7 +160,7 @@ public class GridCombatSystem : MonoBehaviour {
        private void UpdateValidMovePositions() {
         Grid<GridObject> grid = GameController_GridCombatSystem.Instance.GetGrid();
         GridPathfinding gridPathfinding = GameController_GridCombatSystem.Instance.gridPathfinding;
-
+        
         // Get Unit Grid Position X, Y
         grid.GetXY(_unitCombatSystem.GetPosition(), out int unitX, out int unitY);
 
@@ -170,7 +171,7 @@ public class GridCombatSystem : MonoBehaviour {
             }
         }
 
-        int maxMoveDistance = 3;
+        int maxMoveDistance = 5;
         for (int x = unitX - maxMoveDistance; x <= unitX + maxMoveDistance; x++) {
             for (int y = unitY - maxMoveDistance; y <= unitY + maxMoveDistance; y++) {
                 if (gridPathfinding.IsWalkable(x, y)) {
@@ -179,6 +180,9 @@ public class GridCombatSystem : MonoBehaviour {
                         // There is a Path
                         if (gridPathfinding.GetPath(unitX, unitY, x, y).Count <= maxMoveDistance) {
                             // Path within Move Distance
+                            // TODO
+                            Instantiate(_gridTileMovement, new Vector3(x, y) * 17, Quaternion.identity);
+                            _gridTileMovement.transform.localScale = new Vector3(14,14,10);
                             grid.GetGridObject(x, y).SetIsValidMovePosition(true);
                         } else { 
                             // Path outside Move Distance!
@@ -196,6 +200,7 @@ public class GridCombatSystem : MonoBehaviour {
     private void SelectNextActiveUnit() {
         if (_unitCombatSystem == null || _unitCombatSystem.GetTeam() == UnitCombatSystem.Team.Right) {
             _unitCombatSystem = GetNextActiveUnit(UnitCombatSystem.Team.Left);
+            
             Debug.Log($"Next unit is: {_unitCombatSystem}");
 
         } else {

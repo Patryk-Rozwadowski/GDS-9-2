@@ -4,52 +4,36 @@ using UnityEngine;
 
 public class BinaryTree {
     private class BinaryNode {
-        //public static int nextId = 0;
-        //public int id;
         public PathNode pathNode;
         public BinaryNode left;
         public BinaryNode right;
 
         public BinaryNode(PathNode _pathNode, BinaryNode _left, BinaryNode _right) {
-            //id = nextId++;
             pathNode = _pathNode;
             left = _left;
             right = _right;
         }
-
-        /*public override string ToString() {
-            return "n_" + id;
-        }*/
     }
 
     private BinaryNode root;
     public int totalNodes = 0;
 
-    //private string debugString;
-    //private string debugCodePath;
-
     public BinaryTree() {
-        //BinaryNode.nextId = 0;
         root = null;
-        //debugCodePath = "NEW: ";
     }
 
     public void AddNode(PathNode pathNode) {
-        //debugCodePath += "AD; ";
         if (root == null) {
             root = new BinaryNode(pathNode, null, null);
             totalNodes++;
         }
         else {
             // Has root
-            //debugString = "";
             try {
                 addNode(root, pathNode, pathNode.fValue);
             }
             catch (System.Exception e) {
                 Debug.Log(e);
-                //Debug.LogError("Error: "+debugString);
-                //Debug.LogError(debugCodePath);
             }
 
             totalNodes++;
@@ -57,19 +41,14 @@ public class BinaryTree {
     }
 
     private void addNode(BinaryNode node, PathNode pathNode, int pathFvalue) {
-        //debugString += node.id + " " + ((node.left == null) ? "-1" : ""+node.left.id) + " " + (node.right == null ? "-1" : ""+node.right.id) + " ";
         if (pathFvalue <= node.pathNode.fValue) {
             // Left
             if (node.left == null) {
                 // Become left
-                //debugString += " LEFT" + "; \n";
                 node.left = new BinaryNode(pathNode, null, null);
-                //debugCodePath += "AD" + node.left + "; ";
             }
             else {
                 // Check left
-                //debugString += "L; \n";
-                //debugString += node.id + " " + (node == (node.left));
                 addNode(node.left, pathNode, pathFvalue);
             }
         }
@@ -77,14 +56,10 @@ public class BinaryTree {
             // Right
             if (node.right == null) {
                 // Become right
-                //debugString += " RIGHT" + "; \n";
                 node.right = new BinaryNode(pathNode, null, null);
-                //debugCodePath += "AD" + node.right + "; ";
             }
             else {
                 // Check right
-                //debugString += node.id + " ";
-                //debugString += "R; \n";
                 addNode(node.right, pathNode, pathFvalue);
             }
         }
@@ -93,10 +68,8 @@ public class BinaryTree {
     public void RemoveNode(PathNode pathNode) {
         if (root.pathNode == pathNode) {
             // It's the root
-            //debugCodePath += "RR" + root + "; ";
             BinaryNode prevRoot = root;
             if (root.left == null && root.right == null) {
-                // Both are null
                 root = null;
                 // Tree is dead
             }
@@ -139,19 +112,15 @@ public class BinaryTree {
             int pathFvalue = pathNode.fValue;
             removeNode(root, pathNode, pathFvalue);
         }
-
         totalNodes--;
     }
 
     private void removeNode(BinaryNode node, PathNode pathNode, int pathFvalue) {
         if (pathFvalue <= node.pathNode.fValue) {
             // Check left
-            // Is it this left?
             if (node.left != null) {
                 if (node.left.pathNode == pathNode) {
-                    // It's this left one!
                     BinaryNode del = node.left;
-                    //debugCodePath += "RNL" + del + "; ";
                     if (del.left == null && del.right == null) {
                         // Both are null
                         node.left = null;
@@ -200,25 +169,18 @@ public class BinaryTree {
         }
         else {
             // Check right
-            // Is it this right?
             if (node.right != null) {
                 if (node.right.pathNode == pathNode) {
-                    // It's this right one!
                     BinaryNode del = node.right;
-                    //debugCodePath += "RNR" + del + "; ";
                     if (del.left == null && del.right == null) {
-                        // Both are null
                         node.right = null;
                     }
                     else {
-                        // Atleast one has something
                         if (del.left == null && del.right != null) {
-                            // Has right but no left
                             node.right = del.right;
                         }
                         else {
                             if (del.right == null && del.left != null) {
-                                // Has left but no right
                                 node.right = del.left;
                             }
                             else {
@@ -283,7 +245,6 @@ public class BinaryTree {
         }
 
         return pathNode;
-        //return getSmallest(root, 0);
     }
 
     private PathNode getSmallest(BinaryNode node, ref int count) {

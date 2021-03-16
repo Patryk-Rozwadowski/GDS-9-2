@@ -38,7 +38,6 @@ using UnityEngine;
             moveWest = true;
             moveEast = true;
 
-            //trans = ((GameObject) Object.Instantiate(Resources.Load("pfPathNode"), new Vector3(xPos*10, 0, zPos*10), Quaternion.identity)).transform;
             TestHitbox();
         }
         public void ResetRestrictions() {
