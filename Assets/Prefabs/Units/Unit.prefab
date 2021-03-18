@@ -160,6 +160,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  debugObj: {fileID: 3796719127259819579, guid: 1ea0748c998a11a42a459ae3a1f17ad9,
+    type: 3}
 --- !u!61 &1293999780
 BoxCollider2D:
   m_ObjectHideFlags: 0

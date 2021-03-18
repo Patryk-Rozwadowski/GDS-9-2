@@ -29,7 +29,7 @@ public class GameController_GridCombatSystem : MonoBehaviour {
 
         var gridTile = Resources.Load("Sprites/grid", typeof(GameObject)) as GameObject;
         gridTile.transform.localScale = new Vector3(14, 14, 10);
-        gridPathfinding.PrintMap(gridTile.transform, gridTile.transform);
+        gridPathfinding.PrintMap((Vector3 vec, Vector3 size, Color color) => Instantiate(gridTile, vec, Quaternion.identity));
     }
 
     public Grid<GridCombatSystem.GridObject> GetGrid() {

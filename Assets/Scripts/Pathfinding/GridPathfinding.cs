@@ -49,12 +49,11 @@ public class GridPathfinding {
 
         widthMax = mapWidth;
         heightMax = mapHeight;
-
+        Debug.Log($"Map width:{mapWidth}, map height {mapHeight}");
         Initialize(mapWidth, mapHeight);
     }
 
     public GridPathfinding(int mapWidth, int mapHeight, float nodeSize, Vector3 worldOrigin) {
-        //, Texture2D map) {
         this.nodeSize = nodeSize;
         this.worldOrigin = worldOrigin;
 
@@ -221,6 +220,7 @@ public class GridPathfinding {
     public void PrintMap(Action<Vector3, Vector3, Color> createSprite) {
         PrintMap(
             (int x, int y) => {
+                Debug.Log($"x: {x} y: {y}");
                 createSprite(worldOrigin + new Vector3(x * nodeSize, y * nodeSize), new Vector3(2, 2), Color.green);
             },
             (int x, int y) => {

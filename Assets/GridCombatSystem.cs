@@ -126,6 +126,7 @@ public class GridCombatSystem : MonoBehaviour {
                             gridObject.SetUnitGridCombat(_unitCombatSystem);
 
                             _unitCombatSystem.MoveTo(CursorUtils.GetMouseWorldPosition(), () => {
+                                
                                 _state = State.Normal;
                                 UpdateValidMovePositions();
                                 TestTurnOver();
@@ -181,7 +182,10 @@ public class GridCombatSystem : MonoBehaviour {
                         if (gridPathfinding.GetPath(unitX, unitY, x, y).Count <= maxMoveDistance) {
                             // Path within Move Distance
                             // TODO
-                            Instantiate(_gridTileMovement, new Vector3(x, y) * 17, Quaternion.identity);
+                            var origin = new Vector3(0,0);
+                            var cellSize = 17;
+                            var cellCenter = cellSize / 2;
+                            Instantiate(_gridTileMovement,  new Vector3(cellCenter + (x * cellSize),  cellCenter +(y * cellSize)) + new Vector3(1,1) * 0.5f, Quaternion.identity);
                             _gridTileMovement.transform.localScale = new Vector3(14,14,10);
                             grid.GetGridObject(x, y).SetIsValidMovePosition(true);
                         } else { 
