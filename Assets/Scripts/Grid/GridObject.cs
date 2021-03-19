@@ -32,12 +32,16 @@ public class GridObject : MonoBehaviour {
         foreach (var objectOnMap in objectsOnMap) {
             if (objectOnMap == null) return;
             
+            var origin = new Vector3(0,0);
+            var cellSize = 17;
+            var cellCenter = cellSize / 2;
             // Objects has to be in objectOnMap list in order to snap to grid
             var objectOnMapTransformPosition = objectOnMap.transform.position;
             // _objectOnGridPosition.x = Mathf.Floor(objectOnMapTransformPosition.x / _nodeSize) * _nodeSize;
             // _objectOnGridPosition.y = Mathf.Floor(objectOnMapTransformPosition.y / _nodeSize) * _nodeSize;
             // _objectOnGridPosition.z = 0;
-            objectOnMap.transform.position = _worldOrigin + new Vector3(objectOnMapTransformPosition.x / _nodeSize, objectOnMapTransformPosition.y / _nodeSize) * _nodeSize;
+            objectOnMap.transform.position = new Vector3(cellCenter + (gameObject.transform.position.x* cellSize),  cellCenter +(gameObject.transform.position.y * cellSize)) + new Vector3(1,1) * 0.5f;
+
         }
         
         if (testObjectForGridSnapTests == null) {
@@ -46,17 +50,19 @@ public class GridObject : MonoBehaviour {
         };
     }
     
-    private void LateUpdate() {
-        // TODO add method to eleminate duplicate code
-        foreach (var objectOnMap in objectsOnMap) {
-            if (objectOnMap == null) return;
-            
-            // Objects has to be in objectOnMap list in order to snap to grid
-            var objectOnMapTransformPosition = objectOnMap.transform.position;
-            // _objectOnGridPosition.x = Mathf.Floor(objectOnMapTransformPosition.x / _nodeSize) * _nodeSize;
-            // _objectOnGridPosition.y = Mathf.Floor(objectOnMapTransformPosition.y / _nodeSize) * _nodeSize;
-            // _objectOnGridPosition.z = 0;
-            objectOnMap.transform.position = new Vector3(objectOnMapTransformPosition.x / _nodeSize, objectOnMapTransformPosition.y / _nodeSize) * _nodeSize;
-        }
-    }
+    // private void LateUpdate() {
+    //     // TODO add method to eleminate duplicate code
+    //     foreach (var objectOnMap in objectsOnMap) {
+    //         if (objectOnMap == null) return;
+    //         var origin = new Vector3(0,0);
+    //         var cellSize = 17;
+    //         var cellCenter = cellSize / 2;
+    //         // Objects has to be in objectOnMap list in order to snap to grid
+    //         var objectOnMapTransformPosition = objectOnMap.transform.position;
+    //         // _objectOnGridPosition.x = Mathf.Floor(objectOnMapTransformPosition.x / _nodeSize) * _nodeSize;
+    //         // _objectOnGridPosition.y = Mathf.Floor(objectOnMapTransformPosition.y / _nodeSize) * _nodeSize;
+    //         // _objectOnGridPosition.z = 0;
+    //         objectOnMap.transform.position = new Vector3(cellCenter + (gameObject.transform.position.x* cellSize),  cellCenter +(gameObject.transform.position.y * cellSize)) + new Vector3(1,1) * 0.5f;
+    //     }
+    // }
 }

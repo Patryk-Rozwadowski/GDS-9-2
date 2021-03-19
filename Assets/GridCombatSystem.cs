@@ -36,6 +36,16 @@ public class GridCombatSystem : MonoBehaviour {
             else {
                 _rightTeam.Add(unit);
             }
+            
+            // TODO Need refactor and cleanup
+            if (unit == null) return;
+            var cellSize = 17;
+            var cellCenter = cellSize / 2;
+            // Objects has to be in objectOnMap list in order to snap to grid
+            var objectOnMapTransformPosition = unit.transform.position;
+            objectOnMapTransformPosition.x = Mathf.Floor(objectOnMapTransformPosition.x / cellSize) * cellSize + cellCenter;
+            objectOnMapTransformPosition.y = Mathf.Floor(objectOnMapTransformPosition.y / cellSize) * cellSize + cellCenter;
+            unit.transform.position = objectOnMapTransformPosition;
         }
         
         SelectNextActiveUnit();
