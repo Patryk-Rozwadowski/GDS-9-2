@@ -59,7 +59,6 @@ public class UnitCombatSystem : MonoBehaviour {
     public Vector3 GetPosition() => transform.position;
     public void MoveTo(Vector3 targetPosition, Action onReachedPosition) {
         _state = State.Moving;
-        Debug.Log(targetPosition);
         Instantiate(debugObj, targetPosition, Quaternion.identity);
         // PATHFINDING
         _movePositionPathfinding.SetMovePosition(targetPosition + new Vector3(1, 1), () => {
