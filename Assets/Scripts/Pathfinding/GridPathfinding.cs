@@ -104,7 +104,6 @@ public class GridPathfinding {
 
         widthMax = newWidth;
         heightMax = newHeight;
-
         mapNodes = newMapNodes;
 
         UpdateNodeConnections();
@@ -220,7 +219,6 @@ public class GridPathfinding {
     public void PrintMap(Action<Vector3, Vector3, Color> createSprite) {
         PrintMap(
             (int x, int y) => {
-                Debug.Log($"x: {x} y: {y}");
                 createSprite(worldOrigin + new Vector3(x * nodeSize, y * nodeSize), new Vector3(2, 2), Color.green);
             },
             (int x, int y) => {
@@ -230,30 +228,24 @@ public class GridPathfinding {
     }
 
     private bool IsValidShortcut(int startX, int startY, int endX, int endY) {
-        //Debug.Log("Testing Shortcut: " + startX + ", " + startY + " -> " + endX + ", " + endY);
         int shortcutWeight = mapNodes[startX][startY].weight;
         Vector3 dir = (new Vector3(endX, endY) - new Vector3(startX, startY)).normalized;
         Vector3 test = new Vector3(startX, startY) + dir;
         int testX = Mathf.RoundToInt(test.x);
         int testY = Mathf.RoundToInt(test.y);
         // Check if shortcut is walkable
-        //Debug.Log("Testing: "+testX+","+testY);
         while (!(testX == endX && testY == endY)) {
             if (!IsWalkable(testX, testY) || mapNodes[testX][testY].weight != shortcutWeight) {
                 // Not walkable
-                //Debug.Log("Shortcut invalid!");
                 return false;
             }
             else {
                 test += dir;
                 testX = Mathf.RoundToInt(test.x);
                 testY = Mathf.RoundToInt(test.y);
-                //Debug.Log("Testing: "+testX+","+testY);
             }
         }
-
         // Shortcut walkable
-        //Debug.Log("Shortcut valid!");
         return true;
     }
 
@@ -493,6 +485,7 @@ public class GridPathfinding {
     }
 
     public List<PathNode> findPath(int startX, int startY, int endX, int endY) {
+        Debug.Log($"start x: {startX} start y: {startY} end x: {endX} end y: {endY}");
         List<PathNode> ret = new List<PathNode>();
         // Calculate H for all nodes
         CalculateAllHeuristics(endX, endY);
@@ -587,6 +580,7 @@ public class GridPathfinding {
                 if (newGcost < testing.gValue) {
                     testing.parent = currentNode;
                     testing.gValue = newGcost;
+                    Debug.Log(testing);
                     binaryTree.RemoveNode(testing);
                     testing.CalculateFValue();
                     binaryTree.AddNode(testing);
