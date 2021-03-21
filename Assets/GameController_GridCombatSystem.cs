@@ -1,5 +1,4 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
 
 public class GameController_GridCombatSystem : MonoBehaviour {
     [SerializeField] private int cellSize = 10;

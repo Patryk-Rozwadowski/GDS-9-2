@@ -485,7 +485,6 @@ public class GridPathfinding {
     }
 
     public List<PathNode> findPath(int startX, int startY, int endX, int endY) {
-        Debug.Log($"start x: {startX} start y: {startY} end x: {endX} end y: {endY}");
         List<PathNode> ret = new List<PathNode>();
         // Calculate H for all nodes
         CalculateAllHeuristics(endX, endY);

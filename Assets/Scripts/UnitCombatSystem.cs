@@ -4,6 +4,7 @@ using UnityEngine;
 public class UnitCombatSystem : MonoBehaviour {
     [SerializeField] private Team team;
     [SerializeField] private GameObject debugObj;
+    
     public enum Team {
         Left,
         Right
@@ -13,6 +14,8 @@ public class UnitCombatSystem : MonoBehaviour {
     private State _state;
     private SpriteRenderer _spriteRenderer;
     private IsActive _isUnitActive;
+    private HealthSystem _healthSystem;
+    private HealthBar _healthbar;
     
     private enum State {
         Normal,
@@ -29,10 +32,16 @@ public class UnitCombatSystem : MonoBehaviour {
     }
     
     private void Awake() {
+        var damage = 10;
+        
         _spriteRenderer = GetComponent<SpriteRenderer>();
         _movePositionPathfinding = GetComponent<MovePositionPathfinding>();
         _isUnitActive = GetComponentInChildren<IsActive>();
+        _healthbar = GetComponentInChildren<HealthBar>();
         _state = State.Normal;
+        _healthSystem = new HealthSystem(100);
+        _healthbar.Init(_healthSystem);
+        _healthSystem.Damage(damage);
     }
 
     private void Update() {
