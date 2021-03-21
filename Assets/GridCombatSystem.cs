@@ -114,6 +114,7 @@ public class GridCombatSystem : MonoBehaviour {
                                     _state = State.Normal;
                                     _unitCombatSystem.AttackUnit(gridObject.GetUnitGridCombat(), () => {
                                         _state = State.Normal;
+                                        
                                         TestTurnOver();
                                     });
                                 }

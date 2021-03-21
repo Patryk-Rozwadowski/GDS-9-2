@@ -4,7 +4,8 @@ using UnityEngine;
 public class UnitCombatSystem : MonoBehaviour {
     [SerializeField] private Team team;
     [SerializeField] private GameObject debugObj;
-    
+    public HealthSystem healthSystem;
+
     public enum Team {
         Left,
         Right
@@ -14,7 +15,6 @@ public class UnitCombatSystem : MonoBehaviour {
     private State _state;
     private SpriteRenderer _spriteRenderer;
     private IsActive _isUnitActive;
-    private HealthSystem _healthSystem;
     private HealthBar _healthbar;
     
     private enum State {
@@ -39,9 +39,9 @@ public class UnitCombatSystem : MonoBehaviour {
         _isUnitActive = GetComponentInChildren<IsActive>();
         _healthbar = GetComponentInChildren<HealthBar>();
         _state = State.Normal;
-        _healthSystem = new HealthSystem(100);
-        _healthbar.Init(_healthSystem);
-        _healthSystem.Damage(damage);
+        healthSystem = new HealthSystem(100);
+        _healthbar.Init(healthSystem);
+        healthSystem.Damage(damage);
     }
 
     private void Update() {
@@ -57,7 +57,8 @@ public class UnitCombatSystem : MonoBehaviour {
     
     public void AttackUnit(UnitCombatSystem unitGridCombat, Action onAttackComplete) {
         _state = State.Attacking;
-        Debug.Log($"Attack unit");
+        Debug.Log($"Attack unit {unitGridCombat.name}");
+        unitGridCombat.healthSystem.Damage(50);
         onAttackComplete();
     }
 
