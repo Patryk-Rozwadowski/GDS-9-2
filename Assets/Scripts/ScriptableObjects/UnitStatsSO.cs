@@ -3,17 +3,23 @@
 [CreateAssetMenu(menuName = "Units/Creator")]
 public class UnitStatsSO : ScriptableObject {
     [Header("Maximum unit's health.")] [SerializeField]
-    private int maxHealth;
+    public int maxHealth;
 
     [Header("Unit's damage")] [SerializeField]
-    private int damage;
+    public int damage;
 
     [Header("Unit's sprite.")] [SerializeField]
-    private Sprite sprite;
+    public Sprite sprite;
 
     [Header("Maximum movement range")] [SerializeField]
-    private int movementRange;
+    public int movementRange;
 
     [Header("Maximum attack range")] [SerializeField]
-    private int attackRange;
+    public int attackRange;
+    
+    // TODO attack sound
+    
+    // TODO death sound
+    
+    // TODO kulka
 }

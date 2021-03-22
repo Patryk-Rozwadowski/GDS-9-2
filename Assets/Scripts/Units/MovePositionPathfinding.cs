@@ -6,10 +6,10 @@ public class MovePositionPathfinding : MonoBehaviour {
     public bool isActive;
     
     private List<Vector3> pathVectorList;
-    private int pathIndex = -1;
     private MoveTransformVelocity _moveVelocity;
     private Action _onReachedTargetPosition;
-    
+    private int pathIndex = -1;
+
     public void SetMovePosition(Vector3 movePosition, Action onReachedTargetPosition) {
         _onReachedTargetPosition = onReachedTargetPosition;
         pathVectorList = GridPathfinding.instance.GetPathRouteWithShortcuts(transform.position, movePosition).pathVectorList;

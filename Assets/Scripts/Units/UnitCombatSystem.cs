@@ -3,8 +3,7 @@ using UnityEngine;
 
 public class UnitCombatSystem : MonoBehaviour {
     [SerializeField] private Team team;
-    [SerializeField] private GameObject debugObj;
-    public HealthSystem healthSystem;
+    private HealthSystem _healthSystem;
 
     public enum Team {
         Left,
@@ -13,7 +12,6 @@ public class UnitCombatSystem : MonoBehaviour {
     
     private MovePositionPathfinding _movePositionPathfinding;
     private State _state;
-    private SpriteRenderer _spriteRenderer;
     private IsActive _isUnitActive;
     private HealthBar _healthbar;
     
@@ -24,24 +22,23 @@ public class UnitCombatSystem : MonoBehaviour {
     }
 
     public void SetActive() {
-        _isUnitActive.SetUnitActive(true);
+        // _isUnitActive.SetUnitActive(true);
     }
 
     public void SetInactive() {
-        _isUnitActive.SetUnitActive(false);
+        // _isUnitActive.SetUnitActive(false);
     }
     
     private void Awake() {
         var damage = 10;
         
-        _spriteRenderer = GetComponent<SpriteRenderer>();
         _movePositionPathfinding = GetComponent<MovePositionPathfinding>();
-        _isUnitActive = GetComponentInChildren<IsActive>();
+        _isUnitActive = GetComponent<IsActive>();
         _healthbar = GetComponentInChildren<HealthBar>();
         _state = State.Normal;
-        healthSystem = new HealthSystem(100);
-        _healthbar.Init(healthSystem);
-        healthSystem.Damage(damage);
+        _healthSystem = new HealthSystem(100);
+        _healthbar.Init(_healthSystem);
+        _healthSystem.Damage(damage);
     }
 
     private void Update() {
@@ -58,7 +55,7 @@ public class UnitCombatSystem : MonoBehaviour {
     public void AttackUnit(UnitCombatSystem unitGridCombat, Action onAttackComplete) {
         _state = State.Attacking;
         Debug.Log($"Attack unit {unitGridCombat.name}");
-        unitGridCombat.healthSystem.Damage(50);
+        unitGridCombat._healthSystem.Damage(50);
         onAttackComplete();
     }
 
@@ -69,7 +66,6 @@ public class UnitCombatSystem : MonoBehaviour {
     public Vector3 GetPosition() => transform.position;
     public void MoveTo(Vector3 targetPosition, Action onReachedPosition) {
         _state = State.Moving;
-        Instantiate(debugObj, targetPosition, Quaternion.identity);
         // PATHFINDING
         _movePositionPathfinding.SetMovePosition(targetPosition + new Vector3(1, 1), () => {
             _state = State.Normal;

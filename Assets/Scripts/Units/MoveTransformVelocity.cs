@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class MoveTransformVelocity : MonoBehaviour, IMoveVelocity {
-    [SerializeField] private float moveSpeed;
+    [SerializeField] private float moveSpeed = 15;
 
     private Vector3 _velocityVector;
     private Rigidbody2D _rigidbody2D;
