@@ -17,9 +17,12 @@ public class UnitStatsSO : ScriptableObject {
     [Header("Maximum attack range")] [SerializeField]
     public int attackRange;
     
-    // TODO attack sound
-    
-    // TODO death sound
-    
-    // TODO kulka
+    [Header("Attack sound")] [SerializeField]
+    public AudioClip attackSound;
+
+    [Header("Death sound")] [SerializeField]
+    public AudioClip deathSound;
+
+    [Header("Designer mode - unit sprite")] [SerializeField]
+    public Sprite designerModeUnitSprite;
 }

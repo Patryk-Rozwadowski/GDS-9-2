@@ -21,8 +21,6 @@ public class UnitCreator : MonoBehaviour {
     
     void Start() {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-        // _rigidbody2D.simulated = false;
-
         _unitSpriteGameObject = gameObject.transform.GetChild(0).gameObject;
         _unitSpriteGameObject.AddComponent<SpriteRenderer>();
         _unitSpriteGameObject.GetComponent<SpriteRenderer>().sprite = unitScriptableObject.sprite;
