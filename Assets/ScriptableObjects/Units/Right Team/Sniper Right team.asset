@@ -10,13 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00148c9b881516145886b1bf8315f871, type: 3}
-  m_Name: Melas
+  m_Name: Sniper Right team
   m_EditorClassIdentifier: 
-  maxHealth: 100
-  damage: 20
-  sprite: {fileID: 21300000, guid: ffd8216989cf1314986267fdb04a7af0, type: 3}
-  movementRange: 4
-  attackRange: 1
+  maxHealth: 50
+  damage: 25
+  sprite: {fileID: 21300000, guid: 3380691f2ddca824d885188ba4915762, type: 3}
+  movementRange: 2
+  attackRange: 6
   attackSound: {fileID: 0}
   deathSound: {fileID: 0}
   designerModeUnitSprite: {fileID: 0}
