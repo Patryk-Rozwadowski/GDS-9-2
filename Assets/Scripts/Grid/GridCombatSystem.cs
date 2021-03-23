@@ -30,8 +30,12 @@ public class GridCombatSystem : MonoBehaviour {
 
         foreach (UnitCombatSystem unit in unitCombatSystemsArray) {
             CombatSystemUnitDebugLogger(unit);
-            GameController_GridCombatSystem.Instance.GetGrid().GetGridObject(unit.GetPosition())
+            GameController_GridCombatSystem
+                .Instance
+                .GetGrid()
+                .GetGridObject(unit.GetPosition())
                 .SetUnitGridCombat(unit);
+            
             if (unit.GetTeam() == UnitCombatSystem.Team.Left) {
                 _leftTeam.Add(unit);
             }
