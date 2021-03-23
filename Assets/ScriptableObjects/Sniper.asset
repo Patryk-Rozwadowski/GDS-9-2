@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 50
   damage: 25
-  sprite: {fileID: 0}
+  sprite: {fileID: 21300000, guid: 7d4a32b95017d8240abae8de5d67e7dd, type: 3}
   movementRange: 2
   attackRange: 6
   attackSound: {fileID: 0}
