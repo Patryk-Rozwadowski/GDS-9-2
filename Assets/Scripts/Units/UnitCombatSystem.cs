@@ -38,7 +38,6 @@ public class UnitCombatSystem : MonoBehaviour {
         _state = State.Normal;
         _healthSystem = new HealthSystem(100);
         _healthbar.Init(_healthSystem);
-        _healthSystem.Damage(damage);
     }
 
     private void Update() {

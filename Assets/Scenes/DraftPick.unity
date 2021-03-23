@@ -2786,7 +2786,7 @@ GameObject:
   - component: {fileID: 580415707}
   - component: {fileID: 580415706}
   m_Layer: 5
-  m_Name: character 1
+  m_Name: Assasin pick Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3144,7 +3144,7 @@ GameObject:
   - component: {fileID: 643684353}
   - component: {fileID: 643684352}
   m_Layer: 5
-  m_Name: character 2
+  m_Name: Repetetive pick Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3218,7 +3218,8 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 7373693187462512570, guid: 5b67711f4c8afaa4ca58b13351a22ec4,
+            type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3547,7 +3548,7 @@ GameObject:
   - component: {fileID: 660480101}
   - component: {fileID: 660480100}
   m_Layer: 5
-  m_Name: character 4
+  m_Name: Partisant pick Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4609,7 +4610,7 @@ GameObject:
   - component: {fileID: 798962125}
   - component: {fileID: 798962124}
   m_Layer: 5
-  m_Name: character 7
+  m_Name: Mage pick Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4663,7 +4664,7 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: f93271d534e46ec418a6ba5a36187759,
+    m_HighlightedSprite: {fileID: 21300000, guid: b325a71d4044a1e438c263209a0f5dc8,
       type: 3}
     m_PressedSprite: {fileID: 0}
     m_SelectedSprite: {fileID: 0}
@@ -4679,12 +4680,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: eae1fff247f9608409050683c09f39c4, type: 3}
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 5130010019252703985, guid: 54a9a1bfe60f835419f2cdb22fa26356,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Aaa
@@ -4709,7 +4711,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 1e777cab1893ea441b9f28ae2ec4871b, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aee3f2489244c1f458957e39b426a7a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6091,7 +6093,7 @@ GameObject:
   - component: {fileID: 997869373}
   - component: {fileID: 997869372}
   m_Layer: 5
-  m_Name: character 5
+  m_Name: Hunter pick left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6161,12 +6163,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: eae1fff247f9608409050683c09f39c4, type: 3}
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2027978074254731370, guid: 0e780702042686142b9b7908d98254db,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Aaa
@@ -6436,6 +6439,7 @@ Transform:
   - {fileID: 788901521}
   - {fileID: 368110743}
   - {fileID: 1039638499}
+  - {fileID: 6879889495387572179}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7461,7 +7465,7 @@ GameObject:
   - component: {fileID: 1301452026}
   - component: {fileID: 1301452025}
   m_Layer: 5
-  m_Name: character 8
+  m_Name: Tank pick left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -7535,7 +7539,7 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 8699574790493885601, guid: 26705d16aaf4ae7499d28575eba0cba9,
+          m_ObjectArgument: {fileID: 4924881100287979619, guid: 26705d16aaf4ae7499d28575eba0cba9,
             type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
@@ -8569,7 +8573,7 @@ GameObject:
   - component: {fileID: 1518198004}
   - component: {fileID: 1518198003}
   m_Layer: 5
-  m_Name: character 3
+  m_Name: Thieve pick Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8639,12 +8643,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: eae1fff247f9608409050683c09f39c4, type: 3}
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 2868010589044152033, guid: ae09f98a74c20c24795ad3f1fa2c678b,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Aaa
@@ -8926,7 +8931,7 @@ GameObject:
   - component: {fileID: 1548993592}
   - component: {fileID: 1548993591}
   m_Layer: 5
-  m_Name: character 9
+  m_Name: Sniper pick Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -8996,12 +9001,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: eae1fff247f9608409050683c09f39c4, type: 3}
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 4995872063049433119, guid: 58eb8066dc8a114499de606e1c4ce8b7,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Aaa
@@ -10238,7 +10244,7 @@ GameObject:
   - component: {fileID: 1846400542}
   - component: {fileID: 1846400541}
   m_Layer: 5
-  m_Name: character 6
+  m_Name: Range pick left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10308,12 +10314,13 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11500000, guid: eae1fff247f9608409050683c09f39c4, type: 3}
-        m_MethodName: set_name
-        m_Mode: 5
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_ObjectArgument: {fileID: 5155943624400029046, guid: 1996f111df385094a8e20972dffd2bfe,
+            type: 3}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
           m_StringArgument: Aaa
@@ -12218,6 +12225,75 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1494375890957775481}
   m_PrefabAsset: {fileID: 0}
+--- !u!1001 &1886621385289664498
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 1137325854}
+    m_Modifications:
+    - target: {fileID: 4995872063049433119, guid: 58eb8066dc8a114499de606e1c4ce8b7,
+        type: 3}
+      propertyPath: m_Name
+      value: Sniper
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 167.22813
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 120.67259
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 100.71875
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 58eb8066dc8a114499de606e1c4ce8b7, type: 3}
 --- !u!1001 &2021676198014421506
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -12599,6 +12675,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ede4b32c36bff948b50fabbe2692f55, type: 3}
+--- !u!4 &6879889495387572179 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1886621385289664498}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7039246305221322113
 PrefabInstance:
   m_ObjectHideFlags: 0
