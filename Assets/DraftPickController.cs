@@ -5,7 +5,6 @@ using UnityEngine.UI;
 
 public class DraftPickController : MonoBehaviour {
     [SerializeField] private GameObject _leftTeamPanel, _rightTeamPanel;
-    [SerializeField] private Button _button;
     public List<GameObject> _leftTeam, _rightTeam;
 
     private bool _pickedPosition;
@@ -26,8 +25,11 @@ public class DraftPickController : MonoBehaviour {
         _pickedPosition = false;
         
     }
-
+    void OnMouseDown(){
+        Debug.Log (this.gameObject.name);
+    } 
     private void Update() {
+    
         if (Input.GetMouseButtonDown(0) && _pickedPosition == false && _pickedUnit != null) {
             _pickedPosition = true;
             var el = Instantiate(_pickedUnit, CursorUtils.GetMouseWorldPosition(), Quaternion.identity);
