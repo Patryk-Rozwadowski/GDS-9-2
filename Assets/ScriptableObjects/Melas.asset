@@ -10,12 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00148c9b881516145886b1bf8315f871, type: 3}
-  m_Name: Tank
+  m_Name: Melas
   m_EditorClassIdentifier: 
-  maxHealth: 130
-  damage: 30
-  sprite: {fileID: 21300000, guid: caebdfceff94d1c4788cdd0bdce6cf82, type: 3}
-  movementRange: 3
+  maxHealth: 100
+  damage: 20
+  sprite: {fileID: 0}
+  movementRange: 4
   attackRange: 1
   attackSound: {fileID: 0}
   deathSound: {fileID: 0}
