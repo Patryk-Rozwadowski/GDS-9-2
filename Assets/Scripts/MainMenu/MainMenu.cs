@@ -6,12 +6,12 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     [SerializeField] GameObject CanvasCredits;
-    [SerializeField] GameObject CanvasOptions;
+    [SerializeField] GameObject CanvasHowToPlay;
 
     private void Awake()
     {
         CanvasCredits = GetComponent<Canvas>().gameObject;
-        CanvasOptions = GetComponent<Canvas>().gameObject;
+        CanvasHowToPlay = GetComponent<Canvas>().gameObject;
     }
 
 
@@ -32,12 +32,12 @@ public class MainMenu : MonoBehaviour
 
     public void ShowOptions()
     {
-        CanvasOptions.SetActive(true);
+        CanvasHowToPlay.SetActive(true);
     }
 
     public void HideOptions()
     {
-        CanvasOptions.SetActive(false);
+        CanvasHowToPlay.SetActive(false);
     }
 
     public void QuiteGame()
