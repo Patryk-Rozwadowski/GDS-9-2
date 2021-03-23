@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -18,13 +19,19 @@ public class DraftPickController : MonoBehaviour {
     public void PickUnit(GameObject element) {
         _leftTeam.Add(element);
         Debug.Log(_leftTeam);
+        _pickedUnit = element;
+        Debug.Log(element.GetComponent<UnitCombatSystem>().GetTeam());
+        _leftTeam.Add(_pickedUnit);
+        Debug.Log(_pickedUnit.name);
+        _pickedPosition = false;
+        
+    }
 
-        _pickedPosition = element;
-        if (Input.GetMouseButtonDown(0) && _pickedUnit != null) {
+    private void Update() {
+        if (Input.GetMouseButtonDown(0) && _pickedPosition == false && _pickedUnit != null) {
             _pickedPosition = true;
-            var el = Instantiate(element, CursorUtils.GetMouseWorldPosition(), Quaternion.identity);
+            var el = Instantiate(_pickedUnit, CursorUtils.GetMouseWorldPosition(), Quaternion.identity);
             el.transform.localScale = new Vector3(5,5,1);
         }
-       
     }
 }
