@@ -30,6 +30,8 @@ public class UnitCombatSystem : MonoBehaviour {
     }
     
     private void Awake() {
+        
+        // TODO change damage
         var damage = 10;
         
         _movePositionPathfinding = GetComponent<MovePositionPathfinding>();
