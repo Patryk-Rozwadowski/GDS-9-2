@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class GridCombatSystem : MonoBehaviour {
     [SerializeField] private UnitCombatSystem[] unitCombatSystemsArray;
+    public List<UnitCombatSystem> leftTeam, rightTeam;
 
     private UnitCombatSystem _unitCombatSystem;
     private int _lefTeamActiveUnitIndex, _rightTeamActiveUnitIndex;
-    private List<UnitCombatSystem> _leftTeam, _rightTeam;
     private State _state;
     private bool _canMoveThisTurn, _canAttackThisTurn;
     private GameObject _gridTileBorder, _gridTileMovement;
@@ -22,42 +22,37 @@ public class GridCombatSystem : MonoBehaviour {
     }
 
     void Start() {
-        _leftTeam = new List<UnitCombatSystem>();
-        _rightTeam = new List<UnitCombatSystem>();
+        leftTeam = new List<UnitCombatSystem>();
+        rightTeam = new List<UnitCombatSystem>();
 
         _gridTileMovement = Resources.Load("Sprites/grid-move", typeof(GameObject)) as GameObject;
         _gridTileBorder = Resources.Load("Sprites/grid", typeof(GameObject)) as GameObject;
 
-        foreach (UnitCombatSystem unit in unitCombatSystemsArray) {
-            CombatSystemUnitDebugLogger(unit);
-            GameController_GridCombatSystem
-                .Instance
-                .GetGrid()
-                .GetGridObject(unit.GetPosition())
-                .SetUnitGridCombat(unit);
-            
-            if (unit.GetTeam() == UnitCombatSystem.Team.Left) {
-                _leftTeam.Add(unit);
-            }
-            else {
-                _rightTeam.Add(unit);
-            }
-
-            // TODO Need refactor and cleanup
-            if (unit == null) return;
-            var cellSize = 17;
-            var cellCenter = cellSize / 2;
-            // Objects has to be in objectOnMap list in order to snap to grid
-            var objectOnMapTransformPosition = unit.transform.position;
-            objectOnMapTransformPosition.x =
-                Mathf.Floor(objectOnMapTransformPosition.x / cellSize) * cellSize + cellCenter;
-            objectOnMapTransformPosition.y =
-                Mathf.Floor(objectOnMapTransformPosition.y / cellSize) * cellSize + cellCenter;
-            unit.transform.position = objectOnMapTransformPosition;
-        }
-
-        SelectNextActiveUnit();
-        UpdateValidMovePositions();
+        // foreach (UnitCombatSystem unit in unitCombatSystemsArray) {
+        //     CombatSystemUnitDebugLogger(unit);
+        //     
+        //     GameController_GridCombatSystem
+        //         .Instance
+        //         .GetGrid()
+        //         .GetGridObject(unit.GetPosition())
+        //         .SetUnitGridCombat(unit);
+        //     
+        //
+        //     // TODO Need refactor and cleanup
+        //     if (unit == null) return;
+        //     var cellSize = 17;
+        //     var cellCenter = cellSize / 2;
+        //     // Objects has to be in objectOnMap list in order to snap to grid
+        //     var objectOnMapTransformPosition = unit.transform.position;
+        //     objectOnMapTransformPosition.x =
+        //         Mathf.Floor(objectOnMapTransformPosition.x / cellSize) * cellSize + cellCenter;
+        //     objectOnMapTransformPosition.y =
+        //         Mathf.Floor(objectOnMapTransformPosition.y / cellSize) * cellSize + cellCenter;
+        //     unit.transform.position = objectOnMapTransformPosition;
+        // }
+        //
+        // SelectNextActiveUnit();
+        // UpdateValidMovePositions();
     }
 
     public void Damage(GridCombatSystem attacker, int damageAmount) {
@@ -67,27 +62,27 @@ public class GridCombatSystem : MonoBehaviour {
 
     private UnitCombatSystem GetNextActiveUnit(UnitCombatSystem.Team team) {
         if (team == UnitCombatSystem.Team.Left) {
-            _lefTeamActiveUnitIndex = (_lefTeamActiveUnitIndex + 1) % _leftTeam.Count;
+            _lefTeamActiveUnitIndex = (_lefTeamActiveUnitIndex + 1) % leftTeam.Count;
 
             // TODO Hp system
-            if (_leftTeam[_lefTeamActiveUnitIndex] == null) {
+            if (leftTeam[_lefTeamActiveUnitIndex] == null) {
                 // Unit is Dead, get next one
                 return GetNextActiveUnit(team);
             }
             else {
-                return _leftTeam[_lefTeamActiveUnitIndex];
+                return leftTeam[_lefTeamActiveUnitIndex];
             }
         }
         else {
-            _rightTeamActiveUnitIndex = (_rightTeamActiveUnitIndex + 1) % _rightTeam.Count;
+            _rightTeamActiveUnitIndex = (_rightTeamActiveUnitIndex + 1) % rightTeam.Count;
 
             // TODO hp system
-            if (_rightTeam[_rightTeamActiveUnitIndex] == null) {
+            if (rightTeam[_rightTeamActiveUnitIndex] == null) {
                 // Unit is Dead, get next one
                 return GetNextActiveUnit(team);
             }
             else {
-                return _rightTeam[_rightTeamActiveUnitIndex];
+                return rightTeam[_rightTeamActiveUnitIndex];
             }
         }
     }
@@ -103,8 +98,8 @@ public class GridCombatSystem : MonoBehaviour {
                 if (Input.GetMouseButtonDown(0)) {
                     Grid<GridObject> grid = GameController_GridCombatSystem.Instance.GetGrid();
                     GridObject gridObject = grid.GetGridObject(CursorUtils.GetMouseWorldPosition());
-                    Debug.Log(gridObject);
                     // Check if clicking on a unit position
+                    if (gridObject == null) return;
                     if (gridObject.GetUnitGridCombat() != null) {
                         // Clicked on top of a Unit
                         if (_unitCombatSystem.IsEnemy(gridObject.GetUnitGridCombat())) {

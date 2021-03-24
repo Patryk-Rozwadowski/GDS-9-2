@@ -24,6 +24,12 @@ public class DraftPickController : MonoBehaviour {
     private int _numberOfUnitsInTeams;
     private GameObject _pickedUnit;
     private Team _teamPicking, _nextTeamPicking;
+    private GridCombatSystem _gridCombatSystem;
+
+    private void Awake() {
+        _gridCombatSystem = GameObject.Find("GridCombatSystem").GetComponentInChildren<GridCombatSystem>();
+
+    }
 
     void Start() {
         // _rightTeamPanel.SetActive(false);
@@ -40,20 +46,24 @@ public class DraftPickController : MonoBehaviour {
 
         _pickedUnit = null;
         _numberOfUnitsInTeams = 5;
+
     }
 
     public void PickUnit(GameObject element) {
-        var pickedElement = element.GetComponent<UnitCombatSystem>().GetTeam();
+        var elementCombatSystem = element.GetComponent<UnitCombatSystem>();
+        var pickedElement = elementCombatSystem.GetTeam();
+        
         Debug.Log($"PICKED ELEMENT TEAM: {pickedElement}");
         Debug.Log($"TEAM PICKING: {_teamPicking}");
         _pickedPosition = false;
+        
         if ((Team) pickedElement == _teamPicking && _teamPicking == Team.Left) {
-            if (_leftTeam.Count > 5) {
+            if (_gridCombatSystem.leftTeam.Count > 5) {
                 Debug.Log($"{_rightTeam} is FULL");
                 return;
             }
 
-            _leftTeam.Add(element);
+            _gridCombatSystem.leftTeam.Add(elementCombatSystem);
             _pickedUnit = element;
             _teamPicking = Team.Right;
             Debug.Log($"Left picked: {_leftPickedUnit}");
@@ -61,12 +71,12 @@ public class DraftPickController : MonoBehaviour {
         }
 
         if ((Team) pickedElement == _teamPicking && _teamPicking == Team.Right) {
-            if (_rightTeam.Count > 5) {
+            if (_gridCombatSystem.rightTeam.Count > 5) {
                 Debug.Log($"{_rightTeam} is FULL");
                 return;
             }
 
-            _rightTeam.Add(element);
+            _gridCombatSystem.rightTeam.Add(elementCombatSystem);
             _pickedUnit = element;
             Debug.Log($"Right picked: {_rightTeam}");
             _teamPicking = Team.Left;
@@ -80,9 +90,9 @@ public class DraftPickController : MonoBehaviour {
     private void Update() {
         if (Input.GetMouseButtonDown(0) && _pickedUnit != null) {
             if (_pickedPosition == false) {
-                var el = Instantiate(_pickedUnit, CursorUtils.GetMouseWorldPosition(), Quaternion.identity);
-                el.transform.localScale = new Vector3(5, 5, 1);
-
+                var pickedUnit = Instantiate(_pickedUnit, CursorUtils.GetMouseWorldPosition(), Quaternion.identity);
+                pickedUnit.transform.localScale = new Vector3(5, 5, 1);
+                pickedUnit.transform.position = GridUtils.SetUnitOnTileCenter(pickedUnit);
                 _pickedUnit = null;
             }
         }
