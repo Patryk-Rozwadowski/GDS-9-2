@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 00148c9b881516145886b1bf8315f871, type: 3}
-  m_Name: Tank Right Team
+  m_Name: Tank Right team
   m_EditorClassIdentifier: 
   maxHealth: 0
   damage: 0

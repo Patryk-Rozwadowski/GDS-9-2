@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5155943624400029001}
   - component: {fileID: 5155943624400029047}
   m_Layer: 0
-  m_Name: Range
+  m_Name: Range Left Team
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -29,7 +29,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5155943624400029046}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 30.57966, y: 83.405045, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c31dfa8dc500754795574d1c01b4428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitScriptableObject: {fileID: 11400000, guid: c50ee163d5511814baa0dcdcc226b11b,
+  unitScriptableObject: {fileID: 11400000, guid: 8764238a3125fdc4e93a44ab5f1b47de,
     type: 2}
 --- !u!1 &5155943625591453598
 GameObject:

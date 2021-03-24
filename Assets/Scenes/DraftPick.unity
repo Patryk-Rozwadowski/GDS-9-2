@@ -362,6 +362,12 @@ RectTransform:
   m_AnchoredPosition: {x: 25, y: -8}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &42506127 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5155943624400029046, guid: 1996f111df385094a8e20972dffd2bfe,
+    type: 3}
+  m_PrefabInstance: {fileID: 7580874251955098027}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &43152935 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5285067410831848903, guid: 08991aa0ae929eb499ebe8e37c22cf64,
@@ -1947,7 +1953,8 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 764935134}
+          m_ObjectArgument: {fileID: 6102889279635786440, guid: 3a0f7fff24996924a9aea968c76b8768,
+            type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3792,12 +3799,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Sniper Right Team
       objectReference: {fileID: 0}
-    - target: {fileID: 7373693187462512571, guid: 5b67711f4c8afaa4ca58b13351a22ec4,
-        type: 3}
-      propertyPath: unitScriptableObject
-      value: 
-      objectReference: {fileID: 11400000, guid: 7bf4c136defa70d428e99073f02787be,
-        type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b67711f4c8afaa4ca58b13351a22ec4, type: 3}
 --- !u!1 &697623689
@@ -4193,7 +4194,8 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 4924881100287979619, guid: b66eca0dc7a7230488bad7fa7b4417eb,
+            type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -4512,12 +4514,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758303375}
   m_CullTransparentMesh: 0
---- !u!1 &764935134 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6102889279635786440, guid: 3a0f7fff24996924a9aea968c76b8768,
-    type: 3}
-  m_PrefabInstance: {fileID: 1405305162611355351}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &770542965
 GameObject:
   m_ObjectHideFlags: 0
@@ -4856,7 +4852,8 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1804663713475376829}
+          m_ObjectArgument: {fileID: 988085888670926020, guid: 0af738e54eeff6c49973240f3b48ad45,
+            type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -5703,12 +5700,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922111174}
   m_CullTransparentMesh: 0
---- !u!1 &932869786 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2047501683724195262, guid: b186aee7249eaea44aef31066d4a325e,
-    type: 3}
-  m_PrefabInstance: {fileID: 22232943721746891}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &934525669
 GameObject:
   m_ObjectHideFlags: 0
@@ -6859,12 +6850,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1155760595 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 939329125351419875, guid: 1ad0ed171eabfd944a7ad2e36eebea72,
-    type: 3}
-  m_PrefabInstance: {fileID: 3081608608682399142}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1156549111
 GameObject:
   m_ObjectHideFlags: 0
@@ -6952,7 +6937,8 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1518062726}
+          m_ObjectArgument: {fileID: 1352539267562955263, guid: ccd34b9073bec024692c8a9cfba7e017,
+            type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -8215,7 +8201,8 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 8816624377200116806, guid: bfca2d6f10ed44a45b9ca2f1bea41d84,
+            type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -9023,12 +9010,6 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &1408659832 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5683999066482732385, guid: 2897709cd0b088e49b3562f604782154,
-    type: 3}
-  m_PrefabInstance: {fileID: 8597863600168322725}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1458427738
 GameObject:
   m_ObjectHideFlags: 0
@@ -10292,7 +10273,8 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1408659832}
+          m_ObjectArgument: {fileID: 5683999066482732385, guid: 2897709cd0b088e49b3562f604782154,
+            type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -10701,7 +10683,8 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1155760595}
+          m_ObjectArgument: {fileID: 939329125351419875, guid: 1ad0ed171eabfd944a7ad2e36eebea72,
+            type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -12302,12 +12285,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872692261}
   m_CullTransparentMesh: 0
---- !u!1 &1896598427 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4655991208923765932, guid: 400a0465af628c040924f84ac14ce3c5,
-    type: 3}
-  m_PrefabInstance: {fileID: 509170910432414657}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1902156276
 GameObject:
   m_ObjectHideFlags: 0
@@ -12476,7 +12453,7 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1896598427}
+          m_ObjectArgument: {fileID: 42506127}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -12838,7 +12815,8 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 932869786}
+          m_ObjectArgument: {fileID: 2047501683724195262, guid: b186aee7249eaea44aef31066d4a325e,
+            type: 3}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -14514,7 +14492,7 @@ PrefabInstance:
     - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 9
       objectReference: {fileID: 0}
     - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
         type: 3}
