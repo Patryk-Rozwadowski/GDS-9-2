@@ -19,4 +19,5 @@ MonoBehaviour:
   attackRange: 1
   attackSound: {fileID: 0}
   deathSound: {fileID: 0}
-  designerModeUnitSprite: {fileID: 0}
+  designerModeUnitSprite: {fileID: 21300000, guid: 1c8f68ab20d64ef4d9bbaada9cc1ac2d,
+    type: 3}
