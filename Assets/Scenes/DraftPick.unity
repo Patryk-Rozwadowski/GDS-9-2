@@ -308,8 +308,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _leftTeamPanel: {fileID: 721330267}
   _rightTeamPanel: {fileID: 770542965}
-  _leftTeam: []
-  _rightTeam: []
 --- !u!4 &18117243
 Transform:
   m_ObjectHideFlags: 0
@@ -1861,7 +1859,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 88.16
+  orthographic size: 107
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
