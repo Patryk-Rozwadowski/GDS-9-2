@@ -889,8 +889,8 @@ Transform:
   - {fileID: 4156858109627837434}
   - {fileID: 5155943624755074899}
   - {fileID: 7373693187072513282}
-  - {fileID: 7373693187314093690}
   - {fileID: 2868010587146893947}
+  - {fileID: 7373693187314093690}
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1917,7 +1917,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -1927,9 +1927,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: b325a71d4044a1e438c263209a0f5dc8,
+      type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: b325a71d4044a1e438c263209a0f5dc8, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -1941,7 +1942,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 282548481}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &282548481
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2776,10 +2788,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1.87
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 36efe69c445cb604989e80dd6c60560b,
+    m_HighlightedSprite: {fileID: 21300000, guid: 9a0e0dd0468170041a9cef0daa0e35fc,
       type: 3}
-    m_PressedSprite: {fileID: 21300000, guid: 1e221f4c148d8c44d9e0a6fedaf22de1, type: 3}
-    m_SelectedSprite: {fileID: 21300000, guid: d99f2a6c686967e4b9f7d2424cd8719f, type: 3}
+    m_PressedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 9a0e0dd0468170041a9cef0daa0e35fc, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -3134,10 +3146,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 4dba61f512450514faabb22e0180e0ed,
+    m_HighlightedSprite: {fileID: 21300000, guid: cea9cdcd6d2f1504b90bc6334e67915c,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: d99f2a6c686967e4b9f7d2424cd8719f, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: cea9cdcd6d2f1504b90bc6334e67915c, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -3419,10 +3431,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: c815badb87b154a4fb8bde763b801d04,
+    m_HighlightedSprite: {fileID: 21300000, guid: ddefb8e59a453eb42a483c784af0a5f1,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: d99f2a6c686967e4b9f7d2424cd8719f, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: ddefb8e59a453eb42a483c784af0a5f1, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -3779,7 +3791,7 @@ PrefabInstance:
     - target: {fileID: 7373693187462512570, guid: 5b67711f4c8afaa4ca58b13351a22ec4,
         type: 3}
       propertyPath: m_Name
-      value: Sniper
+      value: Sniper Left Team
       objectReference: {fileID: 0}
     - target: {fileID: 7373693187462512571, guid: 5b67711f4c8afaa4ca58b13351a22ec4,
         type: 3}
@@ -4152,7 +4164,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -4162,9 +4174,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 57063f8d60cdbbb4186a60c090a46a5b,
+      type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 57063f8d60cdbbb4186a60c090a46a5b, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -4176,7 +4189,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 719882502}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &719882502
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4601,10 +4625,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: b325a71d4044a1e438c263209a0f5dc8,
+    m_HighlightedSprite: {fileID: 21300000, guid: 4eb9619356f9a53489a4b794a43f8281,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: d99f2a6c686967e4b9f7d2424cd8719f, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 4eb9619356f9a53489a4b794a43f8281, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -4797,7 +4821,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -4807,9 +4831,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 36efe69c445cb604989e80dd6c60560b,
+      type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 36efe69c445cb604989e80dd6c60560b, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -4821,7 +4846,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 824499515}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 1804663713475376829}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &824499515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5793,7 +5829,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -5803,9 +5839,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 50306bdda98be9e42bffb9d7a211582b,
+      type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 50306bdda98be9e42bffb9d7a211582b, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -6437,10 +6474,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 2cfa28b6c42221545acd6a94a7c98ba0,
+    m_HighlightedSprite: {fileID: 21300000, guid: 4245ca4b84ac7664ba89a1e3795e17cf,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: d99f2a6c686967e4b9f7d2424cd8719f, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 4245ca4b84ac7664ba89a1e3795e17cf, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -6868,7 +6905,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -6878,9 +6915,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 4dba61f512450514faabb22e0180e0ed,
+      type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 4dba61f512450514faabb22e0180e0ed, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -6892,7 +6930,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1156549114}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1156549114
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8119,7 +8168,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -8129,9 +8178,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 5d38c4030b3f2c6429a3e28810cded3a,
+      type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 5d38c4030b3f2c6429a3e28810cded3a, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -8143,7 +8193,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1298531974}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1298531974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8248,10 +8309,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 57063f8d60cdbbb4186a60c090a46a5b,
+    m_HighlightedSprite: {fileID: 21300000, guid: 9b1711e8d3042d441bfdd44503c81725,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: d99f2a6c686967e4b9f7d2424cd8719f, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 9b1711e8d3042d441bfdd44503c81725, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -9404,10 +9465,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 76efa51126102434f861c462292dfcaa,
+    m_HighlightedSprite: {fileID: 21300000, guid: 50573dd16273ef649a2f5931172ac5c4,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: d99f2a6c686967e4b9f7d2424cd8719f, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 50573dd16273ef649a2f5931172ac5c4, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -9840,10 +9901,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: 5d38c4030b3f2c6429a3e28810cded3a,
+    m_HighlightedSprite: {fileID: 21300000, guid: f671b77297f43044bb5350c37c619f8a,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: d99f2a6c686967e4b9f7d2424cd8719f, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: f671b77297f43044bb5350c37c619f8a, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -10172,7 +10233,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -10182,9 +10243,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: c815badb87b154a4fb8bde763b801d04,
+      type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: c815badb87b154a4fb8bde763b801d04, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -10196,7 +10258,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1623872274}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1623872274
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10569,7 +10642,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -10579,9 +10652,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 76efa51126102434f861c462292dfcaa,
+      type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 76efa51126102434f861c462292dfcaa, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -10593,7 +10667,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1674541103}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1674541103
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11131,7 +11216,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -11141,9 +11226,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: f93271d534e46ec418a6ba5a36187759,
+      type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: f93271d534e46ec418a6ba5a36187759, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -11156,6 +11242,17 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Aaa
+          m_BoolArgument: 0
+        m_CallState: 1
       - m_Target: {fileID: 11500000, guid: eae1fff247f9608409050683c09f39c4, type: 3}
         m_MethodName: set_name
         m_Mode: 5
@@ -11719,10 +11816,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 21300000, guid: bc9d40ea652653143813c12646e4c6a4,
+    m_HighlightedSprite: {fileID: 21300000, guid: 1512c37c6d2dca240826d3474aae3c85,
       type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 21300000, guid: d99f2a6c686967e4b9f7d2424cd8719f, type: 3}
+    m_SelectedSprite: {fileID: 21300000, guid: 1512c37c6d2dca240826d3474aae3c85, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -12320,7 +12417,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -12330,9 +12427,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: bc9d40ea652653143813c12646e4c6a4,
+      type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: bc9d40ea652653143813c12646e4c6a4, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -12344,7 +12442,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1923411319}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1923411319
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12670,7 +12779,7 @@ MonoBehaviour:
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
     m_SelectOnRight: {fileID: 0}
-  m_Transition: 1
+  m_Transition: 2
   m_Colors:
     m_NormalColor: {r: 1, g: 1, b: 1, a: 1}
     m_HighlightedColor: {r: 0.9607843, g: 0.9607843, b: 0.9607843, a: 1}
@@ -12680,9 +12789,10 @@ MonoBehaviour:
     m_ColorMultiplier: 1
     m_FadeDuration: 0.1
   m_SpriteState:
-    m_HighlightedSprite: {fileID: 0}
+    m_HighlightedSprite: {fileID: 21300000, guid: 2cfa28b6c42221545acd6a94a7c98ba0,
+      type: 3}
     m_PressedSprite: {fileID: 0}
-    m_SelectedSprite: {fileID: 0}
+    m_SelectedSprite: {fileID: 21300000, guid: 2cfa28b6c42221545acd6a94a7c98ba0, type: 3}
     m_DisabledSprite: {fileID: 0}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -12694,7 +12804,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1993123026}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 18117242}
+        m_MethodName: PickUnit
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 1
 --- !u!114 &1993123026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14126,7 +14247,7 @@ PrefabInstance:
     - target: {fileID: 4665825077604758261, guid: 3798426640f1459489064a3b870fade2,
         type: 3}
       propertyPath: m_Name
-      value: Melas Right team
+      value: Warrior Right team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3798426640f1459489064a3b870fade2, type: 3}
@@ -14195,7 +14316,7 @@ PrefabInstance:
     - target: {fileID: 7373693187462512570, guid: 5b67711f4c8afaa4ca58b13351a22ec4,
         type: 3}
       propertyPath: m_Name
-      value: Repetetive
+      value: Repetetive Left Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b67711f4c8afaa4ca58b13351a22ec4, type: 3}
@@ -14359,7 +14480,7 @@ PrefabInstance:
     - target: {fileID: 4995872063049433119, guid: 58eb8066dc8a114499de606e1c4ce8b7,
         type: 3}
       propertyPath: m_Name
-      value: Sniper
+      value: Sniper Left Team
       objectReference: {fileID: 0}
     - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
         type: 3}
@@ -14433,7 +14554,7 @@ PrefabInstance:
     - target: {fileID: 8816624377200116856, guid: bfca2d6f10ed44a45b9ca2f1bea41d84,
         type: 3}
       propertyPath: m_RootOrder
-      value: 7
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 8816624377200116856, guid: bfca2d6f10ed44a45b9ca2f1bea41d84,
         type: 3}
@@ -14558,7 +14679,7 @@ PrefabInstance:
     - target: {fileID: 2027978074254731370, guid: 0e780702042686142b9b7908d98254db,
         type: 3}
       propertyPath: m_Name
-      value: Hunter
+      value: Hunter Left Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e780702042686142b9b7908d98254db, type: 3}
@@ -14578,7 +14699,7 @@ PrefabInstance:
     - target: {fileID: 939329125351419869, guid: 1ad0ed171eabfd944a7ad2e36eebea72,
         type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 939329125351419869, guid: 1ad0ed171eabfd944a7ad2e36eebea72,
         type: 3}
@@ -14708,7 +14829,7 @@ PrefabInstance:
     - target: {fileID: 2868010589044152033, guid: ae09f98a74c20c24795ad3f1fa2c678b,
         type: 3}
       propertyPath: m_Name
-      value: Thieve
+      value: Thieve Left Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae09f98a74c20c24795ad3f1fa2c678b, type: 3}
@@ -14795,7 +14916,7 @@ PrefabInstance:
     - target: {fileID: 4156858109138117691, guid: 3ede4b32c36bff948b50fabbe2692f55,
         type: 3}
       propertyPath: m_Name
-      value: Partisant
+      value: Partisant Left Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ede4b32c36bff948b50fabbe2692f55, type: 3}
@@ -14815,7 +14936,7 @@ PrefabInstance:
     - target: {fileID: 1804663713242103323, guid: 335db85eb49c94a44a9cc7247cbc511b,
         type: 3}
       propertyPath: m_Name
-      value: Assasin
+      value: Assasin Left Team
       objectReference: {fileID: 0}
     - target: {fileID: 1804663713242103333, guid: 335db85eb49c94a44a9cc7247cbc511b,
         type: 3}
@@ -14951,7 +15072,7 @@ PrefabInstance:
     - target: {fileID: 5155943624400029046, guid: 1996f111df385094a8e20972dffd2bfe,
         type: 3}
       propertyPath: m_Name
-      value: Range
+      value: Range Left Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1996f111df385094a8e20972dffd2bfe, type: 3}
@@ -15089,7 +15210,7 @@ PrefabInstance:
     - target: {fileID: 5130010019252703985, guid: 54a9a1bfe60f835419f2cdb22fa26356,
         type: 3}
       propertyPath: m_Name
-      value: Mage
+      value: Mage Left Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54a9a1bfe60f835419f2cdb22fa26356, type: 3}
@@ -15227,7 +15348,7 @@ PrefabInstance:
     - target: {fileID: 5285067410831848953, guid: 08991aa0ae929eb499ebe8e37c22cf64,
         type: 3}
       propertyPath: m_Name
-      value: Melas
+      value: Warrior Left Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08991aa0ae929eb499ebe8e37c22cf64, type: 3}
