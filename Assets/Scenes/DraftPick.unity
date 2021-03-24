@@ -865,7 +865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 130885835}
   m_Layer: 0
-  m_Name: Right team units
+  m_Name: Left team units
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1947,7 +1947,7 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 764935134}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -2808,7 +2808,7 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 1872105109}
+          m_ObjectArgument: {fileID: 1804663713475376829}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3166,8 +3166,7 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 7373693187462512570, guid: 5b67711f4c8afaa4ca58b13351a22ec4,
-            type: 3}
+          m_ObjectArgument: {fileID: 1518062726}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -3791,7 +3790,7 @@ PrefabInstance:
     - target: {fileID: 7373693187462512570, guid: 5b67711f4c8afaa4ca58b13351a22ec4,
         type: 3}
       propertyPath: m_Name
-      value: Sniper Left Team
+      value: Sniper Right Team
       objectReference: {fileID: 0}
     - target: {fileID: 7373693187462512571, guid: 5b67711f4c8afaa4ca58b13351a22ec4,
         type: 3}
@@ -4513,6 +4512,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 758303375}
   m_CullTransparentMesh: 0
+--- !u!1 &764935134 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6102889279635786440, guid: 3a0f7fff24996924a9aea968c76b8768,
+    type: 3}
+  m_PrefabInstance: {fileID: 1405305162611355351}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &770542965
 GameObject:
   m_ObjectHideFlags: 0
@@ -5698,6 +5703,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 922111174}
   m_CullTransparentMesh: 0
+--- !u!1 &932869786 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2047501683724195262, guid: b186aee7249eaea44aef31066d4a325e,
+    type: 3}
+  m_PrefabInstance: {fileID: 22232943721746891}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &934525669
 GameObject:
   m_ObjectHideFlags: 0
@@ -6818,7 +6829,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1137325854}
   m_Layer: 0
-  m_Name: Left team units
+  m_Name: Right team units
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6848,6 +6859,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1155760595 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 939329125351419875, guid: 1ad0ed171eabfd944a7ad2e36eebea72,
+    type: 3}
+  m_PrefabInstance: {fileID: 3081608608682399142}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1156549111
 GameObject:
   m_ObjectHideFlags: 0
@@ -6935,7 +6952,7 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 1518062726}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -9006,6 +9023,12 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1408659832 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5683999066482732385, guid: 2897709cd0b088e49b3562f604782154,
+    type: 3}
+  m_PrefabInstance: {fileID: 8597863600168322725}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1458427738
 GameObject:
   m_ObjectHideFlags: 0
@@ -9398,6 +9421,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1506961177}
   m_CullTransparentMesh: 0
+--- !u!1 &1518062726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1352539267562955263, guid: ccd34b9073bec024692c8a9cfba7e017,
+    type: 3}
+  m_PrefabInstance: {fileID: 8399690144696218819}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1518198001
 GameObject:
   m_ObjectHideFlags: 0
@@ -10263,7 +10292,7 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 1408659832}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -10672,7 +10701,7 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 1155760595}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -12189,12 +12218,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868366675}
   m_CullTransparentMesh: 0
---- !u!1 &1872105109 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 1804663713242103323, guid: 335db85eb49c94a44a9cc7247cbc511b,
-    type: 3}
-  m_PrefabInstance: {fileID: 7039246305221322113}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1872105116 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1804663713242103333, guid: 335db85eb49c94a44a9cc7247cbc511b,
@@ -12279,6 +12302,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1872692261}
   m_CullTransparentMesh: 0
+--- !u!1 &1896598427 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4655991208923765932, guid: 400a0465af628c040924f84ac14ce3c5,
+    type: 3}
+  m_PrefabInstance: {fileID: 509170910432414657}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1902156276
 GameObject:
   m_ObjectHideFlags: 0
@@ -12447,7 +12476,7 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 1896598427}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -12809,7 +12838,7 @@ MonoBehaviour:
         m_MethodName: PickUnit
         m_Mode: 2
         m_Arguments:
-          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgument: {fileID: 932869786}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.GameObject, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
@@ -14109,7 +14138,7 @@ PrefabInstance:
     - target: {fileID: 2047501683724195262, guid: b186aee7249eaea44aef31066d4a325e,
         type: 3}
       propertyPath: m_Name
-      value: Hunter Right team
+      value: Hunter Left team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b186aee7249eaea44aef31066d4a325e, type: 3}
@@ -14178,7 +14207,7 @@ PrefabInstance:
     - target: {fileID: 4655991208923765932, guid: 400a0465af628c040924f84ac14ce3c5,
         type: 3}
       propertyPath: m_Name
-      value: Range Right team
+      value: Range Left team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 400a0465af628c040924f84ac14ce3c5, type: 3}
@@ -14247,7 +14276,7 @@ PrefabInstance:
     - target: {fileID: 4665825077604758261, guid: 3798426640f1459489064a3b870fade2,
         type: 3}
       propertyPath: m_Name
-      value: Warrior Right team
+      value: Warrior Left team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3798426640f1459489064a3b870fade2, type: 3}
@@ -14316,7 +14345,7 @@ PrefabInstance:
     - target: {fileID: 7373693187462512570, guid: 5b67711f4c8afaa4ca58b13351a22ec4,
         type: 3}
       propertyPath: m_Name
-      value: Repetetive Left Team
+      value: Repetetive Right Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 5b67711f4c8afaa4ca58b13351a22ec4, type: 3}
@@ -14330,7 +14359,7 @@ PrefabInstance:
     - target: {fileID: 6102889279635786440, guid: 3a0f7fff24996924a9aea968c76b8768,
         type: 3}
       propertyPath: m_Name
-      value: Mage Right team
+      value: Mage Left team
       objectReference: {fileID: 0}
     - target: {fileID: 6102889279635786486, guid: 3a0f7fff24996924a9aea968c76b8768,
         type: 3}
@@ -14399,7 +14428,7 @@ PrefabInstance:
     - target: {fileID: 988085888670926020, guid: 0af738e54eeff6c49973240f3b48ad45,
         type: 3}
       propertyPath: m_Name
-      value: Assasin Right Team
+      value: Assasin Left Team
       objectReference: {fileID: 0}
     - target: {fileID: 988085888670926074, guid: 0af738e54eeff6c49973240f3b48ad45,
         type: 3}
@@ -14480,12 +14509,12 @@ PrefabInstance:
     - target: {fileID: 4995872063049433119, guid: 58eb8066dc8a114499de606e1c4ce8b7,
         type: 3}
       propertyPath: m_Name
-      value: Sniper Left Team
+      value: Sniper Right Team
       objectReference: {fileID: 0}
     - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
         type: 3}
       propertyPath: m_RootOrder
-      value: 9
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 4995872063049433121, guid: 58eb8066dc8a114499de606e1c4ce8b7,
         type: 3}
@@ -14549,7 +14578,7 @@ PrefabInstance:
     - target: {fileID: 8816624377200116806, guid: bfca2d6f10ed44a45b9ca2f1bea41d84,
         type: 3}
       propertyPath: m_Name
-      value: Sniper Right team
+      value: Sniper Left team
       objectReference: {fileID: 0}
     - target: {fileID: 8816624377200116856, guid: bfca2d6f10ed44a45b9ca2f1bea41d84,
         type: 3}
@@ -14679,7 +14708,7 @@ PrefabInstance:
     - target: {fileID: 2027978074254731370, guid: 0e780702042686142b9b7908d98254db,
         type: 3}
       propertyPath: m_Name
-      value: Hunter Left Team
+      value: Hunter Right Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 0e780702042686142b9b7908d98254db, type: 3}
@@ -14754,7 +14783,7 @@ PrefabInstance:
     - target: {fileID: 939329125351419875, guid: 1ad0ed171eabfd944a7ad2e36eebea72,
         type: 3}
       propertyPath: m_Name
-      value: Thieve Right team
+      value: Thieve Left team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1ad0ed171eabfd944a7ad2e36eebea72, type: 3}
@@ -14829,7 +14858,7 @@ PrefabInstance:
     - target: {fileID: 2868010589044152033, guid: ae09f98a74c20c24795ad3f1fa2c678b,
         type: 3}
       propertyPath: m_Name
-      value: Thieve Left Team
+      value: Thieve Right Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ae09f98a74c20c24795ad3f1fa2c678b, type: 3}
@@ -14916,7 +14945,7 @@ PrefabInstance:
     - target: {fileID: 4156858109138117691, guid: 3ede4b32c36bff948b50fabbe2692f55,
         type: 3}
       propertyPath: m_Name
-      value: Partisant Left Team
+      value: Partisant Right Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 3ede4b32c36bff948b50fabbe2692f55, type: 3}
@@ -14936,7 +14965,7 @@ PrefabInstance:
     - target: {fileID: 1804663713242103323, guid: 335db85eb49c94a44a9cc7247cbc511b,
         type: 3}
       propertyPath: m_Name
-      value: Assasin Left Team
+      value: Assasin Right Team
       objectReference: {fileID: 0}
     - target: {fileID: 1804663713242103333, guid: 335db85eb49c94a44a9cc7247cbc511b,
         type: 3}
@@ -15072,7 +15101,7 @@ PrefabInstance:
     - target: {fileID: 5155943624400029046, guid: 1996f111df385094a8e20972dffd2bfe,
         type: 3}
       propertyPath: m_Name
-      value: Range Left Team
+      value: Range Right Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1996f111df385094a8e20972dffd2bfe, type: 3}
@@ -15141,7 +15170,7 @@ PrefabInstance:
     - target: {fileID: 1352539267562955263, guid: ccd34b9073bec024692c8a9cfba7e017,
         type: 3}
       propertyPath: m_Name
-      value: Repetetive Right team
+      value: Repetetive Left team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ccd34b9073bec024692c8a9cfba7e017, type: 3}
@@ -15210,7 +15239,7 @@ PrefabInstance:
     - target: {fileID: 5130010019252703985, guid: 54a9a1bfe60f835419f2cdb22fa26356,
         type: 3}
       propertyPath: m_Name
-      value: Mage Left Team
+      value: Mage Right Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 54a9a1bfe60f835419f2cdb22fa26356, type: 3}
@@ -15279,7 +15308,7 @@ PrefabInstance:
     - target: {fileID: 5683999066482732385, guid: 2897709cd0b088e49b3562f604782154,
         type: 3}
       propertyPath: m_Name
-      value: Partisant Right team
+      value: Partisant Left team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2897709cd0b088e49b3562f604782154, type: 3}
@@ -15348,7 +15377,7 @@ PrefabInstance:
     - target: {fileID: 5285067410831848953, guid: 08991aa0ae929eb499ebe8e37c22cf64,
         type: 3}
       propertyPath: m_Name
-      value: Warrior Left Team
+      value: Warrior Right Team
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 08991aa0ae929eb499ebe8e37c22cf64, type: 3}
