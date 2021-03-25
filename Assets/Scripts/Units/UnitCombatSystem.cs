@@ -4,36 +4,49 @@ using UnityEngine;
 public class UnitCombatSystem : MonoBehaviour {
     [SerializeField] private Team team;
     private HealthSystem _healthSystem;
+    [SerializeField] private UnitStatsSO _unitStats;
+    private int
+        _hp,
+        _damage,
+        _attackRange,
+        _movementRange,
+        _passiveAbility;
 
     public enum Team {
         Left,
         Right
     }
-    
+
+    private void Start() {
+        _unitStats = GetComponent<UnitCreator>().GetUnitStats();
+    }
+
     private MovePositionPathfinding _movePositionPathfinding;
     private State _state;
     private IsActive _isUnitActive;
     private HealthBar _healthbar;
-    
+
     private enum State {
         Normal,
         Moving,
         Attacking
     }
 
+    public UnitStatsSO GetUnitStats() {
+        return _unitStats;
+    }
+    
     public void SetActive() {
+        // TODO active sprite
         // _isUnitActive.SetUnitActive(true);
     }
 
     public void SetInactive() {
         // _isUnitActive.SetUnitActive(false);
     }
-    
+
     private void Awake() {
-        
         // TODO change damage
-        var damage = 10;
-        
         _movePositionPathfinding = GetComponent<MovePositionPathfinding>();
         _isUnitActive = GetComponent<IsActive>();
         _healthbar = GetComponentInChildren<HealthBar>();
@@ -52,11 +65,11 @@ public class UnitCombatSystem : MonoBehaviour {
                 break;
         }
     }
-    
+
     public void AttackUnit(UnitCombatSystem unitGridCombat, Action onAttackComplete) {
         _state = State.Attacking;
         Debug.Log($"Attack unit {unitGridCombat.name}");
-        unitGridCombat._healthSystem.Damage(50);
+        unitGridCombat._healthSystem.Damage(_damage);
         onAttackComplete();
     }
 
@@ -65,6 +78,7 @@ public class UnitCombatSystem : MonoBehaviour {
     }
 
     public Vector3 GetPosition() => transform.position;
+
     public void MoveTo(Vector3 targetPosition, Action onReachedPosition) {
         _state = State.Moving;
         // PATHFINDING
@@ -73,13 +87,12 @@ public class UnitCombatSystem : MonoBehaviour {
             onReachedPosition();
         });
     }
-    
+
     public bool IsEnemy(UnitCombatSystem unitGridCombat) {
         return unitGridCombat.GetTeam() != team;
     }
-    
+
     public bool CanAttackUnit(UnitCombatSystem unitGridCombat) {
         return Vector3.Distance(GetPosition(), unitGridCombat.GetPosition()) < 50f;
     }
-
 }

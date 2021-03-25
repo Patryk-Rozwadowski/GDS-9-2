@@ -122,6 +122,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  _unitStats: {fileID: 11400000, guid: 62749eb212e0dd347bf4ec1fb9e1bd21, type: 2}
 --- !u!114 &5285067410831848901
 MonoBehaviour:
   m_ObjectHideFlags: 0

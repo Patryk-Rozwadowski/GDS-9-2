@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
+  _unitStats: {fileID: 11400000, guid: 52210c23c814c3146892223f6a1b13e8, type: 2}
 --- !u!114 &4665825077604758217
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c31dfa8dc500754795574d1c01b4428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitScriptableObject: {fileID: 11400000, guid: 62749eb212e0dd347bf4ec1fb9e1bd21,
+  unitScriptableObject: {fileID: 11400000, guid: 52210c23c814c3146892223f6a1b13e8,
     type: 2}
 --- !u!1001 &4665825077410380836
 PrefabInstance:

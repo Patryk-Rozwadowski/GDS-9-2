@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 4924881100287979612}
   - component: {fileID: 4924881100287979618}
   m_Layer: 0
-  m_Name: Tank
+  m_Name: Tank Left team
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -152,6 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
+  _unitStats: {fileID: 11400000, guid: d6329a0eab58ef842bdde1b82c590a08, type: 2}
 --- !u!114 &4924881100287979615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -190,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c31dfa8dc500754795574d1c01b4428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitScriptableObject: {fileID: 11400000, guid: 6bcca7fe9078adb4bba8853ee1a09725,
+  unitScriptableObject: {fileID: 11400000, guid: d6329a0eab58ef842bdde1b82c590a08,
     type: 2}
 --- !u!1001 &4924881100060835506
 PrefabInstance:
