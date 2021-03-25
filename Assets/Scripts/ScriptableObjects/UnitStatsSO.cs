@@ -11,6 +11,9 @@ public class UnitStatsSO : ScriptableObject {
     [Header("Unit's sprite.")] [SerializeField]
     public Sprite sprite;
 
+    [Header("Selected unit's sprite")] [SerializeField]
+    public Sprite SelectedSprite;
+
     [Header("Maximum movement range")] [SerializeField]
     public int movementRange;
 
@@ -19,6 +22,9 @@ public class UnitStatsSO : ScriptableObject {
     
     [Header("Attack sound")] [SerializeField]
     public AudioClip attackSound;
+
+    [Header("Takes damage sound")] [SerializeField]
+    public AudioClip TakeDamageSound;
 
     [Header("Death sound")] [SerializeField]
     public AudioClip deathSound;

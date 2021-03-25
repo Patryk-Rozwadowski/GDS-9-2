@@ -15,9 +15,11 @@ MonoBehaviour:
   maxHealth: 0
   damage: 0
   sprite: {fileID: 21300000, guid: 13763e0af7e67d043867f2741987547f, type: 3}
+  SelectedSprite: {fileID: 21300000, guid: ca8b72e4442f3444d879a903991fcf2e, type: 3}
   movementRange: 0
   attackRange: 0
-  attackSound: {fileID: 0}
-  deathSound: {fileID: 0}
+  attackSound: {fileID: 8300000, guid: af469235b58447447b07f7af0a580102, type: 3}
+  TakeDamageSound: {fileID: 8300000, guid: f9167cda254bcf34382bf4b1abb5ef8e, type: 3}
+  deathSound: {fileID: 8300000, guid: 03300f9fa66f3b04f916b18a1840d498, type: 3}
   designerModeUnitSprite: {fileID: 21300000, guid: edd962aeb5c77e649989ac31055686b6,
     type: 3}
