@@ -2,6 +2,9 @@
 
 [CreateAssetMenu(menuName = "Units/Creator")]
 public class UnitStatsSO : ScriptableObject {
+    [Header("Unit's name")] [SerializeField]
+    public string unitName;
+    
     [Header("Maximum unit's health.")] [SerializeField]
     public int maxHealth;
 
