@@ -175,7 +175,6 @@ public class GridCombatSystem : MonoBehaviour {
     }
 
     private void ForceTurnOver() {
-        FindObjectOfType<AudioManager>().Play("Sword");
         _unitCombatSystem.SetInactive();
         SelectNextActiveUnit();
         UpdateValidMovePositions();
