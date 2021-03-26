@@ -2065,6 +2065,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 338971883}
   m_CullTransparentMesh: 0
+--- !u!1 &342873665 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2616195270739990956, guid: b8acbe148ad546448aae38e51caedd89,
+    type: 3}
+  m_PrefabInstance: {fileID: 1215809125}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &346596286
 GameObject:
   m_ObjectHideFlags: 0
@@ -6476,6 +6482,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1118804060611519916, guid: c3cd8bdb46ec8584ea192ad2139d180e,
+        type: 3}
+      propertyPath: PauseMenuUI
+      value: 
+      objectReference: {fileID: 342873665}
     - target: {fileID: 1118804060611519917, guid: c3cd8bdb46ec8584ea192ad2139d180e,
         type: 3}
       propertyPath: m_RootOrder
@@ -8639,6 +8650,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 519420031}
+    - target: {fileID: 5408290654249006470, guid: b8acbe148ad546448aae38e51caedd89,
+        type: 3}
+      propertyPath: m_SortingOrder
+      value: 10
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b8acbe148ad546448aae38e51caedd89, type: 3}
 --- !u!1 &1224863561 stripped
