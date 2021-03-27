@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00148c9b881516145886b1bf8315f871, type: 3}
   m_Name: Hunter Left Team
   m_EditorClassIdentifier: 
+  unitName: Hunter
   maxHealth: 70
   damage: 25
   sprite: {fileID: 21300000, guid: 66baff6c91faa484db34abaa43276247, type: 3}

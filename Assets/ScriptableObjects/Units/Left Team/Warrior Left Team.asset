@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00148c9b881516145886b1bf8315f871, type: 3}
   m_Name: Warrior Left Team
   m_EditorClassIdentifier: 
+  unitName: Warrior
   maxHealth: 100
   damage: 20
   sprite: {fileID: 21300000, guid: 7c178b661cb91534ab545b3a061dab35, type: 3}

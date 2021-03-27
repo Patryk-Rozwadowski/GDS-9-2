@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00148c9b881516145886b1bf8315f871, type: 3}
   m_Name: Sniper Right team
   m_EditorClassIdentifier: 
+  unitName: Sniper
   maxHealth: 50
   damage: 25
   sprite: {fileID: 21300000, guid: 7d4a32b95017d8240abae8de5d67e7dd, type: 3}
