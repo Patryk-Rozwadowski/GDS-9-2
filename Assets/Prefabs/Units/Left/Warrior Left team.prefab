@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5285067410831848902}
   - component: {fileID: 5285067410831848952}
   m_Layer: 0
-  m_Name: Melas Left team
+  m_Name: Warrior Left team
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -161,7 +161,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c31dfa8dc500754795574d1c01b4428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitScriptableObject: {fileID: 11400000, guid: 52210c23c814c3146892223f6a1b13e8,
+  unitScriptableObject: {fileID: 11400000, guid: 62749eb212e0dd347bf4ec1fb9e1bd21,
     type: 2}
 --- !u!1 &5285067412091995921
 GameObject:

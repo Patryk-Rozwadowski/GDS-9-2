@@ -16,10 +16,10 @@ public class DraftPickController : MonoBehaviour {
     }
 
     private bool
-        _pickedPosition,
-        _leftPickedUnit,
-        _rightPicked,
-        _leftPutUnitOnMap;
+                _pickedPosition,
+                _leftPickedUnit,
+                _rightPicked,
+                _leftPutUnitOnMap;
 
     private int _numberOfUnitsInTeams;
     private GameObject _pickedUnit;
@@ -31,11 +31,11 @@ public class DraftPickController : MonoBehaviour {
     }
 
     void Start() {
-        _teamPicking = Team.Left;
         _leftPickedUnit = false;
-        _pickedUnit = null;
-        _numberOfUnitsInTeams = 5;
         _rightTeamPanel.SetActive(false);
+        _pickedUnit = null;
+        _teamPicking = Team.Left;
+        _numberOfUnitsInTeams = 5;
     }
 
     public void PickUnit(GameObject element) {
@@ -49,7 +49,6 @@ public class DraftPickController : MonoBehaviour {
         _unitStatsControllerUI.ViewUnitStats(
             elementCombatSystem.GetUnitStats(),
             _teamPicking);
-        Debug.Log($"{elementCombatSystem.GetUnitStats()}");
         if ((Team) pickedElement == _teamPicking && _teamPicking == Team.Left) {
             if (_gridCombatSystem.leftTeam.Count > 5) {
                 Debug.Log($"{_gridCombatSystem.leftTeam} is FULL");
@@ -76,7 +75,7 @@ public class DraftPickController : MonoBehaviour {
     }
 
     void OnMouseDown() {
-        Debug.Log(this.gameObject.name);
+        Debug.Log(gameObject.name);
     }
 
     private void Update() {

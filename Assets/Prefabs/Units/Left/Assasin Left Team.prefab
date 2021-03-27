@@ -191,7 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5c31dfa8dc500754795574d1c01b4428, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  unitScriptableObject: {fileID: 11400000, guid: 1bbf4056225dc754da79fa49aa4e7831,
+  unitScriptableObject: {fileID: 11400000, guid: 5006638e84c95ad4eba1c00ac1b1db3d,
     type: 2}
 --- !u!1001 &1804663713048768714
 PrefabInstance:

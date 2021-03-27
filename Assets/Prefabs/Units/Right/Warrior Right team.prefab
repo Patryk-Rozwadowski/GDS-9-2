@@ -46,7 +46,7 @@ GameObject:
   - component: {fileID: 4665825077604758218}
   - component: {fileID: 4665825077604758260}
   m_Layer: 0
-  m_Name: Melas Right team
+  m_Name: Warrior Right team
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -60,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4665825077604758261}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -22.343735, y: 62.40001, z: 201.4375}
+  m_LocalPosition: {x: -22.343735, y: 62.40001, z: 0}
   m_LocalScale: {x: -5, y: 5, z: 1}
   m_Children:
   - {fileID: 4665825076378140700}
