@@ -25,22 +25,18 @@ public class UnitStatsControllerUI : MonoBehaviour {
         DraftPickController.Team team
     ) {
         if (team == DraftPickController.Team.Left) {
-            unitNameLeft.text = name;
+            unitNameLeft.text = unitStats.unitName;
             hpLeft.text = $"{unitStats.maxHealth}";
             attackLeft.text = $"{unitStats.damage}";
             attackRangeLeft.text = $"{unitStats.attackRange}";
             movementRangeLeft.text = $"{unitStats.movementRange}";
         }
         else {
-            unitNameRight.text = name;
+            unitNameRight.text = unitStats.unitName;
             hpRight.text = $"{unitStats.maxHealth}";
             attackRight.text = $"{unitStats.damage}";
             attackRangeRight.text = $"{unitStats.attackRange}";
             movementRangeRight.text = $"{unitStats.movementRange}";
         }
-    }
-
-    // Update is called once per frame
-    void Update() {
     }
 }

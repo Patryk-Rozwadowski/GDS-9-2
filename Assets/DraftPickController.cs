@@ -16,86 +16,82 @@ public class DraftPickController : MonoBehaviour {
     }
 
     private bool
-                _pickedPosition,
-                _leftPickedUnit,
-                _rightPicked,
-                _leftPutUnitOnMap;
+        _pickedPosition,
+        _leftPickedUnit,
+        _rightPicked,
+        _leftPutUnitOnMap;
 
     private int _numberOfUnitsInTeams;
-    private GameObject _pickedUnit;
+    private UnitCombatSystem _pickedUnit;
     private Team _teamPicking, _nextTeamPicking;
     private GridCombatSystem _gridCombatSystem;
-
+    private Vector3 _unitScale;
+    
     private void Awake() {
         _gridCombatSystem = GameObject.Find("GridCombatSystem").GetComponentInChildren<GridCombatSystem>();
     }
 
     void Start() {
-        _leftPickedUnit = false;
         _rightTeamPanel.SetActive(false);
         _pickedUnit = null;
-        _teamPicking = Team.Left;
         _numberOfUnitsInTeams = 5;
+        _unitScale = new Vector3(5,5,1);
+        
+        _leftPickedUnit = false;
+        _teamPicking = Team.Left;
+        
+        Debug.LogWarning($"START INIT: TEAM PICKING : {_teamPicking}");
     }
 
     public void PickUnit(GameObject element) {
         var elementCombatSystem = element.GetComponent<UnitCombatSystem>();
-        var pickedElement = elementCombatSystem.GetTeam();
-
-        Debug.Log($"PICKED ELEMENT TEAM: {pickedElement}");
-        Debug.Log($"TEAM PICKING: {_teamPicking}");
         _pickedPosition = false;
-       
-        _unitStatsControllerUI.ViewUnitStats(
-            elementCombatSystem.GetUnitStats(),
+        _unitStatsControllerUI.ViewUnitStats(elementCombatSystem.GetUnitStats(),
             _teamPicking);
-        if ((Team) pickedElement == _teamPicking && _teamPicking == Team.Left) {
-            if (_gridCombatSystem.leftTeam.Count > 5) {
-                Debug.Log($"{_gridCombatSystem.leftTeam} is FULL");
-                return;
-            }
-          
-            _gridCombatSystem.leftTeam.Add(elementCombatSystem);
-            _pickedUnit = element;
-
-            _teamPicking = Team.Right;
-            return;
-        }
-
-        if ((Team) pickedElement == _teamPicking && _teamPicking == Team.Right) {
-            if (_gridCombatSystem.rightTeam.Count > 5) {
-                Debug.Log($"{_gridCombatSystem.rightTeam} is FULL");
-                return;
-            }
-
-            _gridCombatSystem.rightTeam.Add(elementCombatSystem);
-            _pickedUnit = element;
-            _teamPicking = Team.Left;
-        }
+        _pickedUnit = element.GetComponent<UnitCombatSystem>();
     }
-
-    void OnMouseDown() {
-        Debug.Log(gameObject.name);
-    }
-
+    
     private void Update() {
         if (!Input.GetMouseButtonDown(0) || _pickedUnit == null) return;
         Grid<GridCombatSystem.GridObject> grid = GameController_GridCombatSystem.Instance.GetGrid();
         GridCombatSystem.GridObject gridObject = grid.GetGridObject(CursorUtils.GetMouseWorldPosition());
 
-        if (gridObject == null) return;
-        var pickedUnit = Instantiate(_pickedUnit, CursorUtils.GetMouseWorldPosition(), Quaternion.identity);
-        pickedUnit.transform.localScale = new Vector3(5, 5, 1);
-        pickedUnit.transform.position = GridUtils.SetUnitOnTileCenter(pickedUnit);
-        _pickedUnit = null;
+        if (_pickedUnit == null || gridObject == null) return;
+        _leftPickedUnit = !_leftPickedUnit;
+        Debug.Log($"LEFT PICKED UNIT: {_leftPickedUnit}");
+        if (_teamPicking == Team.Left && _leftPickedUnit == false) {
+            if (_gridCombatSystem.leftTeam.Count > 5) {
+                Debug.Log($"{_gridCombatSystem.leftTeam} is FULL");
+                return;
+            }
 
-        if (_teamPicking == Team.Left) {
+            // TURN PICK, PICK INCREMENT
+            
+            Debug.LogWarning($"UPDATE: TEAM PICKING (LEFT CONTEXT): {_teamPicking}");
+            _teamPicking = Team.Right;
+            
+            _gridCombatSystem.leftTeam.Add(_pickedUnit.GetComponent<UnitCombatSystem>());
+            var pickedUnit = Instantiate(_pickedUnit, CursorUtils.GetMouseWorldPosition(), Quaternion.identity);
+            pickedUnit.transform.localScale = _unitScale;
+            pickedUnit.transform.position = GridUtils.SetUnitOnTileCenter(pickedUnit.gameObject);
+            _pickedUnit = null;
             _leftTeamPanel.SetActive(true);
             _rightTeamPanel.SetActive(false);
-            return;
         }
+        else {
+            if (_gridCombatSystem.rightTeam.Count > 5) {
+                Debug.Log($"{_gridCombatSystem.rightTeam} is FULL");
+                return;
+            }
 
-        if (_teamPicking == Team.Right) {
+            Debug.LogWarning($"UPDATE: TEAM PICKING (RIGHT CONTEXT): {_teamPicking}");
+            _gridCombatSystem.rightTeam.Add(_pickedUnit.GetComponent<UnitCombatSystem>());
+            _teamPicking = Team.Left;
+            
+            var pickedUnit = Instantiate(_pickedUnit, CursorUtils.GetMouseWorldPosition(), Quaternion.identity);
+            pickedUnit.transform.localScale = _unitScale;
+            pickedUnit.transform.position = GridUtils.SetUnitOnTileCenter(pickedUnit.gameObject);
+            _pickedUnit = null;
             _leftTeamPanel.SetActive(false);
             _rightTeamPanel.SetActive(true);
         }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GridCombatSystem : MonoBehaviour {
     [SerializeField] private UnitCombatSystem[] unitCombatSystemsArray;
-    public List<UnitCombatSystem> leftTeam, rightTeam;
+    [SerializeField] public List<UnitCombatSystem> leftTeam, rightTeam;
 
     private UnitCombatSystem _unitCombatSystem;
     private int _lefTeamActiveUnitIndex, _rightTeamActiveUnitIndex;
@@ -21,39 +21,39 @@ public class GridCombatSystem : MonoBehaviour {
         _state = State.Normal;
     }
 
-    void Start() {
-        leftTeam = new List<UnitCombatSystem>();
-        rightTeam = new List<UnitCombatSystem>();
-
-        _gridTileMovement = Resources.Load("Sprites/grid-move", typeof(GameObject)) as GameObject;
-        _gridTileBorder = Resources.Load("Sprites/grid", typeof(GameObject)) as GameObject;
-
-        // foreach (UnitCombatSystem unit in unitCombatSystemsArray) {
-        //     CombatSystemUnitDebugLogger(unit);
-        //     
-        //     GameController_GridCombatSystem
-        //         .Instance
-        //         .GetGrid()
-        //         .GetGridObject(unit.GetPosition())
-        //         .SetUnitGridCombat(unit);
-        //     
-        //
-        //     // TODO Need refactor and cleanup
-        //     if (unit == null) return;
-        //     var cellSize = 17;
-        //     var cellCenter = cellSize / 2;
-        //     // Objects has to be in objectOnMap list in order to snap to grid
-        //     var objectOnMapTransformPosition = unit.transform.position;
-        //     objectOnMapTransformPosition.x =
-        //         Mathf.Floor(objectOnMapTransformPosition.x / cellSize) * cellSize + cellCenter;
-        //     objectOnMapTransformPosition.y =
-        //         Mathf.Floor(objectOnMapTransformPosition.y / cellSize) * cellSize + cellCenter;
-        //     unit.transform.position = objectOnMapTransformPosition;
-        // }
-        //
-        // SelectNextActiveUnit();
-        // UpdateValidMovePositions();
-    }
+    // void Start() {
+    //     leftTeam = new List<UnitCombatSystem>();
+    //     rightTeam = new List<UnitCombatSystem>();
+    //
+    //     _gridTileMovement = Resources.Load("Sprites/grid-move", typeof(GameObject)) as GameObject;
+    //     _gridTileBorder = Resources.Load("Sprites/grid", typeof(GameObject)) as GameObject;
+    //
+    //     foreach (UnitCombatSystem unit in unitCombatSystemsArray) {
+    //         CombatSystemUnitDebugLogger(unit);
+    //         
+    //         GameController_GridCombatSystem
+    //             .Instance
+    //             .GetGrid()
+    //             .GetGridObject(unit.GetPosition())
+    //             .SetUnitGridCombat(unit);
+    //         
+    //     
+    //         // TODO Need refactor and cleanup
+    //         if (unit == null) return;
+    //         var cellSize = 17;
+    //         var cellCenter = cellSize / 2;
+    //         // Objects has to be in objectOnMap list in order to snap to grid
+    //         var objectOnMapTransformPosition = unit.transform.position;
+    //         objectOnMapTransformPosition.x =
+    //             Mathf.Floor(objectOnMapTransformPosition.x / cellSize) * cellSize + cellCenter;
+    //         objectOnMapTransformPosition.y =
+    //             Mathf.Floor(objectOnMapTransformPosition.y / cellSize) * cellSize + cellCenter;
+    //         unit.transform.position = objectOnMapTransformPosition;
+    //     }
+    //     
+    //     SelectNextActiveUnit();
+    //     UpdateValidMovePositions();
+    // }
 
     public void Damage(GridCombatSystem attacker, int damageAmount) {
         // TODO Hp damgage

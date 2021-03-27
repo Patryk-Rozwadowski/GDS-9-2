@@ -20,7 +20,6 @@ public class UnitCreator : MonoBehaviour {
 
     void Start() {
         gameObject.AddComponent<UnitCombatSystem>();
-        
         GetComponent<SpriteRenderer>().sprite = unitScriptableObject.sprite;
     }
 

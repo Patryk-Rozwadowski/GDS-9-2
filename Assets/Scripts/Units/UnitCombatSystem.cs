@@ -3,8 +3,9 @@ using UnityEngine;
 
 public class UnitCombatSystem : MonoBehaviour {
     [SerializeField] private Team team;
-    private HealthSystem _healthSystem;
     [SerializeField] private UnitStatsSO _unitStats;
+    private HealthSystem _healthSystem;
+
     private int
         _hp,
         _damage,
@@ -51,7 +52,10 @@ public class UnitCombatSystem : MonoBehaviour {
         _isUnitActive = GetComponent<IsActive>();
         _healthbar = GetComponentInChildren<HealthBar>();
         _state = State.Normal;
-        _healthSystem = new HealthSystem(100);
+        Debug.Log(gameObject.name);
+
+        if (_unitStats == null) return;
+        _healthSystem = new HealthSystem(_unitStats.maxHealth);
         _healthbar.Init(_healthSystem);
     }
 
