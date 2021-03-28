@@ -52,8 +52,6 @@ public class UnitCombatSystem : MonoBehaviour {
         _isUnitActive = GetComponent<IsActive>();
         _healthbar = GetComponentInChildren<HealthBar>();
         _state = State.Normal;
-        Debug.Log(gameObject.name);
-
         if (_unitStats == null) return;
         _healthSystem = new HealthSystem(_unitStats.maxHealth);
         _healthbar.Init(_healthSystem);
