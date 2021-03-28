@@ -13,9 +13,26 @@ MonoBehaviour:
   m_Name: TeamsStateSO
   m_EditorClassIdentifier: 
   allUnitsInBothTeams:
-  - {fileID: 2868010589044152028, guid: ae09f98a74c20c24795ad3f1fa2c678b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   leftTeam:
-  - {fileID: 2868010589044152028, guid: ae09f98a74c20c24795ad3f1fa2c678b, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   rightTeam:
-  - {fileID: 939329125351419870, guid: 1ad0ed171eabfd944a7ad2e36eebea72, type: 3}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   areTeamsReady: 1
