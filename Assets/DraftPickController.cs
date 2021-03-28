@@ -4,6 +4,7 @@ using System.Diagnostics;
 using System.Linq;
 using UnityEditor;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
@@ -31,6 +32,7 @@ public class DraftPickController : MonoBehaviour {
     private Grid<GridCombatSystem.GridObject> _grid;
 
     private int _draftPickPoint;
+    private GameObject _pickButtonSelected;
 
     private void Awake() {
         _gridCombatSystem = GameObject.Find("GridCombatSystem").GetComponentInChildren<GridCombatSystem>();
@@ -49,14 +51,13 @@ public class DraftPickController : MonoBehaviour {
     public void PickUnit(GameObject element) {
         var elementCombatSystem = element.GetComponent<UnitCombatSystem>();
         _pickedPosition = false;
+        _pickButtonSelected = EventSystem.current.currentSelectedGameObject;
+
         _unitStatsControllerUI.ViewUnitStats(elementCombatSystem.GetUnitStats(),
             _teamPicking);
         _pickedUnit = element.GetComponent<UnitCombatSystem>();
     }
 
-    private void OnMouseDown() {
-        Debug.Log(gameObject.name);
-    }
 
     private void HidePanel() {
         if (_teamPicking == Team.Left) {
@@ -76,8 +77,10 @@ public class DraftPickController : MonoBehaviour {
         _pickedUnit = null;
     }
 
+
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {
+            Debug.Log(EventSystem.current.currentSelectedGameObject);
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -90,10 +93,12 @@ public class DraftPickController : MonoBehaviour {
         var gridObject = _grid.GetGridObject(CursorUtils.GetMouseWorldPosition());
         if (_pickedUnit == null || gridObject == null) return;
 
+
         if (_teamPicking == Team.Left) {
             _gridCombatSystem.leftTeam.Add(_pickedUnit.GetComponent<UnitCombatSystem>());
             PlaceUnitOnMap();
             _draftPickPoint++;
+            _pickButtonSelected.SetActive(false);
 
             if (
                 _draftPickPoint == 1 ||
@@ -110,6 +115,7 @@ public class DraftPickController : MonoBehaviour {
         if (_teamPicking == Team.Right) {
             _gridCombatSystem.rightTeam.Add(_pickedUnit.GetComponent<UnitCombatSystem>());
             PlaceUnitOnMap();
+            _pickButtonSelected.SetActive(false);
             if (_gridCombatSystem.rightTeam.Count > 4) {
                 Debug.Log($"{_gridCombatSystem.rightTeam} is FULL");
                 int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
