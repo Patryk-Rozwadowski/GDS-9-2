@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 5285067410831848900}
   - component: {fileID: 5285067410831848901}
   - component: {fileID: 5285067410831848902}
+  - component: {fileID: 1652384590783954834}
   m_Layer: 0
   m_Name: Warrior Left team
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5285067410831848953}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 30.57966, y: 83.405045, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 5, y: 5, z: 1}
   m_Children:
   - {fileID: 5285067412091995920}
@@ -122,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 0
   _unitStats: {fileID: 11400000, guid: 62749eb212e0dd347bf4ec1fb9e1bd21, type: 2}
+  _isUnitActive: 0
 --- !u!114 &5285067410831848901
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +149,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5f38a9ee66ca944aaa99efd292ef8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+--- !u!114 &1652384590783954834
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5285067410831848953}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22362d960ce261349be24962acaa7bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5285067412091995921
 GameObject:
   m_ObjectHideFlags: 0

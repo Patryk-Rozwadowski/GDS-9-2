@@ -17,46 +17,51 @@ public class UnitCombatSystem : MonoBehaviour {
         Left,
         Right
     }
-
-
+    
     private MovePositionPathfinding _movePositionPathfinding;
     private State _state;
-    private IsActive _isUnitActive;
+    public bool _isUnitActive;
     private HealthBar _healthbar;
-
+    private SpriteRenderer _sr;
     private enum State {
         Normal,
         Moving,
         Attacking
     }
 
+    public int GetMovementRange() => _movementRange;
+    
     public UnitStatsSO GetUnitStats() {
         return _unitStats;
     }
     
     public void SetActive() {
         // TODO active sprite
-        // _isUnitActive.SetUnitActive(true);
+        _isUnitActive = true;
     }
 
     public void SetInactive() {
-        // _isUnitActive.SetUnitActive(false);
+        _isUnitActive = false;
     }
 
     
-    private void Start() {
-        // TODO change damage
-        _movePositionPathfinding = GetComponent<MovePositionPathfinding>();
-        _isUnitActive = GetComponent<IsActive>();
+    private void Awake() {
+        
         _healthbar = GetComponentInChildren<HealthBar>();
         _state = State.Normal;
+        _isUnitActive = false;
         if (_unitStats == null) return;
         _healthSystem = new HealthSystem(_unitStats.maxHealth);
         _healthbar.Init(_healthSystem);
-        GetComponent<SpriteRenderer>().sprite = _unitStats.sprite;
+        _sr = GetComponent<SpriteRenderer>();
+        _sr.sprite = _unitStats.sprite;
     }
 
- 
+    private void Start() {
+        _movePositionPathfinding = GetComponent<MovePositionPathfinding>();
+        Debug.Log($"MOVE POSITION PATH FINDING {_movePositionPathfinding}");
+    }
+
     private void Update() {
         switch (_state) {
             case State.Normal:
@@ -66,6 +71,11 @@ public class UnitCombatSystem : MonoBehaviour {
             case State.Attacking:
                 break;
         }
+
+        if (_isUnitActive) {
+            _sr.sprite = _unitStats.SelectedSprite;
+        }
+        else _sr.sprite = _unitStats.sprite;
     }
 
     public void AttackUnit(UnitCombatSystem unitGridCombat, Action onAttackComplete) {
@@ -86,7 +96,6 @@ public class UnitCombatSystem : MonoBehaviour {
         // PATHFINDING
         _movePositionPathfinding.SetMovePosition(targetPosition + new Vector3(1, 1), () => {
             _state = State.Normal;
-            onReachedPosition();
         });
     }
 

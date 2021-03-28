@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 4924881100287979614}
   - component: {fileID: 4924881100287979615}
   - component: {fileID: 4924881100287979612}
+  - component: {fileID: 1847629303682433454}
   m_Layer: 0
   m_Name: Tank Left team
   m_TagString: Untagged
@@ -178,6 +179,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
+--- !u!114 &1847629303682433454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4924881100287979619}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22362d960ce261349be24962acaa7bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4924881100060835506
 PrefabInstance:
   m_ObjectHideFlags: 0

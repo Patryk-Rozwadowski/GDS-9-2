@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 6102889279635786485}
   - component: {fileID: 6102889279635786484}
   - component: {fileID: 6102889279635786487}
+  - component: {fileID: 1634221948838430146}
   m_Layer: 0
   m_Name: Mage Right team
   m_TagString: Untagged
@@ -122,6 +123,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   _unitStats: {fileID: 11400000, guid: 270de573e6c20d147a655b09a973188b, type: 2}
+  _isUnitActive: 0
 --- !u!114 &6102889279635786484
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -147,7 +149,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5f38a9ee66ca944aaa99efd292ef8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+--- !u!114 &1634221948838430146
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6102889279635786440}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22362d960ce261349be24962acaa7bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6102889280892811296
 GameObject:
   m_ObjectHideFlags: 0

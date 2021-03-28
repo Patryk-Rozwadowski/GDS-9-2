@@ -7,14 +7,15 @@ public class GameController_GridCombatSystem : MonoBehaviour {
     public GridPathfinding gridPathfinding;
     private Grid<GridCombatSystem.GridObject> _grid;
 
+    
     private void Awake() {
         Instance = this;
-        DontDestroyOnLoad(gameObject);
         
         var mapWidth = 10;
         var mapHeight = 8;
+        
         Vector3 origin = new Vector3(0, 0);
-
+        
         _grid = new Grid<GridCombatSystem.GridObject>(
             mapWidth,
             mapHeight,

@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class GridCombatSystem : MonoBehaviour {
     [SerializeField] public List<UnitCombatSystem> leftTeam, rightTeam;
-    [SerializeField] private TeamsStateSO _teamsState;
+    public TeamsStateSO _teamsState;
     
     private UnitCombatSystem _unitCombatSystem;
     private int _lefTeamActiveUnitIndex, _rightTeamActiveUnitIndex;
@@ -30,28 +30,10 @@ public class GridCombatSystem : MonoBehaviour {
     
         foreach (UnitCombatSystem unit in _teamsState.allUnitsInBothTeams) {
             CombatSystemUnitDebugLogger(unit);
-            
-            GameController_GridCombatSystem
-                .Instance
-                .GetGrid()
-                .GetGridObject(unit.GetPosition())
-                .SetUnitGridCombat(unit);
-            
-        
-            // TODO Need refactor and cleanup
-            // if (unit == null) return;
-            // var cellSize = 17;
-            // var cellCenter = cellSize / 2;
-            // // Objects has to be in objectOnMap list in order to snap to grid
-            // var objectOnMapTransformPosition = unit.transform.position;
-            // objectOnMapTransformPosition.x =
-            //     Mathf.Floor(objectOnMapTransformPosition.x / cellSize) * cellSize + cellCenter;
-            // objectOnMapTransformPosition.y =
-            //     Mathf.Floor(objectOnMapTransformPosition.y / cellSize) * cellSize + cellCenter;
-            // unit.transform.position = objectOnMapTransformPosition;
         }
 
         _teamsState.areTeamsReady = true;
+        GameController_GridCombatSystem.Instance.gridPathfinding.RaycastWalkable();
         SelectNextActiveUnit();
         UpdateValidMovePositions();
         
@@ -237,14 +219,13 @@ public class GridCombatSystem : MonoBehaviour {
     private void SelectNextActiveUnit() {
         if (_unitCombatSystem == null || _unitCombatSystem.GetTeam() == UnitCombatSystem.Team.Right) {
             _unitCombatSystem = GetNextActiveUnit(UnitCombatSystem.Team.Left);
-
             Debug.Log($"Next unit is: {_unitCombatSystem}");
         }
         else {
             _unitCombatSystem = GetNextActiveUnit(UnitCombatSystem.Team.Right);
             Debug.Log($"Next unit is: {_unitCombatSystem}");
         }
-
+        
         _unitCombatSystem.SetActive();
         _canMoveThisTurn = true;
         _canAttackThisTurn = true;
@@ -257,7 +238,7 @@ public class GridCombatSystem : MonoBehaviour {
 
     private void CombatSystemUnitDebugLogger(UnitCombatSystem unit) {
         if (unit == null) return;
-        Debug.Log($"Unit name: {unit.name}, team: {unit.GetTeam()}");
+        Debug.Log($"Unit name: {unit.name}, team: {unit.GetTeam()}, POSITION: X:{unit.transform.position.x} Y:{unit.transform.position.y} ");
     }
 
     public class GridObject {

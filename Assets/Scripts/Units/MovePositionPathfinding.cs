@@ -3,8 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class MovePositionPathfinding : MonoBehaviour {
-    public bool isActive = false;
-    
     private List<Vector3> pathVectorList;
     private MoveTransformVelocity _moveVelocity;
     private Action _onReachedTargetPosition;

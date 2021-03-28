@@ -44,6 +44,7 @@ GameObject:
   - component: {fileID: 2047501683724195203}
   - component: {fileID: 2047501683724195202}
   - component: {fileID: 2047501683724195201}
+  - component: {fileID: -4746874320601932928}
   m_Layer: 0
   m_Name: Hunter Right team
   m_TagString: Untagged
@@ -59,7 +60,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2047501683724195262}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -51.14373, y: 62.8, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: -5, y: 5, z: 1}
   m_Children:
   - {fileID: 2047501682735687511}
@@ -152,6 +153,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   team: 1
   _unitStats: {fileID: 11400000, guid: 89f9e46fdb5b5d641963f2ed9d9e4404, type: 2}
+  _isUnitActive: 0
 --- !u!114 &2047501683724195202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -177,7 +179,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5f38a9ee66ca944aaa99efd292ef8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
+--- !u!114 &-4746874320601932928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047501683724195262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22362d960ce261349be24962acaa7bf5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &2047501683784620911
 PrefabInstance:
   m_ObjectHideFlags: 0

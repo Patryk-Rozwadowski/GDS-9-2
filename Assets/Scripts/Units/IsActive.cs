@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class IsActive : MonoBehaviour {
     private void Start() {
-        gameObject.SetActive(false);
     }
 
     public void SetUnitActive(bool isActive) {
