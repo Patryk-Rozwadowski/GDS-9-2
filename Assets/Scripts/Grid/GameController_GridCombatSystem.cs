@@ -9,7 +9,8 @@ public class GameController_GridCombatSystem : MonoBehaviour {
 
     private void Awake() {
         Instance = this;
-
+        DontDestroyOnLoad(gameObject);
+        
         var mapWidth = 10;
         var mapHeight = 8;
         Vector3 origin = new Vector3(0, 0);

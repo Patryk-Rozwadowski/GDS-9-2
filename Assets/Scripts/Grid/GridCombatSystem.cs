@@ -2,10 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GridCombatSystem : MonoBehaviour {
-    [SerializeField] private UnitCombatSystem[] unitCombatSystemsArray;
-    [SerializeField] public List<UnitCombatSystem> leftTeam, rightTeam;
 
+public class GridCombatSystem : MonoBehaviour {
+    [SerializeField] public List<UnitCombatSystem> leftTeam, rightTeam;
+    [SerializeField] private TeamsStateSO _teamsState;
+    
     private UnitCombatSystem _unitCombatSystem;
     private int _lefTeamActiveUnitIndex, _rightTeamActiveUnitIndex;
     private State _state;
@@ -21,40 +22,41 @@ public class GridCombatSystem : MonoBehaviour {
         _state = State.Normal;
     }
 
-    // void Start() {
-    //     leftTeam = new List<UnitCombatSystem>();
-    //     rightTeam = new List<UnitCombatSystem>();
-    //
-    //     _gridTileMovement = Resources.Load("Sprites/grid-move", typeof(GameObject)) as GameObject;
-    //     _gridTileBorder = Resources.Load("Sprites/grid", typeof(GameObject)) as GameObject;
-    //
-    //     foreach (UnitCombatSystem unit in unitCombatSystemsArray) {
-    //         CombatSystemUnitDebugLogger(unit);
-    //         
-    //         GameController_GridCombatSystem
-    //             .Instance
-    //             .GetGrid()
-    //             .GetGridObject(unit.GetPosition())
-    //             .SetUnitGridCombat(unit);
-    //         
-    //     
-    //         // TODO Need refactor and cleanup
-    //         if (unit == null) return;
-    //         var cellSize = 17;
-    //         var cellCenter = cellSize / 2;
-    //         // Objects has to be in objectOnMap list in order to snap to grid
-    //         var objectOnMapTransformPosition = unit.transform.position;
-    //         objectOnMapTransformPosition.x =
-    //             Mathf.Floor(objectOnMapTransformPosition.x / cellSize) * cellSize + cellCenter;
-    //         objectOnMapTransformPosition.y =
-    //             Mathf.Floor(objectOnMapTransformPosition.y / cellSize) * cellSize + cellCenter;
-    //         unit.transform.position = objectOnMapTransformPosition;
-    //     }
-    //     
-    //     SelectNextActiveUnit();
-    //     UpdateValidMovePositions();
-    // }
+    public void SetupGame() {
+        leftTeam = _teamsState.leftTeam;
+        rightTeam = _teamsState.rightTeam;
+        _gridTileMovement = Resources.Load("Sprites/grid-move", typeof(GameObject)) as GameObject;
+        _gridTileBorder = Resources.Load("Sprites/grid", typeof(GameObject)) as GameObject;
+    
+        foreach (UnitCombatSystem unit in _teamsState.allUnitsInBothTeams) {
+            CombatSystemUnitDebugLogger(unit);
+            
+            GameController_GridCombatSystem
+                .Instance
+                .GetGrid()
+                .GetGridObject(unit.GetPosition())
+                .SetUnitGridCombat(unit);
+            
+        
+            // TODO Need refactor and cleanup
+            // if (unit == null) return;
+            // var cellSize = 17;
+            // var cellCenter = cellSize / 2;
+            // // Objects has to be in objectOnMap list in order to snap to grid
+            // var objectOnMapTransformPosition = unit.transform.position;
+            // objectOnMapTransformPosition.x =
+            //     Mathf.Floor(objectOnMapTransformPosition.x / cellSize) * cellSize + cellCenter;
+            // objectOnMapTransformPosition.y =
+            //     Mathf.Floor(objectOnMapTransformPosition.y / cellSize) * cellSize + cellCenter;
+            // unit.transform.position = objectOnMapTransformPosition;
+        }
 
+        _teamsState.areTeamsReady = true;
+        SelectNextActiveUnit();
+        UpdateValidMovePositions();
+        
+    }
+    
     public void Damage(GridCombatSystem attacker, int damageAmount) {
         // TODO Hp damgage
         Debug.Log($"Damage done: {damageAmount}");
@@ -88,6 +90,7 @@ public class GridCombatSystem : MonoBehaviour {
     }
 
     private void Update() {
+        if (!_teamsState.areTeamsReady) return;
         switch (_state) {
             case State.Normal:
                 if (Input.GetKeyDown(KeyCode.Space)) {

@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 4665825077604758216}
   - component: {fileID: 4665825077604758217}
   - component: {fileID: 4665825077604758218}
-  - component: {fileID: 4665825077604758260}
   m_Layer: 0
   m_Name: Warrior Right team
   m_TagString: Untagged
@@ -178,21 +177,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5f38a9ee66ca944aaa99efd292ef8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
---- !u!114 &4665825077604758260
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4665825077604758261}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c31dfa8dc500754795574d1c01b4428, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitScriptableObject: {fileID: 11400000, guid: 52210c23c814c3146892223f6a1b13e8,
-    type: 2}
+  isActive: 0
 --- !u!1001 &4665825077410380836
 PrefabInstance:
   m_ObjectHideFlags: 0

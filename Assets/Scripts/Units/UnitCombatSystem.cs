@@ -18,9 +18,6 @@ public class UnitCombatSystem : MonoBehaviour {
         Right
     }
 
-    private void Start() {
-        _unitStats = GetComponent<UnitCreator>().GetUnitStats();
-    }
 
     private MovePositionPathfinding _movePositionPathfinding;
     private State _state;
@@ -46,7 +43,8 @@ public class UnitCombatSystem : MonoBehaviour {
         // _isUnitActive.SetUnitActive(false);
     }
 
-    private void Awake() {
+    
+    private void Start() {
         // TODO change damage
         _movePositionPathfinding = GetComponent<MovePositionPathfinding>();
         _isUnitActive = GetComponent<IsActive>();
@@ -55,8 +53,10 @@ public class UnitCombatSystem : MonoBehaviour {
         if (_unitStats == null) return;
         _healthSystem = new HealthSystem(_unitStats.maxHealth);
         _healthbar.Init(_healthSystem);
+        GetComponent<SpriteRenderer>().sprite = _unitStats.sprite;
     }
 
+ 
     private void Update() {
         switch (_state) {
             case State.Normal:

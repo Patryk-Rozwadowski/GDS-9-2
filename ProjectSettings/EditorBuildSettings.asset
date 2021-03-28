@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Menu.unity
     guid: a421c91c0768f4148b69819c091c91c4
   - enabled: 1
+    path: Assets/Scenes/DraftPick.unity
+    guid: a4970e5a5fbcd8d479f6273a1a85a9c6
+  - enabled: 1
     path: Assets/Scenes/UI.unity
     guid: 35b163b9e4b041e4eb49f2882840e57d
   m_configObjects: {}

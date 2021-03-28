@@ -44,7 +44,6 @@ GameObject:
   - component: {fileID: 988085888670926073}
   - component: {fileID: 988085888670926072}
   - component: {fileID: 988085888670926075}
-  - component: {fileID: 988085888670926021}
   m_Layer: 0
   m_Name: Assasin Right Team
   m_TagString: Untagged
@@ -179,20 +178,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
---- !u!114 &988085888670926021
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 988085888670926020}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c31dfa8dc500754795574d1c01b4428, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitScriptableObject: {fileID: 11400000, guid: 1bbf4056225dc754da79fa49aa4e7831,
-    type: 2}
 --- !u!1001 &988085888847481365
 PrefabInstance:
   m_ObjectHideFlags: 0

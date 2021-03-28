@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 5285067410831848900}
   - component: {fileID: 5285067410831848901}
   - component: {fileID: 5285067410831848902}
-  - component: {fileID: 5285067410831848952}
   m_Layer: 0
   m_Name: Warrior Left team
   m_TagString: Untagged
@@ -149,20 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
---- !u!114 &5285067410831848952
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5285067410831848953}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c31dfa8dc500754795574d1c01b4428, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitScriptableObject: {fileID: 11400000, guid: 62749eb212e0dd347bf4ec1fb9e1bd21,
-    type: 2}
 --- !u!1 &5285067412091995921
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,7 +14,6 @@ GameObject:
   - component: {fileID: 8816624377200116859}
   - component: {fileID: 8816624377200116858}
   - component: {fileID: 8816624377200116857}
-  - component: {fileID: 8816624377200116807}
   m_Layer: 0
   m_Name: Sniper Right team
   m_TagString: Untagged
@@ -149,20 +148,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isActive: 1
---- !u!114 &8816624377200116807
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8816624377200116806}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5c31dfa8dc500754795574d1c01b4428, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  unitScriptableObject: {fileID: 11400000, guid: 8110003021806d549b2b8fd9fef577f2,
-    type: 2}
 --- !u!1 &8816624378156201646
 GameObject:
   m_ObjectHideFlags: 0

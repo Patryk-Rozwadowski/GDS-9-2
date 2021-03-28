@@ -1,18 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using UnityEditor;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
-using UnityEngine.UI;
 using Debug = UnityEngine.Debug;
 
 public class DraftPickController : MonoBehaviour {
     [SerializeField] private UnitStatsControllerUI _unitStatsControllerUI;
     [SerializeField] private GameObject _leftTeamPanel, _rightTeamPanel;
-
+    [SerializeField] private TeamsStateSO _teamsState;
+    
     public enum Team {
         Left,
         Right
@@ -39,6 +34,11 @@ public class DraftPickController : MonoBehaviour {
     }
 
     void Start() {
+        _teamsState.leftTeam.Clear();
+        _teamsState.rightTeam.Clear();
+        _teamsState.allUnitsInBothTeams.Clear();
+        _teamsState.areTeamsReady = false;
+        
         _grid = GameController_GridCombatSystem.Instance.GetGrid();
         _rightTeamPanel.SetActive(false);
         _pickedUnit = null;
@@ -74,13 +74,19 @@ public class DraftPickController : MonoBehaviour {
         var pickedUnit = Instantiate(_pickedUnit, CursorUtils.GetMouseWorldPosition(), Quaternion.identity);
         pickedUnit.transform.localScale = _unitScale;
         pickedUnit.transform.position = GridUtils.SetUnitOnTileCenter(pickedUnit.gameObject);
+        
+        GameController_GridCombatSystem
+            .Instance
+            .GetGrid()
+            .GetGridObject(pickedUnit.GetPosition())
+            .SetUnitGridCombat(pickedUnit);
+        
         _pickedUnit = null;
     }
 
 
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {
-            Debug.Log(EventSystem.current.currentSelectedGameObject);
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
@@ -95,7 +101,8 @@ public class DraftPickController : MonoBehaviour {
 
 
         if (_teamPicking == Team.Left) {
-            _gridCombatSystem.leftTeam.Add(_pickedUnit.GetComponent<UnitCombatSystem>());
+            _teamsState.leftTeam.Add(_pickedUnit.GetComponent<UnitCombatSystem>());
+            _teamsState.allUnitsInBothTeams.Add(_pickedUnit.GetComponent<UnitCombatSystem>());
             PlaceUnitOnMap();
             _draftPickPoint++;
             _pickButtonSelected.SetActive(false);
@@ -113,13 +120,16 @@ public class DraftPickController : MonoBehaviour {
         }
 
         if (_teamPicking == Team.Right) {
-            _gridCombatSystem.rightTeam.Add(_pickedUnit.GetComponent<UnitCombatSystem>());
+            _teamsState.rightTeam.Add(_pickedUnit.GetComponent<UnitCombatSystem>());
+            _teamsState.allUnitsInBothTeams.Add(_pickedUnit.GetComponent<UnitCombatSystem>());
             PlaceUnitOnMap();
             _pickButtonSelected.SetActive(false);
-            if (_gridCombatSystem.rightTeam.Count > 4) {
-                Debug.Log($"{_gridCombatSystem.rightTeam} is FULL");
-                int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
-                SceneManager.LoadScene(nextSceneIndex);
+            if (_teamsState.rightTeam.Count == 4) {
+                Debug.Log($"{_teamsState.rightTeam} is FULL");
+                // int nextSceneIndex = SceneManager.GetActiveScene().buildIndex + 1;
+                // SceneManager.LoadScene(nextSceneIndex);
+                _gridCombatSystem.SetupGame();
+                
                 return;
             }
 

@@ -309,6 +309,7 @@ MonoBehaviour:
   _unitStatsControllerUI: {fileID: 1126195890}
   _leftTeamPanel: {fileID: 721330267}
   _rightTeamPanel: {fileID: 770542965}
+  _teamsState: {fileID: 11400000, guid: a3194b01e2e36f94486f3e22e3cc1da7, type: 2}
 --- !u!4 &18117243
 Transform:
   m_ObjectHideFlags: 0
@@ -2516,6 +2517,7 @@ MonoBehaviour:
   - {fileID: 0}
   leftTeam: []
   rightTeam: []
+  _teamsState: {fileID: 11400000, guid: a3194b01e2e36f94486f3e22e3cc1da7, type: 2}
 --- !u!1 &660365737
 GameObject:
   m_ObjectHideFlags: 0
