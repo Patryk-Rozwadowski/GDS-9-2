@@ -1,5 +1,4 @@
-﻿using UnityEditor.SceneManagement;
-using UnityEngine;
+﻿using UnityEngine;
 public class UnitCreator : MonoBehaviour {
     [Header("Scriptable object with all required parameters and stats for unit")] [SerializeField]
     public UnitStatsSO unitScriptableObject;
