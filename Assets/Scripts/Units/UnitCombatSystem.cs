@@ -46,7 +46,6 @@ public class UnitCombatSystem : MonoBehaviour {
 
     
     private void Awake() {
-        
         _healthbar = GetComponentInChildren<HealthBar>();
         _state = State.Normal;
         _isUnitActive = false;
@@ -81,7 +80,7 @@ public class UnitCombatSystem : MonoBehaviour {
     public void AttackUnit(UnitCombatSystem unitGridCombat, Action onAttackComplete) {
         _state = State.Attacking;
         Debug.Log($"Attack unit {unitGridCombat.name}");
-        unitGridCombat._healthSystem.Damage(_damage);
+        unitGridCombat._healthSystem.Damage(unitStats.damage);
         onAttackComplete();
     }
 

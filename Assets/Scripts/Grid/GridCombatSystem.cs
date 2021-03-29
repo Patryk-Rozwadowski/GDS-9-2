@@ -30,6 +30,12 @@ public class GridCombatSystem : MonoBehaviour {
     
         foreach (UnitCombatSystem unit in _teamsState.allUnitsInBothTeams) {
             CombatSystemUnitDebugLogger(unit);
+            
+            GameController_GridCombatSystem
+                .Instance
+                .GetGrid()
+                .GetGridObject(unit.GetPosition())
+                .SetUnitGridCombat(unit.GetComponent<UnitCombatSystem>());
         }
 
         _teamsState.areTeamsReady = true;

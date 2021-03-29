@@ -10,8 +10,14 @@ public class HealthBar : MonoBehaviour {
     }
 
     private void HealthSystemOnOnHealthChanged(object sender, EventArgs e) {
-        var bar = transform.Find("Bar");
+        var bar = gameObject.transform.Find("Bar");
         bar.localScale = new Vector3(_healthSystem.GetHealthPercent(), 1f);
         Debug.Log($"{gameObject.transform.parent.gameObject} hp: {_healthSystem.GetHealth()}");
+        if (_healthSystem.GetHealthPercent() == 0) {
+            var unit = transform.parent.gameObject;
+            transform.parent = null;
+            Destroy(unit);
+            Destroy(gameObject);
+        }
     }
 }
