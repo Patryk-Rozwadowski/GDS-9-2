@@ -27,20 +27,22 @@ public class DraftPickController : MonoBehaviour {
     private Grid<GridCombatSystem.GridObject> _grid;
     private GameObject _pickButtonSelected;
 
-
+    private bool _debug = true;
     void Start() {
-        _teamsState.leftTeam.Clear();
-        _teamsState.rightTeam.Clear();
-        _teamsState.allUnitsInBothTeams.Clear();
-        _teamsState.areTeamsReady = false;
-
         _grid = GameController_GridCombatSystem.Instance.GetGrid();
-        _rightTeamPanel.SetActive(false);
         _pickedUnit = null;
         _numberOfUnitsInTeams = 5;
         _draftPickPoint = 0;
         _unitScale = new Vector3(5, 5, 1);
+        _teamsState.areTeamsReady = false;
+        _rightTeamPanel.SetActive(false);
+        _teamsState.leftTeam.Clear();
+        _teamsState.rightTeam.Clear();
+        _teamsState.allUnitsInBothTeams.Clear();
         Debug.LogWarning($"START INIT: TEAM PICKING : {_teamPicking}");
+        if (_debug) {
+            _numberOfUnitsInTeams = 1;
+        }
     }
 
     public void PickUnit(GameObject element) {

@@ -152,7 +152,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
-  _unitStats: {fileID: 11400000, guid: d6329a0eab58ef842bdde1b82c590a08, type: 2}
+  unitStats: {fileID: 11400000, guid: d6329a0eab58ef842bdde1b82c590a08, type: 2}
+  _isUnitActive: 0
 --- !u!114 &4924881100287979615
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +179,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b5f38a9ee66ca944aaa99efd292ef8c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  isActive: 1
 --- !u!114 &1847629303682433454
 MonoBehaviour:
   m_ObjectHideFlags: 0

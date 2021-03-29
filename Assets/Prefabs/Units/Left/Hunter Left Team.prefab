@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 0
-  _unitStats: {fileID: 11400000, guid: 8b047949434c5e94698ade9e9e2e0e26, type: 2}
+  unitStats: {fileID: 11400000, guid: 8b047949434c5e94698ade9e9e2e0e26, type: 2}
   _isUnitActive: 0
 --- !u!114 &2027978074254731350
 MonoBehaviour:

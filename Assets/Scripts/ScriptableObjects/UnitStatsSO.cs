@@ -34,4 +34,5 @@ public class UnitStatsSO : ScriptableObject {
 
     [Header("Designer mode - unit sprite")] [SerializeField]
     public Sprite designerModeUnitSprite;
+    
 }

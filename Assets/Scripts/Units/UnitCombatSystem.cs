@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class UnitCombatSystem : MonoBehaviour {
     [SerializeField] private Team team;
-    [SerializeField] private UnitStatsSO _unitStats;
+    [SerializeField] public UnitStatsSO unitStats;
     private HealthSystem _healthSystem;
 
     private int
@@ -32,7 +32,7 @@ public class UnitCombatSystem : MonoBehaviour {
     public int GetMovementRange() => _movementRange;
     
     public UnitStatsSO GetUnitStats() {
-        return _unitStats;
+        return unitStats;
     }
     
     public void SetActive() {
@@ -50,11 +50,11 @@ public class UnitCombatSystem : MonoBehaviour {
         _healthbar = GetComponentInChildren<HealthBar>();
         _state = State.Normal;
         _isUnitActive = false;
-        if (_unitStats == null) return;
-        _healthSystem = new HealthSystem(_unitStats.maxHealth);
+        if (unitStats == null) return;
+        _healthSystem = new HealthSystem(unitStats.maxHealth);
         _healthbar.Init(_healthSystem);
         _sr = GetComponent<SpriteRenderer>();
-        _sr.sprite = _unitStats.sprite;
+        _sr.sprite = unitStats.sprite;
     }
 
     private void Start() {
@@ -73,9 +73,9 @@ public class UnitCombatSystem : MonoBehaviour {
         }
 
         if (_isUnitActive) {
-            _sr.sprite = _unitStats.SelectedSprite;
+            _sr.sprite = unitStats.SelectedSprite;
         }
-        else _sr.sprite = _unitStats.sprite;
+        else _sr.sprite = unitStats.sprite;
     }
 
     public void AttackUnit(UnitCombatSystem unitGridCombat, Action onAttackComplete) {

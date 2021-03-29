@@ -179,7 +179,7 @@ public class GridCombatSystem : MonoBehaviour {
             }
         }
 
-        int maxMoveDistance = 3;
+        int maxMoveDistance = _unitCombatSystem.unitStats.movementRange;
         for (int x = unitX - maxMoveDistance; x <= unitX + maxMoveDistance; x++) {
             for (int y = unitY - maxMoveDistance; y <= unitY + maxMoveDistance; y++) {
                 if (gridPathfinding.IsWalkable(x, y)) {
