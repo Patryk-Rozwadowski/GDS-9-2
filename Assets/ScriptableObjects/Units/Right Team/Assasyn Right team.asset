@@ -24,3 +24,6 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 03300f9fa66f3b04f916b18a1840d498, type: 3}
   designerModeUnitSprite: {fileID: 21300000, guid: 317d5029a78f02440bf13e15f32e471c,
     type: 3}
+  attackTags:
+  - Tank
+  - Hunter

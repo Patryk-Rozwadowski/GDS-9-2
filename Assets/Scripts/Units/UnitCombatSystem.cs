@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using UnityEngine;
 
 public class UnitCombatSystem : MonoBehaviour {
@@ -17,24 +18,23 @@ public class UnitCombatSystem : MonoBehaviour {
         Left,
         Right
     }
-    
+
     private MovePositionPathfinding _movePositionPathfinding;
     private State _state;
     public bool _isUnitActive;
     private HealthBar _healthbar;
     private SpriteRenderer _sr;
+
     private enum State {
         Normal,
         Moving,
         Attacking
     }
 
-    public int GetMovementRange() => _movementRange;
-    
     public UnitStatsSO GetUnitStats() {
         return unitStats;
     }
-    
+
     public void SetActive() {
         // TODO active sprite
         _isUnitActive = true;
@@ -44,7 +44,7 @@ public class UnitCombatSystem : MonoBehaviour {
         _isUnitActive = false;
     }
 
-    
+
     private void Awake() {
         _healthbar = GetComponentInChildren<HealthBar>();
         _state = State.Normal;
@@ -77,10 +77,22 @@ public class UnitCombatSystem : MonoBehaviour {
         else _sr.sprite = unitStats.sprite;
     }
 
-    public void AttackUnit(UnitCombatSystem unitGridCombat, Action onAttackComplete) {
+    public void AttackUnit(UnitCombatSystem unitCombatSystem, Action onAttackComplete) {
         _state = State.Attacking;
-        Debug.Log($"Attack unit {unitGridCombat.name}");
-        unitGridCombat._healthSystem.Damage(unitStats.damage);
+        var attackedUnitStats = unitCombatSystem.GetUnitStats();
+        var attackedUnitName = attackedUnitStats.unitName;
+        var attacked = false;
+        foreach (var attackingTag in unitStats.attackTags) {
+            if (attackingTag.tagName != attackedUnitName) return;
+            unitCombatSystem._healthSystem.Damage(unitStats.damage + attackingTag.tagDamage);
+            Debug.Log(
+                $"Attack unit {unitCombatSystem.name}, normal damage: {unitStats.damage}, tag damage: {attackingTag.tagDamage}, overall dmg: {unitStats.damage +attackingTag.tagDamage}");
+            onAttackComplete();
+            return;
+        }
+        unitCombatSystem._healthSystem.Damage(unitStats.damage);
+        Debug.Log(
+            $"Attack unit {unitCombatSystem.name}, normal damage: {unitStats.damage}, tag damage: none, overall dmg: {unitStats.damage}");
         onAttackComplete();
     }
 
@@ -93,9 +105,7 @@ public class UnitCombatSystem : MonoBehaviour {
     public void MoveTo(Vector3 targetPosition, Action onReachedPosition) {
         _state = State.Moving;
         // PATHFINDING
-        _movePositionPathfinding.SetMovePosition(targetPosition + new Vector3(1, 1), () => {
-            _state = State.Normal;
-        });
+        _movePositionPathfinding.SetMovePosition(targetPosition + new Vector3(1, 1), () => { _state = State.Normal; });
 
         onReachedPosition();
     }

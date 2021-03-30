@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.Windows.Speech;
 
 [CreateAssetMenu(menuName = "Units/Creator")]
 public class UnitStatsSO : ScriptableObject {
@@ -34,5 +36,7 @@ public class UnitStatsSO : ScriptableObject {
 
     [Header("Designer mode - unit sprite")] [SerializeField]
     public Sprite designerModeUnitSprite;
-    
+
+    [Header("Damage tag")] [SerializeField]
+    public List<UnitTag> attackTags;
 }

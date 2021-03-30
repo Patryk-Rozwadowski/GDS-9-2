@@ -24,3 +24,4 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: e5b2fc45eef0ebd419ffa05ca6c4a86f, type: 3}
   designerModeUnitSprite: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc,
     type: 3}
+  attackTags: []
