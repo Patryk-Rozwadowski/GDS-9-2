@@ -6,12 +6,13 @@ using UnityEngine;
 public class GridCombatSystem : MonoBehaviour {
     [SerializeField] public List<UnitCombatSystem> leftTeam, rightTeam;
     public TeamsStateSO _teamsState;
-    
+
     private UnitCombatSystem _unitCombatSystem;
     private int _lefTeamActiveUnitIndex, _rightTeamActiveUnitIndex;
     private State _state;
     private bool _canMoveThisTurn, _canAttackThisTurn;
     private GameObject _gridTileBorder, _gridTileMovement;
+    private Transform _gridMovementContainer;
 
     private enum State {
         Normal,
@@ -20,6 +21,11 @@ public class GridCombatSystem : MonoBehaviour {
 
     private void Awake() {
         _state = State.Normal;
+        _gridMovementContainer = GameObject.Find("GridMovementContainer").transform;
+    }
+
+    private void Start() {
+        
     }
 
     public void SetupGame() {
@@ -27,10 +33,10 @@ public class GridCombatSystem : MonoBehaviour {
         rightTeam = _teamsState.rightTeam;
         _gridTileMovement = Resources.Load("Sprites/grid-move", typeof(GameObject)) as GameObject;
         _gridTileBorder = Resources.Load("Sprites/grid", typeof(GameObject)) as GameObject;
-    
+
         foreach (UnitCombatSystem unit in _teamsState.allUnitsInBothTeams) {
             CombatSystemUnitDebugLogger(unit);
-            
+
             GameController_GridCombatSystem
                 .Instance
                 .GetGrid()
@@ -42,9 +48,8 @@ public class GridCombatSystem : MonoBehaviour {
         GameController_GridCombatSystem.Instance.gridPathfinding.RaycastWalkable();
         SelectNextActiveUnit();
         UpdateValidMovePositions();
-        
     }
-    
+
     public void Damage(GridCombatSystem attacker, int damageAmount) {
         // TODO Hp damgage
         Debug.Log($"Damage done: {damageAmount}");
@@ -104,7 +109,7 @@ public class GridCombatSystem : MonoBehaviour {
                                     _state = State.Normal;
                                     _unitCombatSystem.AttackUnit(gridObject.GetUnitGridCombat(), () => {
                                         _state = State.Normal;
-                                        
+
                                         TestTurnOver();
                                     });
                                 }
@@ -131,14 +136,18 @@ public class GridCombatSystem : MonoBehaviour {
                             _canMoveThisTurn = false;
                             Debug.Log($"{gameObject.name} Unit cannot move");
                             // _state = State.Waiting;
-
+                            foreach (Transform child in _gridMovementContainer.transform) {
+                                Destroy(child.gameObject);
+                            }
                             // Remove Unit from current Grid Object
                             grid.GetGridObject(_unitCombatSystem.GetPosition()).ClearUnitGridCombat();
                             // Set Unit on target Grid Object
                             gridObject.SetUnitGridCombat(_unitCombatSystem);
 
                             _unitCombatSystem.MoveTo(CursorUtils.GetMouseWorldPosition(), () => {
+                               
                                 _state = State.Normal;
+                              
                                 UpdateValidMovePositions();
                                 TestTurnOver();
                             });
@@ -194,17 +203,20 @@ public class GridCombatSystem : MonoBehaviour {
                         // There is a Path
                         if (gridPathfinding.GetPath(unitX, unitY, x, y).Count <= maxMoveDistance) {
                             // Path within Move Distance
-                            var origin = new Vector3(0, 0);
                             var cellSize = 17;
                             var cellCenter = cellSize / 2;
-                            Instantiate(
-                                _gridTileMovement,
-                                new Vector3(
-                                    cellCenter + (x * cellSize), cellCenter + (y * cellSize)) +
-                                new Vector3(1, 1) * 0.5f,
-                                Quaternion.identity
-                            );
+                            
+                            var movementTileObject = Instantiate(
+                                    _gridTileMovement,
+                                    new Vector3(
+                                        cellCenter + (x * cellSize), cellCenter + (y * cellSize)) +
+                                    new Vector3(1, 1) * 0.5f,
+                                    Quaternion.identity
+                                );
+
+                            movementTileObject.transform.parent = _gridMovementContainer.transform;
                             _gridTileMovement.transform.localScale = new Vector3(14, 14, 10);
+
                             grid.GetGridObject(x, y).SetIsValidMovePosition(true);
                         }
                         else {
@@ -231,7 +243,7 @@ public class GridCombatSystem : MonoBehaviour {
             _unitCombatSystem = GetNextActiveUnit(UnitCombatSystem.Team.Right);
             Debug.Log($"Next unit is: {_unitCombatSystem}");
         }
-        
+
         _unitCombatSystem.SetActive();
         _canMoveThisTurn = true;
         _canAttackThisTurn = true;
@@ -244,7 +256,8 @@ public class GridCombatSystem : MonoBehaviour {
 
     private void CombatSystemUnitDebugLogger(UnitCombatSystem unit) {
         if (unit == null) return;
-        Debug.Log($"Unit name: {unit.name}, team: {unit.GetTeam()}, POSITION: X:{unit.transform.position.x} Y:{unit.transform.position.y} ");
+        Debug.Log(
+            $"Unit name: {unit.name}, team: {unit.GetTeam()}, POSITION: X:{unit.transform.position.x} Y:{unit.transform.position.y} ");
     }
 
     public class GridObject {

@@ -18,7 +18,7 @@ public class DraftPickController : MonoBehaviour {
         _rightPicked,
         _leftPutUnitOnMap;
 
-    private int _numberOfUnitsInTeams;
+    private int _numberOfUnitsInTeam;
     private int _draftPickPoint;
     private UnitCombatSystem _pickedUnit;
     private Team _teamPicking, _nextTeamPicking;
@@ -31,7 +31,7 @@ public class DraftPickController : MonoBehaviour {
     void Start() {
         _grid = GameController_GridCombatSystem.Instance.GetGrid();
         _pickedUnit = null;
-        _numberOfUnitsInTeams = 5;
+        _numberOfUnitsInTeam = 5;
         _draftPickPoint = 0;
         _unitScale = new Vector3(5, 5, 1);
         _teamsState.areTeamsReady = false;
@@ -41,7 +41,7 @@ public class DraftPickController : MonoBehaviour {
         _teamsState.allUnitsInBothTeams.Clear();
         Debug.LogWarning($"START INIT: TEAM PICKING : {_teamPicking}");
         if (_debug) {
-            _numberOfUnitsInTeams = 1;
+            _numberOfUnitsInTeam = 1;
         }
     }
 
@@ -129,7 +129,7 @@ public class DraftPickController : MonoBehaviour {
             _pickedUnit = null;
             _pickButtonSelected.SetActive(false);
 
-            if (_teamsState.rightTeam.Count == _numberOfUnitsInTeams) {
+            if (_teamsState.rightTeam.Count == _numberOfUnitsInTeam) {
                 Debug.Log($"{_teamsState.rightTeam} is FULL");
                 _rightTeamPanel.SetActive(false);
                 var gcs = gameObject.AddComponent<GridCombatSystem>();
