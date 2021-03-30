@@ -96,6 +96,8 @@ public class UnitCombatSystem : MonoBehaviour {
         _movePositionPathfinding.SetMovePosition(targetPosition + new Vector3(1, 1), () => {
             _state = State.Normal;
         });
+
+        onReachedPosition();
     }
 
     public bool IsEnemy(UnitCombatSystem unitGridCombat) {

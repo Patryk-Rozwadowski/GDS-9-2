@@ -109,7 +109,6 @@ public class GridCombatSystem : MonoBehaviour {
                                     _state = State.Normal;
                                     _unitCombatSystem.AttackUnit(gridObject.GetUnitGridCombat(), () => {
                                         _state = State.Normal;
-
                                         TestTurnOver();
                                     });
                                 }
@@ -136,21 +135,21 @@ public class GridCombatSystem : MonoBehaviour {
                             _canMoveThisTurn = false;
                             Debug.Log($"{gameObject.name} Unit cannot move");
                             // _state = State.Waiting;
-                            foreach (Transform child in _gridMovementContainer.transform) {
-                                Destroy(child.gameObject);
-                            }
+                          
                             // Remove Unit from current Grid Object
                             grid.GetGridObject(_unitCombatSystem.GetPosition()).ClearUnitGridCombat();
                             // Set Unit on target Grid Object
                             gridObject.SetUnitGridCombat(_unitCombatSystem);
 
                             _unitCombatSystem.MoveTo(CursorUtils.GetMouseWorldPosition(), () => {
-                               
                                 _state = State.Normal;
                               
                                 UpdateValidMovePositions();
                                 TestTurnOver();
                             });
+                            foreach (Transform child in _gridMovementContainer.transform) {
+                                Destroy(child.gameObject);
+                            }
                         }
                     }
                 }
@@ -168,9 +167,8 @@ public class GridCombatSystem : MonoBehaviour {
     }
 
     private void TestTurnOver() {
-        if (!_canMoveThisTurn && !_canAttackThisTurn) {
+        if (!_canMoveThisTurn || !_canAttackThisTurn) {
             Debug.Log($"Unit: {gameObject.name} cannot move or attack");
-            ForceTurnOver();
         }
     }
 
