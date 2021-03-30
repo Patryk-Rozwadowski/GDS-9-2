@@ -39,4 +39,13 @@ public class UnitStatsSO : ScriptableObject {
 
     [Header("Damage tag")] [SerializeField]
     public List<UnitTag> attackTags;
+    
+    [Header("Unit's ability")] [SerializeField]
+    public AbilitiesEnum ability;
+    
+    [Header("Counter Damage")] [SerializeField]
+    public int counterDamage;
+    
 }
+
+public enum AbilitiesEnum {None, Counter}

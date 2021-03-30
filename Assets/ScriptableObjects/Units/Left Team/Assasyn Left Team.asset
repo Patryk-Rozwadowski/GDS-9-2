@@ -25,5 +25,12 @@ MonoBehaviour:
   designerModeUnitSprite: {fileID: 21300000, guid: 09ca912c7b4c0dc47bd5e245413e05d3,
     type: 3}
   attackTags:
-  - Tank
-  - Hunter
+  - tagName: Tank
+    tagDamage: 50
+  - tagName: Hunter
+    tagDamage: 20
+  - tagName: Mage
+    tagDamage: 20
+  ability:
+    ability: 0
+    counterDamage: 15

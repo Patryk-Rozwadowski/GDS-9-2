@@ -23,11 +23,7 @@ public class GridCombatSystem : MonoBehaviour {
         _state = State.Normal;
         _gridMovementContainer = GameObject.Find("GridMovementContainer").transform;
     }
-
-    private void Start() {
-        
-    }
-
+    
     public void SetupGame() {
         leftTeam = _teamsState.leftTeam;
         rightTeam = _teamsState.rightTeam;
@@ -99,13 +95,9 @@ public class GridCombatSystem : MonoBehaviour {
                     if (gridObject.GetUnitGridCombat() != null) {
                         // Clicked on top of a Unit
                         if (_unitCombatSystem.IsEnemy(gridObject.GetUnitGridCombat())) {
-                            // Clicked on an Enemy of the current unit
                             if (_unitCombatSystem.CanAttackUnit(gridObject.GetUnitGridCombat())) {
-                                // Can Attack Enemy
                                 if (_canAttackThisTurn) {
                                     _canAttackThisTurn = false;
-                                    // Attack Enemy
-                                    // _state = State.Waiting;
                                     _state = State.Normal;
                                     _unitCombatSystem.AttackUnit(gridObject.GetUnitGridCombat(), () => {
                                         _state = State.Normal;
@@ -129,16 +121,10 @@ public class GridCombatSystem : MonoBehaviour {
                     }
 
                     if (gridObject.GetIsValidMovePosition()) {
-                        // Valid Move Position
-
                         if (_canMoveThisTurn) {
                             _canMoveThisTurn = false;
                             Debug.Log($"{gameObject.name} Unit cannot move");
-                            // _state = State.Waiting;
-                          
-                            // Remove Unit from current Grid Object
                             grid.GetGridObject(_unitCombatSystem.GetPosition()).ClearUnitGridCombat();
-                            // Set Unit on target Grid Object
                             gridObject.SetUnitGridCombat(_unitCombatSystem);
 
                             _unitCombatSystem.MoveTo(CursorUtils.GetMouseWorldPosition(), () => {
@@ -147,9 +133,7 @@ public class GridCombatSystem : MonoBehaviour {
                                 UpdateValidMovePositions();
                                 TestTurnOver();
                             });
-                            foreach (Transform child in _gridMovementContainer.transform) {
-                                Destroy(child.gameObject);
-                            }
+                            ClearMovementGridVisualization();
                         }
                     }
                 }
@@ -168,12 +152,20 @@ public class GridCombatSystem : MonoBehaviour {
 
     private void TestTurnOver() {
         if (!_canMoveThisTurn || !_canAttackThisTurn) {
+            ClearMovementGridVisualization();
             Debug.Log($"Unit: {gameObject.name} cannot move or attack");
+        }
+    }
+
+    private void ClearMovementGridVisualization() {
+        foreach (Transform child in _gridMovementContainer.transform) {
+            Destroy(child.gameObject);
         }
     }
 
     private void ForceTurnOver() {
         _unitCombatSystem.SetInactive();
+        ClearMovementGridVisualization();
         SelectNextActiveUnit();
         UpdateValidMovePositions();
     }

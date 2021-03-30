@@ -79,23 +79,27 @@ public class UnitCombatSystem : MonoBehaviour {
 
     public void AttackUnit(UnitCombatSystem unitCombatSystem, Action onAttackComplete) {
         _state = State.Attacking;
-        var attackedUnitStats = unitCombatSystem.GetUnitStats();
-        var attackedUnitName = attackedUnitStats.unitName;
-        var attacked = false;
-        foreach (var attackingTag in unitStats.attackTags) {
-            if (attackingTag.tagName != attackedUnitName) return;
-            unitCombatSystem._healthSystem.Damage(unitStats.damage + attackingTag.tagDamage);
-            Debug.Log(
-                $"Attack unit {unitCombatSystem.name}, normal damage: {unitStats.damage}, tag damage: {attackingTag.tagDamage}, overall dmg: {unitStats.damage +attackingTag.tagDamage}");
-            onAttackComplete();
-            return;
-        }
+        AttackWithTagDamage(unitCombatSystem);
         unitCombatSystem._healthSystem.Damage(unitStats.damage);
         Debug.Log(
             $"Attack unit {unitCombatSystem.name}, normal damage: {unitStats.damage}, tag damage: none, overall dmg: {unitStats.damage}");
         onAttackComplete();
     }
 
+    private void AttackWithTagDamage(UnitCombatSystem unitCombatSystem) {
+        var attackedUnitStats = unitCombatSystem.GetUnitStats();
+        var attackedUnitName = attackedUnitStats.unitName;
+        if(attackedUnitStats.ability == AbilitiesEnum.Counter) _healthSystem.Damage(attackedUnitStats.counterDamage);
+        
+        foreach (var attackingTag in unitStats.attackTags) {
+            if (attackingTag.tagName != attackedUnitName) return;
+            unitCombatSystem._healthSystem.Damage(unitStats.damage + attackingTag.tagDamage);
+            Debug.Log(
+                $"Attack unit {unitCombatSystem.name}, normal damage: {unitStats.damage}, tag damage: {attackingTag.tagDamage}, overall dmg: {unitStats.damage +attackingTag.tagDamage}");
+            return;
+        }
+    }
+    
     public Team GetTeam() {
         return team;
     }
