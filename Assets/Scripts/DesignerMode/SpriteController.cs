@@ -52,7 +52,7 @@ public class SpriteController : MonoBehaviour
                 return;
             }
             image.sprite = sprite;
-            //image.SetNativeSize();
+            image.SetNativeSize();
         }
         else
         {
