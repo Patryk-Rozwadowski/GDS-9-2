@@ -1,18 +1,11 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class DesignerModeController : MonoBehaviour
-{
-
-    public void SetDesignerMode()
-    {
-        if (SpriteController.DesignMode)
-        {
+public class DesignerModeController : MonoBehaviour {
+    public void SetDesignerMode() {
+        if (SpriteController.DesignMode) {
             SpriteController.DesignMode = false;
         }
-        else
-        {
+        else {
             SpriteController.DesignMode = true;
         }
     }
