@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00148c9b881516145886b1bf8315f871, type: 3}
   m_Name: Hunter Left Team
   m_EditorClassIdentifier: 
+  unitType: 1
   unitName: Hunter
   maxHealth: 70
   damage: 25
@@ -24,3 +25,7 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: e5b2fc45eef0ebd419ffa05ca6c4a86f, type: 3}
   designerModeUnitSprite: {fileID: 21300000, guid: 35b69bf6eab276349b7839031f584013,
     type: 3}
+  attackTags: []
+  ability: 0
+  counterDamage: 0
+  counteredByType: 0
