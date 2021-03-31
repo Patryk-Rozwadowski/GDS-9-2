@@ -4,6 +4,9 @@ using UnityEngine.Windows.Speech;
 
 [CreateAssetMenu(menuName = "Units/Creator")]
 public class UnitStatsSO : ScriptableObject {
+    [Header("Unit's type.")] [SerializeField]
+    public UnitTypeEnum unitType;
+    
     [Header("Unit's name")] [SerializeField]
     public string unitName;
     
@@ -46,6 +49,10 @@ public class UnitStatsSO : ScriptableObject {
     [Header("Counter Damage")] [SerializeField]
     public int counterDamage;
     
+    [Header("Unit weak against counter type")] [SerializeField]
+    public CounteredByTypeEnum counteredByType;
 }
 
 public enum AbilitiesEnum {None, Counter}
+public enum UnitTypeEnum {Melee, Distance}
+public enum CounteredByTypeEnum {None, CounterRange, CounterMelee}

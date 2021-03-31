@@ -118,7 +118,11 @@ public class UnitCombatSystem : MonoBehaviour {
         return unitGridCombat.GetTeam() != team;
     }
 
-    public bool CanAttackUnit(UnitCombatSystem unitGridCombat) {
+    public bool CanMeleeAttack(UnitCombatSystem unitGridCombat) {
+        return Vector3.Distance(GetPosition(), unitGridCombat.GetPosition()) < 20f;
+    }
+    
+    public bool CanDistanceAttack(UnitCombatSystem unitGridCombat) {
         return Vector3.Distance(GetPosition(), unitGridCombat.GetPosition()) < 50f;
     }
 }

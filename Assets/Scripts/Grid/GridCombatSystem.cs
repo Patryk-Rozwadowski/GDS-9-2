@@ -11,7 +11,7 @@ public class GridCombatSystem : MonoBehaviour {
     private int _lefTeamActiveUnitIndex, _rightTeamActiveUnitIndex;
     private State _state;
     private bool _canMoveThisTurn, _canAttackThisTurn;
-    private GameObject _gridTileBorder, _gridTileMovement;
+    private GameObject _gridTileBorder, _gridTileMovement, _gridTileAttackRange;
     private Transform _gridMovementContainer;
 
     private enum State {
@@ -23,12 +23,13 @@ public class GridCombatSystem : MonoBehaviour {
         _state = State.Normal;
         _gridMovementContainer = GameObject.Find("GridMovementContainer").transform;
     }
-    
+
     public void SetupGame() {
         leftTeam = _teamsState.leftTeam;
         rightTeam = _teamsState.rightTeam;
         _gridTileMovement = Resources.Load("Sprites/grid-move", typeof(GameObject)) as GameObject;
         _gridTileBorder = Resources.Load("Sprites/grid", typeof(GameObject)) as GameObject;
+        _gridTileAttackRange = Resources.Load("Sprites/grid-atack", typeof(GameObject)) as GameObject;
 
         foreach (UnitCombatSystem unit in _teamsState.allUnitsInBothTeams) {
             CombatSystemUnitDebugLogger(unit);
@@ -44,11 +45,6 @@ public class GridCombatSystem : MonoBehaviour {
         GameController_GridCombatSystem.Instance.gridPathfinding.RaycastWalkable();
         SelectNextActiveUnit();
         UpdateValidMovePositions();
-    }
-
-    public void Damage(GridCombatSystem attacker, int damageAmount) {
-        // TODO Hp damgage
-        Debug.Log($"Damage done: {damageAmount}");
     }
 
     private UnitCombatSystem GetNextActiveUnit(UnitCombatSystem.Team team) {
@@ -95,7 +91,8 @@ public class GridCombatSystem : MonoBehaviour {
                     if (gridObject.GetUnitGridCombat() != null) {
                         // Clicked on top of a Unit
                         if (_unitCombatSystem.IsEnemy(gridObject.GetUnitGridCombat())) {
-                            if (_unitCombatSystem.CanAttackUnit(gridObject.GetUnitGridCombat())) {
+                            if (_unitCombatSystem.CanMeleeAttack(gridObject.GetUnitGridCombat()) &&
+                                _unitCombatSystem.unitStats.unitType == UnitTypeEnum.Melee) {
                                 if (_canAttackThisTurn) {
                                     _canAttackThisTurn = false;
                                     _state = State.Normal;
@@ -105,9 +102,16 @@ public class GridCombatSystem : MonoBehaviour {
                                     });
                                 }
                             }
-                            else {
-                                // Cannot attack enemy
-                                Debug.Log("CANNOT ATTACK");
+                            else if (_unitCombatSystem.CanDistanceAttack(gridObject.GetUnitGridCombat()) &&
+                                     _unitCombatSystem.unitStats.unitType == UnitTypeEnum.Distance) {
+                                if (_canAttackThisTurn) {
+                                    _canAttackThisTurn = false;
+                                    _state = State.Normal;
+                                    _unitCombatSystem.AttackUnit(gridObject.GetUnitGridCombat(), () => {
+                                        _state = State.Normal;
+                                        TestTurnOver();
+                                    });
+                                }
                             }
 
                             break;
@@ -129,7 +133,7 @@ public class GridCombatSystem : MonoBehaviour {
 
                             _unitCombatSystem.MoveTo(CursorUtils.GetMouseWorldPosition(), () => {
                                 _state = State.Normal;
-                              
+
                                 UpdateValidMovePositions();
                                 TestTurnOver();
                             });
@@ -185,32 +189,49 @@ public class GridCombatSystem : MonoBehaviour {
         }
 
         int maxMoveDistance = _unitCombatSystem.unitStats.movementRange;
+        int maxAttackRange = _unitCombatSystem.unitStats.attackRange;
+        if (_unitCombatSystem.unitStats.unitType == UnitTypeEnum.Melee) {
+            maxAttackRange = 1;
+        }
+
+        var cellSize = 17;
+        var cellCenter = cellSize / 2;
+
         for (int x = unitX - maxMoveDistance; x <= unitX + maxMoveDistance; x++) {
             for (int y = unitY - maxMoveDistance; y <= unitY + maxMoveDistance; y++) {
                 if (gridPathfinding.IsWalkable(x, y)) {
                     // Position is Walkable
                     if (gridPathfinding.HasPath(unitX, unitY, x, y)) {
                         // There is a Path
+
                         if (gridPathfinding.GetPath(unitX, unitY, x, y).Count <= maxMoveDistance) {
                             // Path within Move Distance
-                            var cellSize = 17;
-                            var cellCenter = cellSize / 2;
-                            
+
                             var movementTileObject = Instantiate(
-                                    _gridTileMovement,
-                                    new Vector3(
-                                        cellCenter + (x * cellSize), cellCenter + (y * cellSize)) +
-                                    new Vector3(1, 1) * 0.5f,
-                                    Quaternion.identity
-                                );
+                                _gridTileMovement,
+                                new Vector3(
+                                    cellCenter + (x * cellSize), cellCenter + (y * cellSize)) +
+                                new Vector3(1, 1) * 0.5f,
+                                Quaternion.identity
+                            );
 
                             movementTileObject.transform.parent = _gridMovementContainer.transform;
                             _gridTileMovement.transform.localScale = new Vector3(14, 14, 10);
 
                             grid.GetGridObject(x, y).SetIsValidMovePosition(true);
                         }
-                        else {
-                            // Path outside Move Distance!
+
+                        if (gridPathfinding.GetPath(unitX, unitY, x, y).Count <= maxAttackRange) {
+                            var attackRangeTileGameObject = Instantiate(
+                                _gridTileAttackRange,
+                                new Vector3(
+                                    cellCenter + (x * cellSize), cellCenter + (y * cellSize)) +
+                                new Vector3(1, 1) * 0.5f,
+                                Quaternion.identity
+                            );
+
+                            attackRangeTileGameObject.transform.parent = _gridMovementContainer.transform;
+                            attackRangeTileGameObject.transform.localScale = new Vector3(14, 14, 10);
                         }
                     }
                     else {
