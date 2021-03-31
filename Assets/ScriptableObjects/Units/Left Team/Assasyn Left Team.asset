@@ -31,6 +31,5 @@ MonoBehaviour:
     tagDamage: 20
   - tagName: Mage
     tagDamage: 20
-  ability:
-    ability: 0
-    counterDamage: 15
+  ability: 0
+  counterDamage: 0

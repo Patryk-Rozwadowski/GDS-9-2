@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 4655991208923765904}
   - component: {fileID: 4655991208923765907}
   - component: {fileID: -9183597093139870626}
+  - component: {fileID: -7401927372734923903}
   m_Layer: 0
   m_Name: Range Right team
   m_TagString: Untagged
@@ -122,7 +123,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   team: 1
-  unitStats: {fileID: 11400000, guid: 8764238a3125fdc4e93a44ab5f1b47de, type: 2}
+  unitStats: {fileID: 0}
   _isUnitActive: 0
 --- !u!114 &4655991208923765904
 MonoBehaviour:
@@ -161,6 +162,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22362d960ce261349be24962acaa7bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7401927372734923903
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4655991208923765932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designMode: {fileID: 21300000, guid: 39964dabaae281d4eae94fd8623e4f63, type: 3}
 --- !u!1 &4655991210146704964
 GameObject:
   m_ObjectHideFlags: 0

@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 2027978074254731350}
   - component: {fileID: 2027978074254731349}
   - component: {fileID: 5094895982608574272}
+  - component: {fileID: -3395151118205097156}
   m_Layer: 0
   m_Name: Hunter Left Team
   m_TagString: Untagged
@@ -191,6 +192,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22362d960ce261349be24962acaa7bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-3395151118205097156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2027978074254731370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designMode: {fileID: 21300000, guid: 35b69bf6eab276349b7839031f584013, type: 3}
 --- !u!1001 &2027978074211083963
 PrefabInstance:
   m_ObjectHideFlags: 0

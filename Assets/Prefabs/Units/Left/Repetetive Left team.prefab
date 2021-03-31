@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 7373693187462512518}
   - component: {fileID: 7373693187462512517}
   - component: {fileID: -8929528715183615776}
+  - component: {fileID: -7191826197732543675}
   m_Layer: 0
   m_Name: Repetetive Left team
   m_TagString: Untagged
@@ -191,6 +192,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22362d960ce261349be24962acaa7bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-7191826197732543675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7373693187462512570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
 --- !u!1001 &7373693187655840107
 PrefabInstance:
   m_ObjectHideFlags: 0

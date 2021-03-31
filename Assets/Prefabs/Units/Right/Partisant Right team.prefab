@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 5683999066482732381}
   - component: {fileID: 5683999066482732382}
   - component: {fileID: 7813174254693377260}
+  - component: {fileID: -6633631657835906279}
   m_Layer: 0
   m_Name: Partisant Right team
   m_TagString: Untagged
@@ -161,6 +162,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22362d960ce261349be24962acaa7bf5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &-6633631657835906279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5683999066482732385}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  designMode: {fileID: 21300000, guid: ee112348e78b0db4d87d87f0a23e0ec7, type: 3}
 --- !u!1 &5683999067437686665
 GameObject:
   m_ObjectHideFlags: 0
