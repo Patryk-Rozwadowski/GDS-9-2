@@ -4,7 +4,6 @@ using UnityEngine;
 public class GameController_GridCombatSystem : MonoBehaviour {
     [SerializeField] private int cellSize = 10;
     [SerializeField] private GameObject walkablePrefab, unwalkablePrefab;
-    [SerializeField] private GameObject _leftTeamRespawn, _rightTeamRespawn;
 
     public static GameController_GridCombatSystem Instance { get; private set; }
     public GridPathfinding gridPathfinding;
