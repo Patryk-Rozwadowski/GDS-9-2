@@ -49,10 +49,9 @@ public class UnitStatsSO : ScriptableObject {
     [Header("Counter Damage")] [SerializeField]
     public int counterDamage;
     
-    [Header("Unit weak against counter type")] [SerializeField]
-    public CounteredByTypeEnum counteredByType;
+    [Header("This unit counter:")] [SerializeField]
+    public UnitTypeEnum counterType;
 }
 
 public enum AbilitiesEnum {None, Counter}
-public enum UnitTypeEnum {Melee, Distance}
-public enum CounteredByTypeEnum {None, CounterRange, CounterMelee}
+public enum UnitTypeEnum {Melee, Distance, None}

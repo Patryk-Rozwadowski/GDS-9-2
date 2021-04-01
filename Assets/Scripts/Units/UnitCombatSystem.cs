@@ -80,19 +80,26 @@ public class UnitCombatSystem : MonoBehaviour {
 
     public void AttackUnit(UnitCombatSystem unitCombatSystem, Action onAttackComplete) {
         _state = State.Attacking;
-        AttackWithTagDamage(unitCombatSystem);
+      
+        AttackWithAdditionalDamage(unitCombatSystem);
         unitCombatSystem._healthSystem.Damage(unitStats.damage);
         Debug.Log(
             $"Attack unit {unitCombatSystem.name}, normal damage: {unitStats.damage}, tag damage: none, overall dmg: {unitStats.damage}");
         onAttackComplete();
     }
 
-    private void AttackWithTagDamage(UnitCombatSystem unitCombatSystem) {
+    private void AttackWithAdditionalDamage(UnitCombatSystem unitCombatSystem) {
         var attackedUnitStats = unitCombatSystem.GetUnitStats();
         var attackedUnitName = attackedUnitStats.unitName;
-        if (attackedUnitStats.ability == AbilitiesEnum.Counter) _healthSystem.Damage(attackedUnitStats.counterDamage);
 
-        foreach (var attackingTag in unitStats.attackTags) {
+        var attackedCounter = attackedUnitStats.counterType;
+
+        if (attackedUnitStats.ability == AbilitiesEnum.Counter) {
+            if (attackedCounter == unitStats.unitType) {
+                _healthSystem.Damage(attackedUnitStats.counterDamage);
+            } 
+        }
+         foreach (var attackingTag in unitStats.attackTags) {
             if (attackingTag.tagName != attackedUnitName) return;
             unitCombatSystem._healthSystem.Damage(unitStats.damage + attackingTag.tagDamage);
             Debug.Log(
