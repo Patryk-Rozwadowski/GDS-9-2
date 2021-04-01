@@ -13,7 +13,8 @@ public class MovePositionPathfinding : MonoBehaviour {
         pathVectorList = GridPathfinding.instance.GetPathRouteWithShortcuts(transform.position, movePosition).pathVectorList;
         if (pathVectorList.Count > 0) {
             pathIndex = 0;
-        } else {
+        } 
+        else {
             pathIndex = -1;
         }
     }
@@ -31,6 +32,7 @@ public class MovePositionPathfinding : MonoBehaviour {
                 if (pathIndex >= pathVectorList.Count) {
                     // End of path
                     pathIndex = -1;
+                    _onReachedTargetPosition();
                 }
             }
         } else {
