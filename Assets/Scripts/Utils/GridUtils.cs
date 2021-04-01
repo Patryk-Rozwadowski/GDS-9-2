@@ -1,8 +1,9 @@
 ﻿using UnityEngine;
 
 public class GridUtils {
-    public static Vector3 GetWorldPosition(int x, int y, float cellSize, Vector3 originPosition) =>
-        new Vector3(x, y) * cellSize + originPosition;
+    public static Vector3 GetWorldPosition(int x, int y, float cellSize, Vector3 originPosition) {
+        return new Vector3(x, y) * cellSize + originPosition;
+    }
 
     public static Vector3 SetUnitOnTileCenter(GameObject element) {
         // TODO cellSize from SO

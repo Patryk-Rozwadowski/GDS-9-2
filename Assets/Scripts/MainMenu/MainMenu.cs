@@ -1,11 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour {
-    [SerializeField] GameObject CanvasCredits;
-    [SerializeField] GameObject CanvasHowToPlay;
+    [SerializeField] private GameObject CanvasCredits;
+    [SerializeField] private GameObject CanvasHowToPlay;
 
     private void Awake() {
         CanvasCredits = GetComponent<Canvas>().gameObject;

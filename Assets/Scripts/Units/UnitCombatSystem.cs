@@ -1,10 +1,16 @@
 ﻿using System;
-using System.Globalization;
 using UnityEngine;
 
 public class UnitCombatSystem : MonoBehaviour {
+    public enum Team {
+        Left,
+        Right
+    }
+
     [SerializeField] private Team team;
     [SerializeField] public UnitStatsSO unitStats;
+    public bool _isUnitActive;
+    private HealthBar _healthbar;
     private HealthSystem _healthSystem;
 
     private int
@@ -14,35 +20,9 @@ public class UnitCombatSystem : MonoBehaviour {
         _movementRange,
         _passiveAbility;
 
-    public enum Team {
-        Left,
-        Right
-    }
-
     private MovePositionPathfinding _movePositionPathfinding;
-    private State _state;
-    public bool _isUnitActive;
-    private HealthBar _healthbar;
     private SpriteRenderer _sr;
-
-    private enum State {
-        Normal,
-        Moving,
-        Attacking
-    }
-
-    public UnitStatsSO GetUnitStats() {
-        return unitStats;
-    }
-
-    public void SetActive() {
-        // TODO active sprite
-        _isUnitActive = true;
-    }
-
-    public void SetInactive() {
-        _isUnitActive = false;
-    }
+    private State _state;
 
 
     private void Awake() {
@@ -72,15 +52,27 @@ public class UnitCombatSystem : MonoBehaviour {
         }
 
         // TODO move it from update
-        if (_isUnitActive) {
+        if (_isUnitActive)
             _sr.sprite = unitStats.SelectedSprite;
-        }
         else _sr.sprite = unitStats.sprite;
+    }
+
+    public UnitStatsSO GetUnitStats() {
+        return unitStats;
+    }
+
+    public void SetActive() {
+        // TODO active sprite
+        _isUnitActive = true;
+    }
+
+    public void SetInactive() {
+        _isUnitActive = false;
     }
 
     public void AttackUnit(UnitCombatSystem unitCombatSystem, Action onAttackComplete) {
         _state = State.Attacking;
-      
+
         AttackWithAdditionalDamage(unitCombatSystem);
         unitCombatSystem._healthSystem.Damage(unitStats.damage);
         Debug.Log(
@@ -94,12 +86,10 @@ public class UnitCombatSystem : MonoBehaviour {
 
         var attackedCounter = attackedUnitStats.counterType;
 
-        if (attackedUnitStats.ability == AbilitiesEnum.Counter) {
-            if (attackedCounter == unitStats.unitType) {
+        if (attackedUnitStats.ability == AbilitiesEnum.Counter)
+            if (attackedCounter == unitStats.unitType)
                 _healthSystem.Damage(attackedUnitStats.counterDamage);
-            } 
-        }
-         foreach (var attackingTag in unitStats.attackTags) {
+        foreach (var attackingTag in unitStats.attackTags) {
             if (attackingTag.tagName != attackedUnitName) return;
             unitCombatSystem._healthSystem.Damage(unitStats.damage + attackingTag.tagDamage);
             Debug.Log(
@@ -112,7 +102,9 @@ public class UnitCombatSystem : MonoBehaviour {
         return team;
     }
 
-    public Vector3 GetPosition() => transform.position;
+    public Vector3 GetPosition() {
+        return transform.position;
+    }
 
     public void MoveTo(Vector3 targetPosition, Action onReachedPosition) {
         _state = State.Moving;
@@ -133,5 +125,11 @@ public class UnitCombatSystem : MonoBehaviour {
 
     public bool CanDistanceAttack(UnitCombatSystem unitGridCombat) {
         return Vector3.Distance(GetPosition(), unitGridCombat.GetPosition()) < 50f;
+    }
+
+    private enum State {
+        Normal,
+        Moving,
+        Attacking
     }
 }

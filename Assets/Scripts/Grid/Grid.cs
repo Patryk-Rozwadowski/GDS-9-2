@@ -2,23 +2,19 @@
 using UnityEngine;
 
 public class Grid<TGridObject> {
-    public event EventHandler<OnGridObjectChangedEventArgs> OnGridObjectChanged;
+    private readonly float _cellSize;
 
-    public class OnGridObjectChangedEventArgs : EventArgs {
-        public int x, y;
-    }
-
-    private int _width, _height;
-    private float _cellSize;
-    private TGridObject[,] _gridArray;
-    private TextMesh[,] _debugTextArray;
-    private Vector3 _originPosition;
-    private Camera _mainCamera;
-
-    private GameObject _respawn;
-    
     // TODO Debug mode - nice to have
     private bool _debugMode = true;
+    private readonly TextMesh[,] _debugTextArray;
+    private readonly TGridObject[,] _gridArray;
+    private Camera _mainCamera;
+    private readonly Vector3 _originPosition;
+
+    private GameObject _respawn;
+
+    private readonly int _width;
+    private readonly int _height;
 
     public Grid(
         int width,
@@ -39,42 +35,47 @@ public class Grid<TGridObject> {
 
         Debug.Log($"{nameof(Grid)} - Grid width {_width} and height {_height}");
 
-        for (var x = 0; x < _gridArray.GetLength(0); x++) {
-            for (var y = 0; y < _gridArray.GetLength(1); y++) {
-                _gridArray[x, y] = createDefaultGridObject(this, x, y);
-            }
-        }
-        
-        OnGridObjectChanged += (object sender, OnGridObjectChangedEventArgs eventArgs) => {
+        for (var x = 0; x < _gridArray.GetLength(0); x++)
+        for (var y = 0; y < _gridArray.GetLength(1); y++)
+            _gridArray[x, y] = createDefaultGridObject(this, x, y);
+
+        OnGridObjectChanged += (sender, eventArgs) => {
             _debugTextArray[eventArgs.x, eventArgs.y].text = _gridArray[eventArgs.x, eventArgs.y]?.ToString();
         };
     }
 
-    public int GetWidth() => _gridArray.GetLength(0);
-    public int GetHeight() => _gridArray.GetLength(1);
-    public float GetCellSize() => _cellSize;
-    
+    public event EventHandler<OnGridObjectChangedEventArgs> OnGridObjectChanged;
+
+    public int GetWidth() {
+        return _gridArray.GetLength(0);
+    }
+
+    public int GetHeight() {
+        return _gridArray.GetLength(1);
+    }
+
+    public float GetCellSize() {
+        return _cellSize;
+    }
+
     public TGridObject GetGridObject(Vector3 worldPosition) {
         GetXY(worldPosition, out var x, out var y);
         return GetGridObject(x, y);
     }
-    
-    
+
+
     public void SetRespawn(GameObject respawn) {
         _respawn = respawn;
     }
-    
+
     public TGridObject GetGridObject(int x, int y) {
-        if (x >= 0 && y >= 0 && x < _width && y < _height) {
+        if (x >= 0 && y >= 0 && x < _width && y < _height)
             return _gridArray[x, y];
-        }
-        else {
-            return default(TGridObject);
-        }
+        return default;
     }
-    
+
     public void TriggerGridObjectChanged(int x, int y) {
-        Debug.Log($"TriggerGridObjectChanged event");
+        Debug.Log("TriggerGridObjectChanged event");
         OnGridObjectChanged?.Invoke(this, new OnGridObjectChangedEventArgs {x = x, y = y});
     }
 
@@ -89,12 +90,14 @@ public class Grid<TGridObject> {
         y = Mathf.FloorToInt((worldPosition - _originPosition).y / _cellSize);
     }
 
-    private Vector3 GetWorldPosition(int x, int y) => new Vector3(x, y) * _cellSize + _originPosition;
+    private Vector3 GetWorldPosition(int x, int y) {
+        return new Vector3(x, y) * _cellSize + _originPosition;
+    }
 
     private void DrawWall(int startX, int startY, int endX, int endY) {
         Debug.DrawLine(GetWorldPosition(startX, startY), GetWorldPosition(endX, endY), Color.white, 100f);
     }
-    
+
     public void SetGridObject(int x, int y, TGridObject value) {
         if (x >= 0 && y >= 0 && x < _width && y < _height) {
             _gridArray[x, y] = value;
@@ -106,4 +109,7 @@ public class Grid<TGridObject> {
         }
     }
 
+    public class OnGridObjectChangedEventArgs : EventArgs {
+        public int x, y;
+    }
 }

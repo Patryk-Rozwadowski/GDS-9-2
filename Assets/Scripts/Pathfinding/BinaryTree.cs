@@ -1,22 +1,9 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System;
 using UnityEngine;
 
 public class BinaryTree {
-    private class BinaryNode {
-        public PathNode pathNode;
-        public BinaryNode left;
-        public BinaryNode right;
-
-        public BinaryNode(PathNode _pathNode, BinaryNode _left, BinaryNode _right) {
-            pathNode = _pathNode;
-            left = _left;
-            right = _right;
-        }
-    }
-
     private BinaryNode root;
-    public int totalNodes = 0;
+    public int totalNodes;
 
     public BinaryTree() {
         root = null;
@@ -32,7 +19,7 @@ public class BinaryTree {
             try {
                 addNode(root, pathNode, pathNode.fValue);
             }
-            catch (System.Exception e) {
+            catch (Exception e) {
                 Debug.Log(e);
             }
 
@@ -43,32 +30,24 @@ public class BinaryTree {
     private void addNode(BinaryNode node, PathNode pathNode, int pathFvalue) {
         if (pathFvalue <= node.pathNode.fValue) {
             // Left
-            if (node.left == null) {
-                // Become left
+            if (node.left == null) // Become left
                 node.left = new BinaryNode(pathNode, null, null);
-            }
-            else {
-                // Check left
+            else // Check left
                 addNode(node.left, pathNode, pathFvalue);
-            }
         }
         else {
             // Right
-            if (node.right == null) {
-                // Become right
+            if (node.right == null) // Become right
                 node.right = new BinaryNode(pathNode, null, null);
-            }
-            else {
-                // Check right
+            else // Check right
                 addNode(node.right, pathNode, pathFvalue);
-            }
         }
     }
 
     public void RemoveNode(PathNode pathNode) {
         if (root.pathNode == pathNode) {
             // It's the root
-            BinaryNode prevRoot = root;
+            var prevRoot = root;
             if (root.left == null && root.right == null) {
                 root = null;
                 // Tree is dead
@@ -93,12 +72,10 @@ public class BinaryTree {
                         }
                         else {
                             // Root left has a right
-                            BinaryNode leafRight = getLeafRight(root.left);
+                            var leafRight = getLeafRight(root.left);
                             root = leafRight.right;
-                            if (leafRight.right.left != null) {
-                                // This leaf has a left
+                            if (leafRight.right.left != null) // This leaf has a left
                                 leafRight.right = leafRight.right.left;
-                            }
 
                             leafRight.right = null;
                             root.left = leafRight;
@@ -109,9 +86,10 @@ public class BinaryTree {
             }
         }
         else {
-            int pathFvalue = pathNode.fValue;
+            var pathFvalue = pathNode.fValue;
             removeNode(root, pathNode, pathFvalue);
         }
+
         totalNodes--;
     }
 
@@ -120,7 +98,7 @@ public class BinaryTree {
             // Check left
             if (node.left != null) {
                 if (node.left.pathNode == pathNode) {
-                    BinaryNode del = node.left;
+                    var del = node.left;
                     if (del.left == null && del.right == null) {
                         // Both are null
                         node.left = null;
@@ -145,12 +123,10 @@ public class BinaryTree {
                                 }
                                 else {
                                     // Root left has a right
-                                    BinaryNode leafRight = getLeafRight(del.left);
+                                    var leafRight = getLeafRight(del.left);
                                     node.left = leafRight.right;
-                                    if (leafRight.right.left != null) {
-                                        // This leaf has a left
+                                    if (leafRight.right.left != null) // This leaf has a left
                                         leafRight.right = leafRight.right.left;
-                                    }
 
                                     leafRight.right = null;
                                     node.left.left = leafRight;
@@ -171,7 +147,7 @@ public class BinaryTree {
             // Check right
             if (node.right != null) {
                 if (node.right.pathNode == pathNode) {
-                    BinaryNode del = node.right;
+                    var del = node.right;
                     if (del.left == null && del.right == null) {
                         node.right = null;
                     }
@@ -192,12 +168,10 @@ public class BinaryTree {
                                 }
                                 else {
                                     // Root left has a right
-                                    BinaryNode leafRight = getLeafRight(del.left);
+                                    var leafRight = getLeafRight(del.left);
                                     node.right = leafRight.right;
-                                    if (leafRight.right.left != null) {
-                                        // This leaf has a left
+                                    if (leafRight.right.left != null) // This leaf has a left
                                         leafRight.right = leafRight.right.left;
-                                    }
 
                                     leafRight.right = null;
                                     node.right.left = leafRight;
@@ -219,8 +193,7 @@ public class BinaryTree {
     private BinaryNode getLeafRight(BinaryNode node) {
         if (node.right.right == null)
             return node;
-        else
-            return getLeafRight(node.right);
+        return getLeafRight(node.right);
     }
 
     public int getTotalHeight() {
@@ -229,14 +202,12 @@ public class BinaryTree {
 
     private int getHeight(BinaryNode node) {
         if (node == null) return 0;
-        else {
-            return 1 + (int) Mathf.Max(getHeight(node.left), getHeight(node.right));
-        }
+        return 1 + Mathf.Max(getHeight(node.left), getHeight(node.right));
     }
 
     public PathNode GetSmallest() {
         PathNode pathNode = null;
-        int count = 0;
+        var count = 0;
         try {
             pathNode = getSmallest(root, ref count);
         }
@@ -253,9 +224,20 @@ public class BinaryTree {
             count++;
             return getSmallest(node.left, ref count);
         }
-        else {
-            // No more left nodes
-            return node.pathNode;
+
+        // No more left nodes
+        return node.pathNode;
+    }
+
+    private class BinaryNode {
+        public BinaryNode left;
+        public readonly PathNode pathNode;
+        public BinaryNode right;
+
+        public BinaryNode(PathNode _pathNode, BinaryNode _left, BinaryNode _right) {
+            pathNode = _pathNode;
+            left = _left;
+            right = _right;
         }
     }
 }

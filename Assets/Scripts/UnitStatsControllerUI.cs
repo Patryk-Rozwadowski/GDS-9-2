@@ -4,8 +4,7 @@ using UnityEngine.UI;
 
 // TODO Of course there is much better way to do this
 public class UnitStatsControllerUI : MonoBehaviour {
-    [SerializeField]
-    private GameObject _leftPanelDraftPick, _rightPanelDraftPick;
+    [SerializeField] private GameObject _leftPanelDraftPick, _rightPanelDraftPick;
 
     [SerializeField] private GameObject _leftPanelGameMode, _rightPanelGameMode;
 
@@ -41,7 +40,7 @@ public class UnitStatsControllerUI : MonoBehaviour {
         attackLeftGame,
         attackRangeLeftGame,
         movementRangeLeftGame;
-    
+
     public void ViewClickedUnitStatsDraftPick(
         UnitStatsSO unitStats,
         UnitCombatSystem.Team team
@@ -61,6 +60,7 @@ public class UnitStatsControllerUI : MonoBehaviour {
             movementRangeRightDraft.text = $"{unitStats.movementRange}";
         }
     }
+
     public void ViewActiveUnitInGame(
         UnitStatsSO unitStats,
         UnitCombatSystem.Team team
@@ -117,8 +117,7 @@ public class UnitStatsControllerUI : MonoBehaviour {
         _leftPanelDraftPick.SetActive(false);
         _rightPanelDraftPick.SetActive(false);
     }
-    
-};
+}
 
 public enum GameModeEnum {
     DraftPick,

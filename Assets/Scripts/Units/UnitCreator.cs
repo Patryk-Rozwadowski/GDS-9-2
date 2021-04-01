@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+
 public class UnitCreator : MonoBehaviour {
     [Header("Scriptable object with all required parameters and stats for unit")] [SerializeField]
     public UnitStatsSO unitScriptableObject;
@@ -8,7 +9,7 @@ public class UnitCreator : MonoBehaviour {
     private UnitCombatSystem _unitCombatSystem;
     private GameObject _unitSpriteGameObject;
 
-    void Start() {
+    private void Start() {
     }
 
     public UnitStatsSO GetUnitStats() {

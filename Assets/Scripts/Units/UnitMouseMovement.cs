@@ -1,5 +1,4 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UnitMouseMovement : MonoBehaviour {
     private void Update() {

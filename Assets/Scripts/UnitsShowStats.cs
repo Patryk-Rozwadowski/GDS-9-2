@@ -1,9 +1,7 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class UnitsShowStats : MonoBehaviour {
-    [Header("UnitStats")] [SerializeField] GameObject canvasPresentingStats;
+    [Header("UnitStats")] [SerializeField] private GameObject canvasPresentingStats;
 
     private void Awake() {
         canvasPresentingStats = GetComponent<Canvas>().gameObject;

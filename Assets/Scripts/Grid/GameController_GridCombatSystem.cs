@@ -1,16 +1,15 @@
-﻿using System;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class GameController_GridCombatSystem : MonoBehaviour {
     [SerializeField] private int cellSize = 10;
     [SerializeField] private GameObject walkablePrefab, unwalkablePrefab;
-
-    public static GameController_GridCombatSystem Instance { get; private set; }
-    public GridPathfinding gridPathfinding;
     private Grid<GridCombatSystem.GridObject> _grid;
 
     private Transform _gridRespawnLeftContainer, _gridRespawnRightContainer;
     private GameObject _gridTileBorder, _gridTileMovement, _gridTileAttackRange;
+    public GridPathfinding gridPathfinding;
+
+    public static GameController_GridCombatSystem Instance { get; private set; }
 
     private void Awake() {
         Instance = this;
@@ -18,14 +17,14 @@ public class GameController_GridCombatSystem : MonoBehaviour {
         var mapWidth = 10;
         var mapHeight = 8;
 
-        Vector3 origin = new Vector3(0, 0);
+        var origin = new Vector3(0, 0);
 
         _grid = new Grid<GridCombatSystem.GridObject>(
             mapWidth,
             mapHeight,
             cellSize,
             origin,
-            (Grid<GridCombatSystem.GridObject> g, int x, int y) => new GridCombatSystem.GridObject(g, x, y)
+            (g, x, y) => new GridCombatSystem.GridObject(g, x, y)
         );
 
         gridPathfinding = new GridPathfinding(origin + new Vector3(1, 1) * cellSize * .5f,
@@ -34,7 +33,7 @@ public class GameController_GridCombatSystem : MonoBehaviour {
 
         var gridTile = Resources.Load("Sprites/grid", typeof(GameObject)) as GameObject;
         gridTile.transform.localScale = new Vector3(14, 14, 10);
-        gridPathfinding.PrintMap((Vector3 vec, Vector3 size, Color color) =>
+        gridPathfinding.PrintMap((vec, size, color) =>
             Instantiate(gridTile, vec, Quaternion.identity));
 
         _gridRespawnLeftContainer = GameObject.Find("GridRespawnLeftContainer").transform;
@@ -49,7 +48,7 @@ public class GameController_GridCombatSystem : MonoBehaviour {
             var leftTeamRespawnTile = Instantiate(
                 _gridTileMovement,
                 new Vector3(
-                    cellCenter, cellCenter + (y * cellSize)) +
+                    cellCenter, cellCenter + y * cellSize) +
                 new Vector3(1, 1) * 0.5f,
                 Quaternion.identity
             );
@@ -61,14 +60,13 @@ public class GameController_GridCombatSystem : MonoBehaviour {
             _grid
                 .GetGridObject(leftTeamRespawnTile.transform.position)
                 .SetRespawn(leftTeamRespawnTile);
-
         }
 
         for (var y = 0; y < _grid.GetHeight(); y++) {
             var rightTeamRespawnTile = Instantiate(
                 _gridTileMovement,
                 new Vector3(
-                    cellCenter + ((_grid.GetWidth() - 1) * cellSize), cellCenter + (y * cellSize)) +
+                    cellCenter + (_grid.GetWidth() - 1) * cellSize, cellCenter + y * cellSize) +
                 new Vector3(1, 1) * 0.5f,
                 Quaternion.identity);
 

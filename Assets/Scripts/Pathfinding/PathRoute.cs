@@ -1,13 +1,11 @@
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 
 namespace GridPathfindingSystem {
-
     public class PathRoute {
-
+        public MapPos finalPos;
         public List<PathNode> pathNodeList;
         public List<Vector3> pathVectorList;
-        public MapPos finalPos;
 
         public PathRoute(List<PathNode> pathNodeList, List<Vector3> pathVectorList, MapPos finalPos) {
             this.pathNodeList = pathNodeList;
@@ -18,9 +16,7 @@ namespace GridPathfindingSystem {
         public PathRoute(List<PathNode> pathNodeList, Vector3 worldOrigin, float nodeSize, MapPos finalPos) {
             this.pathNodeList = pathNodeList;
             pathVectorList = new List<Vector3>();
-            foreach (PathNode pathNode in pathNodeList) {
-                pathVectorList.Add(pathNode.GetWorldVector(worldOrigin, nodeSize));
-            }
+            foreach (var pathNode in pathNodeList) pathVectorList.Add(pathNode.GetWorldVector(worldOrigin, nodeSize));
             this.finalPos = finalPos;
         }
 

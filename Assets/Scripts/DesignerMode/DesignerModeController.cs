@@ -2,11 +2,9 @@
 
 public class DesignerModeController : MonoBehaviour {
     public void SetDesignerMode() {
-        if (SpriteController.DesignMode) {
+        if (SpriteController.DesignMode)
             SpriteController.DesignMode = false;
-        }
-        else {
+        else
             SpriteController.DesignMode = true;
-        }
     }
 }

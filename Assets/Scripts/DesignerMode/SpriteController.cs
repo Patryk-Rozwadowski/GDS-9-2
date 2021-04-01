@@ -1,20 +1,16 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class SpriteController : MonoBehaviour {
-    [SerializeField] private Sprite designMode;
     public static bool DesignMode = false;
+    [SerializeField] private Sprite designMode;
+    private Image image;
     private Sprite normalMode;
     private SpriteRenderer spriteRenderer;
-    private Image image;
 
-    void Start() {
+    private void Start() {
         TryGetComponent(out spriteRenderer);
-        if (TryGetComponent(out image)) {
-            normalMode = image.sprite;
-        }
+        if (TryGetComponent(out image)) normalMode = image.sprite;
 
         InvokeRepeating(nameof(ChcekMode), 0f, 0.2f);
     }
@@ -26,16 +22,12 @@ public class SpriteController : MonoBehaviour {
         }
 
         if (spriteRenderer) {
-            if (spriteRenderer.sprite == sprite) {
-                return;
-            }
+            if (spriteRenderer.sprite == sprite) return;
 
             spriteRenderer.sprite = sprite;
         }
         else if (image) {
-            if (image.sprite == sprite) {
-                return;
-            }
+            if (image.sprite == sprite) return;
 
             image.sprite = sprite;
             image.SetNativeSize();
@@ -46,11 +38,9 @@ public class SpriteController : MonoBehaviour {
     }
 
     private void ChcekMode() {
-        if (DesignMode) {
+        if (DesignMode)
             AssignSprite(designMode);
-        }
-        else {
+        else
             AssignSprite(normalMode);
-        }
     }
 }

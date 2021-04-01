@@ -1,30 +1,31 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-using Debug = UnityEngine.Debug;
 
 public class DraftPickController : MonoBehaviour {
     [SerializeField] private UnitStatsControllerUI _unitStatsControllerUI;
     [SerializeField] private TeamsStateSO _teamsState;
     [SerializeField] private GameObject _leftTeamRespawn, _rightTeamRespawn;
-    [SerializeField]  private GridCombatSystem _gridCombatSystem;
+    [SerializeField] private GridCombatSystem _gridCombatSystem;
+
+    private readonly bool _debug = true;
+    private int _draftPickPoint;
+    private Grid<GridCombatSystem.GridObject> _grid;
+
+    private int _numberOfUnitsInTeam;
+    private GameObject _pickButtonSelected;
+
     private bool
         _pickedPosition,
         _leftPickedUnit,
         _rightPicked,
         _leftPutUnitOnMap;
 
-    private int _numberOfUnitsInTeam;
-    private int _draftPickPoint;
     private UnitCombatSystem _pickedUnit;
     private UnitCombatSystem.Team _teamPicking, _nextTeamPicking;
-   
+
     private Vector3 _unitScale;
-    private Grid<GridCombatSystem.GridObject> _grid;
-    private GameObject _pickButtonSelected;
 
-    private bool _debug = true;
-
-    void Start() {
+    private void Start() {
         _grid = GameController_GridCombatSystem.Instance.GetGrid();
         _pickedUnit = null;
         _numberOfUnitsInTeam = 5;
@@ -38,55 +39,18 @@ public class DraftPickController : MonoBehaviour {
         _teamsState.rightTeam.Clear();
         _teamsState.allUnitsInBothTeams.Clear();
 
-         _unitStatsControllerUI.HideGamePanels();
+        _unitStatsControllerUI.HideGamePanels();
         Debug.LogWarning($"START INIT: TEAM PICKING : {_teamPicking}");
-        if (_debug) {
-            _numberOfUnitsInTeam = 1;
-        }
-    }
-
-    public void PickUnit(GameObject element) {
-        var elementCombatSystem = element.GetComponent<UnitCombatSystem>();
-        _pickedPosition = false;
-        _pickButtonSelected = EventSystem.current.currentSelectedGameObject;
-        _unitStatsControllerUI.ViewClickedUnitStatsDraftPick(elementCombatSystem.GetUnitStats(),
-            _teamPicking);
-        _pickedUnit = element.GetComponent<UnitCombatSystem>();
-    }
-
-
-    private void HideRespawn() {
-        if (_teamPicking == UnitCombatSystem.Team.Left) {
-            _leftTeamRespawn.SetActive(false);
-            _rightTeamRespawn.SetActive(true);
-        }
-        else {
-            _leftTeamRespawn.SetActive(true);
-            _rightTeamRespawn.SetActive(false);
-        }
-    }
-
-    private void PlaceUnitOnMap() {
-        var pickedUnit = Instantiate(_pickedUnit, CursorUtils.GetMouseWorldPosition(), Quaternion.identity);
-        pickedUnit.transform.localScale = _unitScale;
-        pickedUnit.transform.position = GridUtils.SetUnitOnTileCenter(pickedUnit.gameObject);
-        GameController_GridCombatSystem
-            .Instance
-            .GetGrid()
-            .GetGridObject(pickedUnit.GetPosition())
-            .SetUnitGridCombat(pickedUnit);
-        _pickedUnit = null;
+        if (_debug) _numberOfUnitsInTeam = 1;
     }
 
 
     private void Update() {
         if (Input.GetMouseButtonDown(0)) {
             RaycastHit hit;
-            Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+            var ray = Camera.main.ScreenPointToRay(Input.mousePosition);
 
-            if (Physics.Raycast(ray, out hit)) {
-                Debug.Log($"RAYCAST HIT: {hit.transform.name}");
-            }
+            if (Physics.Raycast(ray, out hit)) Debug.Log($"RAYCAST HIT: {hit.transform.name}");
         }
 
         if (!Input.GetMouseButtonDown(0) || _pickedUnit == null) return;
@@ -100,8 +64,7 @@ public class DraftPickController : MonoBehaviour {
             pickedUnit.transform.localScale = _unitScale;
             pickedUnit.transform.position = GridUtils.SetUnitOnTileCenter(pickedUnit.gameObject);
 
-           
-            
+
             _teamsState.leftTeam.Add(pickedUnit);
             _teamsState.allUnitsInBothTeams.Add(pickedUnit);
 
@@ -153,5 +116,38 @@ public class DraftPickController : MonoBehaviour {
                 Debug.Log($"DRAFT PICK POINT: {_draftPickPoint} NEXT PICK: {_teamPicking}");
             }
         }
+    }
+
+    public void PickUnit(GameObject element) {
+        var elementCombatSystem = element.GetComponent<UnitCombatSystem>();
+        _pickedPosition = false;
+        _pickButtonSelected = EventSystem.current.currentSelectedGameObject;
+        _unitStatsControllerUI.ViewClickedUnitStatsDraftPick(elementCombatSystem.GetUnitStats(),
+            _teamPicking);
+        _pickedUnit = element.GetComponent<UnitCombatSystem>();
+    }
+
+
+    private void HideRespawn() {
+        if (_teamPicking == UnitCombatSystem.Team.Left) {
+            _leftTeamRespawn.SetActive(false);
+            _rightTeamRespawn.SetActive(true);
+        }
+        else {
+            _leftTeamRespawn.SetActive(true);
+            _rightTeamRespawn.SetActive(false);
+        }
+    }
+
+    private void PlaceUnitOnMap() {
+        var pickedUnit = Instantiate(_pickedUnit, CursorUtils.GetMouseWorldPosition(), Quaternion.identity);
+        pickedUnit.transform.localScale = _unitScale;
+        pickedUnit.transform.position = GridUtils.SetUnitOnTileCenter(pickedUnit.gameObject);
+        GameController_GridCombatSystem
+            .Instance
+            .GetGrid()
+            .GetGridObject(pickedUnit.GetPosition())
+            .SetUnitGridCombat(pickedUnit);
+        _pickedUnit = null;
     }
 }
