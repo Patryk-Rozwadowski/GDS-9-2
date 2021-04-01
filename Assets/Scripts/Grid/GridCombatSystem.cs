@@ -274,6 +274,8 @@ public class GridCombatSystem : MonoBehaviour {
     public class GridObject {
         private Grid<GridObject> _grid;
         private UnitCombatSystem _unitCombatSystem;
+        private GameObject _respawn;
+        
         private int _x, _y;
         private bool _isValidMovePosition;
 
@@ -299,6 +301,14 @@ public class GridCombatSystem : MonoBehaviour {
 
         public void SetUnitGridCombat(UnitCombatSystem unit) {
             _unitCombatSystem = unit;
+        }
+
+        public GameObject GetRespawn() {
+            return _respawn;
+        }
+
+        public void SetRespawn(GameObject respawn) {
+            _respawn = respawn;
         }
     }
 }

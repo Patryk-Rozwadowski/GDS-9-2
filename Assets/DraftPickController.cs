@@ -6,7 +6,8 @@ public class DraftPickController : MonoBehaviour {
     [SerializeField] private UnitStatsControllerUI _unitStatsControllerUI;
     [SerializeField] private GameObject _leftTeamPanel, _rightTeamPanel;
     [SerializeField] private TeamsStateSO _teamsState;
-
+    [SerializeField] private GameObject _leftTeamRespawn, _rightTeamRespawn;
+    
     public enum Team {
         Left,
         Right
@@ -27,7 +28,8 @@ public class DraftPickController : MonoBehaviour {
     private Grid<GridCombatSystem.GridObject> _grid;
     private GameObject _pickButtonSelected;
 
-    private bool _debug = true;
+    
+    private bool _debug = false;
     void Start() {
         _grid = GameController_GridCombatSystem.Instance.GetGrid();
         _pickedUnit = null;
@@ -35,10 +37,14 @@ public class DraftPickController : MonoBehaviour {
         _draftPickPoint = 0;
         _unitScale = new Vector3(5, 5, 1);
         _teamsState.areTeamsReady = false;
+        
+        _rightTeamRespawn.SetActive(false);
         _rightTeamPanel.SetActive(false);
+        
         _teamsState.leftTeam.Clear();
         _teamsState.rightTeam.Clear();
         _teamsState.allUnitsInBothTeams.Clear();
+        
         Debug.LogWarning($"START INIT: TEAM PICKING : {_teamPicking}");
         if (_debug) {
             _numberOfUnitsInTeam = 1;
@@ -59,10 +65,16 @@ public class DraftPickController : MonoBehaviour {
         if (_teamPicking == Team.Left) {
             _leftTeamPanel.SetActive(false);
             _rightTeamPanel.SetActive(true);
+
+            _leftTeamRespawn.SetActive(false);
+            _rightTeamRespawn.SetActive(true);
         }
         else {
             _leftTeamPanel.SetActive(true);
             _rightTeamPanel.SetActive(false);
+
+            _leftTeamRespawn.SetActive(true);
+            _rightTeamRespawn.SetActive(false);
         }
     }
 
@@ -80,7 +92,6 @@ public class DraftPickController : MonoBehaviour {
 
 
     private void Update() {
-        // TODO REFACTOR
         if (Input.GetMouseButtonDown(0)) {
             RaycastHit hit;
             Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
@@ -92,9 +103,11 @@ public class DraftPickController : MonoBehaviour {
 
         if (!Input.GetMouseButtonDown(0) || _pickedUnit == null) return;
         var gridObject = _grid.GetGridObject(CursorUtils.GetMouseWorldPosition());
-        if (_pickedUnit == null || gridObject == null) return;
+        if (_pickedUnit == null || gridObject == null || gridObject.GetRespawn() == null) return;
 
+        // TODO nice to have removed duplicates
         if (_teamPicking == Team.Left) {
+            if (gridObject.GetRespawn().CompareTag("RightRespawn")  ) return;
             var pickedUnit = Instantiate(_pickedUnit, CursorUtils.GetMouseWorldPosition(), Quaternion.identity);
             pickedUnit.transform.localScale = _unitScale;
             pickedUnit.transform.position = GridUtils.SetUnitOnTileCenter(pickedUnit.gameObject);
@@ -119,6 +132,7 @@ public class DraftPickController : MonoBehaviour {
         }
 
         if (_teamPicking == Team.Right) {
+            if (gridObject.GetRespawn().CompareTag("LeftRespawn")) return;
             var pickedUnit = Instantiate(_pickedUnit, CursorUtils.GetMouseWorldPosition(), Quaternion.identity);
             pickedUnit.transform.localScale = _unitScale;
             pickedUnit.transform.position = GridUtils.SetUnitOnTileCenter(pickedUnit.gameObject);
@@ -131,7 +145,10 @@ public class DraftPickController : MonoBehaviour {
 
             if (_teamsState.rightTeam.Count == _numberOfUnitsInTeam) {
                 Debug.Log($"{_teamsState.rightTeam} is FULL");
+
                 _rightTeamPanel.SetActive(false);
+                _leftTeamRespawn.SetActive(false);
+                _rightTeamRespawn.SetActive(false);
                 var gcs = gameObject.AddComponent<GridCombatSystem>();
                 gcs._teamsState = _teamsState;
                 gcs.SetupGame();

@@ -15,6 +15,8 @@ public class Grid<TGridObject> {
     private Vector3 _originPosition;
     private Camera _mainCamera;
 
+    private GameObject _respawn;
+    
     // TODO Debug mode - nice to have
     private bool _debugMode = true;
 
@@ -42,30 +44,7 @@ public class Grid<TGridObject> {
                 _gridArray[x, y] = createDefaultGridObject(this, x, y);
             }
         }
-
-        for (var x = 0; x < _gridArray.GetLength(0); x++) {
-            for (var y = 0; y < _gridArray.GetLength(1); y++) {
-                var cellCenter = GetWorldPosition(x, y) + new Vector3(cellSize, cellSize) * .5f;
-                    // GridUtils.DrawDebugCoordinates(x, y, cellSize, originPosition);
-                    // else
-                    //     _debugTextArray[x, y] = GridUtils.CreateWorldText(
-                    //         _gridArray[x, y]?.ToString(),
-                    //         null,
-                    //         cellCenter,
-                    //         20,
-                    //         Color.black,
-                    //         TextAlignment.Center,
-                    //         TextAnchor.MiddleCenter
-                    //     );
-
-                    // DrawWall(x, y, x, y + 1);
-                    // DrawWall(x, y, x + 1, y);
-            }
-        }
-
-        // DrawWall(0, height, width, height);
-        // DrawWall(width, 0, width, height);
-
+        
         OnGridObjectChanged += (object sender, OnGridObjectChangedEventArgs eventArgs) => {
             _debugTextArray[eventArgs.x, eventArgs.y].text = _gridArray[eventArgs.x, eventArgs.y]?.ToString();
         };
@@ -75,10 +54,14 @@ public class Grid<TGridObject> {
     public int GetHeight() => _gridArray.GetLength(1);
     public float GetCellSize() => _cellSize;
     
-    // public Vector3 GetCellSizeCenter() => GetWorldPosition(x, y) + new Vector3(_cellSize, _cellSize) * .5f;
     public TGridObject GetGridObject(Vector3 worldPosition) {
         GetXY(worldPosition, out var x, out var y);
         return GetGridObject(x, y);
+    }
+    
+    
+    public void SetRespawn(GameObject respawn) {
+        _respawn = respawn;
     }
     
     public TGridObject GetGridObject(int x, int y) {
@@ -122,4 +105,5 @@ public class Grid<TGridObject> {
             Debug.Log("Invalid values");
         }
     }
+
 }
