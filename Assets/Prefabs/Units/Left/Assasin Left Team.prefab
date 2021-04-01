@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 1804663713242103332}
   - component: {fileID: -5926087639900199370}
   - component: {fileID: -4713462022005428091}
+  - component: {fileID: -3423294102093870887}
   m_Layer: 0
   m_Name: Assasin Left Team
   m_TagString: Untagged
@@ -205,6 +206,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   designMode: {fileID: 21300000, guid: 09ca912c7b4c0dc47bd5e245413e05d3, type: 3}
+--- !u!114 &-3423294102093870887
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1804663713242103323}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c2c299621e9ecba4dbfec9ad05485c08, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  canvasPresentingStats: {fileID: 1118804060611519923, guid: c3cd8bdb46ec8584ea192ad2139d180e,
+    type: 3}
 --- !u!1001 &1804663713048768714
 PrefabInstance:
   m_ObjectHideFlags: 0
