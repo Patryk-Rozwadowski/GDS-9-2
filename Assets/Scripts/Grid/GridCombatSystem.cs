@@ -5,6 +5,7 @@ using UnityEngine;
 
 public class GridCombatSystem : MonoBehaviour {
     [SerializeField] public List<UnitCombatSystem> leftTeam, rightTeam;
+    [SerializeField] private UnitStatsControllerUI _unitStatsControllerUI;
     public TeamsStateSO _teamsState;
 
     private UnitCombatSystem _unitCombatSystem;
@@ -29,7 +30,7 @@ public class GridCombatSystem : MonoBehaviour {
         rightTeam = _teamsState.rightTeam;
         _gridTileMovement = Resources.Load("Sprites/grid-move", typeof(GameObject)) as GameObject;
         _gridTileBorder = Resources.Load("Sprites/grid", typeof(GameObject)) as GameObject;
-        _gridTileAttackRange = Resources.Load("Sprites/grid-atack", typeof(GameObject)) as GameObject;
+        _gridTileAttackRange = Resources.Load("Sprites/grid-attack", typeof(GameObject)) as GameObject;
 
         foreach (UnitCombatSystem unit in _teamsState.allUnitsInBothTeams) {
             CombatSystemUnitDebugLogger(unit);
@@ -50,10 +51,11 @@ public class GridCombatSystem : MonoBehaviour {
     private UnitCombatSystem GetNextActiveUnit(UnitCombatSystem.Team team) {
         if (team == UnitCombatSystem.Team.Left) {
             _lefTeamActiveUnitIndex = (_lefTeamActiveUnitIndex + 1) % leftTeam.Count;
+            // _unitStatsControllerUI.ViewClickedUnitStatsDraftPick(leftTeam[_lefTeamActiveUnitIndex].GetUnitStats(),
+            //     UnitCombatSystem.Team.Left);
+            // _unitStatsControllerUI.HidePanelPlayerPanel(UnitCombatSystem.Team.Left, GameModeEnum.Game);
 
-            // TODO Hp system
             if (leftTeam[_lefTeamActiveUnitIndex] == null) {
-                // Unit is Dead, get next one
                 return GetNextActiveUnit(team);
             }
             else {
@@ -61,11 +63,12 @@ public class GridCombatSystem : MonoBehaviour {
             }
         }
         else {
+            // _unitStatsControllerUI.HidePanelPlayerPanel(UnitCombatSystem.Team.Right, GameModeEnum.Game);
+            // _unitStatsControllerUI.ViewClickedUnitStatsDraftPick(leftTeam[_lefTeamActiveUnitIndex].GetUnitStats(),
+            //     UnitCombatSystem.Team.Left);
             _rightTeamActiveUnitIndex = (_rightTeamActiveUnitIndex + 1) % rightTeam.Count;
 
-            // TODO hp system
             if (rightTeam[_rightTeamActiveUnitIndex] == null) {
-                // Unit is Dead, get next one
                 return GetNextActiveUnit(team);
             }
             else {
@@ -275,7 +278,7 @@ public class GridCombatSystem : MonoBehaviour {
         private Grid<GridObject> _grid;
         private UnitCombatSystem _unitCombatSystem;
         private GameObject _respawn;
-        
+
         private int _x, _y;
         private bool _isValidMovePosition;
 
