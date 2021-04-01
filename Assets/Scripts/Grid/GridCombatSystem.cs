@@ -196,7 +196,7 @@ public class GridCombatSystem : MonoBehaviour {
         int maxMoveDistance = _unitCombatSystem.unitStats.movementRange;
         int maxAttackRange = _unitCombatSystem.unitStats.attackRange;
         if (_unitCombatSystem.unitStats.unitType == UnitTypeEnum.Melee) {
-            maxAttackRange = 1;
+            maxAttackRange = 2;
         }
 
         for (int x = unitX - maxMoveDistance; x <= unitX + maxMoveDistance; x++) {
