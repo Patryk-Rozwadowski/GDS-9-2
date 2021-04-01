@@ -26,6 +26,9 @@ public class GridCombatSystem : MonoBehaviour {
     }
 
     public void SetupGame() {
+        _unitStatsControllerUI.HideDraftPickPanels();
+
+        _unitStatsControllerUI.HidePanelPlayerPanel(UnitCombatSystem.Team.Left, GameModeEnum.Game);
         leftTeam = _teamsState.leftTeam;
         rightTeam = _teamsState.rightTeam;
         _gridTileMovement = Resources.Load("Sprites/grid-move", typeof(GameObject)) as GameObject;
@@ -51,9 +54,9 @@ public class GridCombatSystem : MonoBehaviour {
     private UnitCombatSystem GetNextActiveUnit(UnitCombatSystem.Team team) {
         if (team == UnitCombatSystem.Team.Left) {
             _lefTeamActiveUnitIndex = (_lefTeamActiveUnitIndex + 1) % leftTeam.Count;
-            // _unitStatsControllerUI.ViewClickedUnitStatsDraftPick(leftTeam[_lefTeamActiveUnitIndex].GetUnitStats(),
-            //     UnitCombatSystem.Team.Left);
-            // _unitStatsControllerUI.HidePanelPlayerPanel(UnitCombatSystem.Team.Left, GameModeEnum.Game);
+            _unitStatsControllerUI.HidePanelPlayerPanel(UnitCombatSystem.Team.Left, GameModeEnum.Game);
+            _unitStatsControllerUI.ViewActiveUnitInGame(leftTeam[_lefTeamActiveUnitIndex].GetUnitStats(),
+                UnitCombatSystem.Team.Left);
 
             if (leftTeam[_lefTeamActiveUnitIndex] == null) {
                 return GetNextActiveUnit(team);
@@ -63,10 +66,10 @@ public class GridCombatSystem : MonoBehaviour {
             }
         }
         else {
-            // _unitStatsControllerUI.HidePanelPlayerPanel(UnitCombatSystem.Team.Right, GameModeEnum.Game);
-            // _unitStatsControllerUI.ViewClickedUnitStatsDraftPick(leftTeam[_lefTeamActiveUnitIndex].GetUnitStats(),
-            //     UnitCombatSystem.Team.Left);
             _rightTeamActiveUnitIndex = (_rightTeamActiveUnitIndex + 1) % rightTeam.Count;
+            _unitStatsControllerUI.HidePanelPlayerPanel(UnitCombatSystem.Team.Right, GameModeEnum.Game);
+            _unitStatsControllerUI.ViewActiveUnitInGame(rightTeam[_rightTeamActiveUnitIndex].GetUnitStats(),
+                UnitCombatSystem.Team.Right);
 
             if (rightTeam[_rightTeamActiveUnitIndex] == null) {
                 return GetNextActiveUnit(team);
@@ -101,7 +104,7 @@ public class GridCombatSystem : MonoBehaviour {
                                     _state = State.Normal;
                                     _unitCombatSystem.AttackUnit(gridObject.GetUnitGridCombat(), () => {
                                         _state = State.Normal;
-                                        TestTurnOver();
+                                        ForceTurnOver();
                                     });
                                 }
                             }
@@ -112,7 +115,7 @@ public class GridCombatSystem : MonoBehaviour {
                                     _state = State.Normal;
                                     _unitCombatSystem.AttackUnit(gridObject.GetUnitGridCombat(), () => {
                                         _state = State.Normal;
-                                        TestTurnOver();
+                                        ForceTurnOver();
                                     });
                                 }
                             }

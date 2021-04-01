@@ -1608,7 +1608,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!1 &146542298
 GameObject:
@@ -3242,7 +3242,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!223 &309291613
 Canvas:
   m_ObjectHideFlags: 0
@@ -3262,7 +3262,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 40
   m_TargetDisplay: 0
 --- !u!224 &309291614
 RectTransform:
@@ -7802,7 +7802,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &717098449
 RectTransform:
   m_ObjectHideFlags: 0
@@ -9357,7 +9357,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &827160588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12979,18 +12979,26 @@ MonoBehaviour:
   _rightPanelDraftPick: {fileID: 770542965}
   _leftPanelGameMode: {fileID: 752383269}
   _rightPanelGameMode: {fileID: 1976682719}
-  unitNameRight: {fileID: 1847566604}
-  hpRight: {fileID: 168052309}
-  attackRight: {fileID: 1479733912}
-  attackRangeRight: {fileID: 115746371}
-  movementRangeRight: {fileID: 1310923892}
-  passiveAbilityRight: {fileID: 845797911}
-  unitNameLeft: {fileID: 845359598}
-  hpLeft: {fileID: 338971885}
-  attackLeft: {fileID: 1275631922}
-  attackRangeLeft: {fileID: 1352547399}
-  movementRangeLeft: {fileID: 1730583602}
-  passiveAbilityLeft: {fileID: 712222469}
+  unitNameRightDraft: {fileID: 1847566604}
+  hpRightDraft: {fileID: 168052309}
+  attackRightDraft: {fileID: 1479733912}
+  attackRangeRightDraft: {fileID: 115746371}
+  movementRangeRightDraft: {fileID: 1310923892}
+  unitNameLeftDraft: {fileID: 845359598}
+  hpLeftDraft: {fileID: 338971885}
+  attackLeftDraft: {fileID: 1275631922}
+  attackRangeLeftDraft: {fileID: 1352547399}
+  movementRangeLeftDraft: {fileID: 1730583602}
+  unitNameRightGame: {fileID: 1713004193}
+  hpRightGame: {fileID: 459063884}
+  attackRightGame: {fileID: 984327734}
+  attackRangeRightGame: {fileID: 1282602554}
+  movementRangeRightGame: {fileID: 1767382375}
+  unitNameLeftGame: {fileID: 1706573455}
+  hpLeftGameGame: {fileID: 1085432467}
+  attackLeftGame: {fileID: 1294007366}
+  attackRangeLeftGame: {fileID: 413419982}
+  movementRangeLeftGame: {fileID: 963148070}
 --- !u!4 &1126195891
 Transform:
   m_ObjectHideFlags: 0
@@ -19625,7 +19633,7 @@ RectTransform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1651875719}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 18.7}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 672682198}
@@ -19640,7 +19648,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: -187, y: 185}
+  m_AnchoredPosition: {x: -173, y: 161}
   m_SizeDelta: {x: 297, y: 374}
   m_Pivot: {x: 0, y: 0.5}
 --- !u!114 &1651875721
@@ -22864,7 +22872,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1914092120
 RectTransform:
   m_ObjectHideFlags: 0
@@ -24154,7 +24162,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2002203524}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 135.75803, y: 91.75636, z: -212.58945}
+  m_LocalPosition: {x: 135.75803, y: 159.2, z: -212.58945}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 640000922}

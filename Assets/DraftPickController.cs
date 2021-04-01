@@ -38,6 +38,7 @@ public class DraftPickController : MonoBehaviour {
         _teamsState.rightTeam.Clear();
         _teamsState.allUnitsInBothTeams.Clear();
 
+         _unitStatsControllerUI.HideGamePanels();
         Debug.LogWarning($"START INIT: TEAM PICKING : {_teamPicking}");
         if (_debug) {
             _numberOfUnitsInTeam = 1;
@@ -99,6 +100,8 @@ public class DraftPickController : MonoBehaviour {
             pickedUnit.transform.localScale = _unitScale;
             pickedUnit.transform.position = GridUtils.SetUnitOnTileCenter(pickedUnit.gameObject);
 
+           
+            
             _teamsState.leftTeam.Add(pickedUnit);
             _teamsState.allUnitsInBothTeams.Add(pickedUnit);
 
