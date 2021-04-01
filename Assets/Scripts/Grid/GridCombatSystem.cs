@@ -49,8 +49,9 @@ public class GridCombatSystem : MonoBehaviour {
                                     });
                                 }
                             }
-                            else if (_unitCombatSystem.CanDistanceAttack(gridObject.GetUnitGridCombat()) &&
-                                     _unitCombatSystem.unitStats.unitType == UnitTypeEnum.Distance) {
+
+                            if (_unitCombatSystem.CanDistanceAttack(gridObject.GetUnitGridCombat()) &&
+                                _unitCombatSystem.unitStats.unitType == UnitTypeEnum.Distance) {
                                 if (_canAttackThisTurn) {
                                     _canAttackThisTurn = false;
                                     _state = State.Normal;
@@ -71,17 +72,13 @@ public class GridCombatSystem : MonoBehaviour {
                             gridObject.SetUnitGridCombat(_unitCombatSystem);
 
                             ClearMovementGridVisualization();
+                            _state = State.Waiting;
                             _unitCombatSystem.MoveTo(CursorUtils.GetMouseWorldPosition(),
-                                () => { UpdateValidMovePositionsAndAttackRange(true); });
+                                () => {
+                                    UpdateValidMovePositionsAndAttackRange(true);
+                                    _state = State.Normal;
+                                });
                         }
-                }
-
-                break;
-
-            case State.Waiting:
-                if (Input.GetKeyDown(KeyCode.Space)) {
-                    Debug.Log("Force turn over.");
-                    ForceTurnOver();
                 }
 
                 break;
@@ -159,17 +156,14 @@ public class GridCombatSystem : MonoBehaviour {
         var grid = GameController_GridCombatSystem.Instance.GetGrid();
         var gridPathfinding = GameController_GridCombatSystem.Instance.gridPathfinding;
 
-        // Get Unit Grid Position X, Y
         grid.GetXY(_unitCombatSystem.GetPosition(), out var unitX, out var unitY);
 
-        // Reset Entire Grid ValidMovePositions
-        for (var x = 0; x < grid.GetWidth(); x++)
-        for (var y = 0; y < grid.GetHeight(); y++)
+        for (var x = 1; x < grid.GetWidth(); x++)
+        for (var y = 1; y < grid.GetHeight(); y++)
             grid.GetGridObject(x, y).SetIsValidMovePosition(false);
 
         var maxMoveDistance = _unitCombatSystem.unitStats.movementRange;
         var maxAttackRange = _unitCombatSystem.unitStats.attackRange;
-        if (_unitCombatSystem.unitStats.unitType == UnitTypeEnum.Melee) maxAttackRange = 2;
 
         for (var x = unitX - maxMoveDistance; x <= unitX + maxMoveDistance; x++)
         for (var y = unitY - maxMoveDistance; y <= unitY + maxMoveDistance; y++)
@@ -194,9 +188,23 @@ public class GridCombatSystem : MonoBehaviour {
 
                         grid.GetGridObject(x, y).SetIsValidMovePosition(true);
                     }
-
-                    if (gridPathfinding.GetPath(unitX, unitY, x, y).Count <= maxAttackRange) RenderUnitRangeGrid(x, y);
+                 
                 }
+
+
+        for (var x = unitX - maxAttackRange; x <= unitX + maxAttackRange; x++)
+        for (var y = unitY - maxAttackRange; y <= unitY + maxAttackRange; y++)
+            if (gridPathfinding.IsWalkable(x, y)) {
+                if (gridPathfinding.HasPath(unitX, unitY, x, y)) {
+                    if (maxAttackRange == 2 || maxAttackRange == 1) {
+                        if (gridPathfinding.GetPath(unitX, unitY, x, y).Count - 1 <= maxAttackRange)
+                            RenderUnitRangeGrid(x, y);
+                    }
+                    if (gridPathfinding.GetPath(unitX, unitY, x, y).Count <= maxAttackRange)
+                        RenderUnitRangeGrid(x, y);
+                }
+            }
+            
     }
 
     private void RenderUnitRangeGrid(int x, int y) {
@@ -225,11 +233,6 @@ public class GridCombatSystem : MonoBehaviour {
         _unitCombatSystem.SetActive();
         _canMoveThisTurn = true;
         _canAttackThisTurn = true;
-    }
-
-    private void ShootUnit(UnitCombatSystem unitGridCombat, Action onShootComplete) {
-        GetComponent<IMoveVelocity>().Disable();
-        Debug.Log("Shoot unit");
     }
 
     private void CombatSystemUnitDebugLogger(UnitCombatSystem unit) {

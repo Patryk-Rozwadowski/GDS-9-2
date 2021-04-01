@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00148c9b881516145886b1bf8315f871, type: 3}
   m_Name: Assasyn Left Team
   m_EditorClassIdentifier: 
+  unitType: 0
   unitName: Assasin
   maxHealth: 60
   damage: 35
@@ -31,5 +32,6 @@ MonoBehaviour:
     tagDamage: 20
   - tagName: Mage
     tagDamage: 20
-  ability: 0
-  counterDamage: 0
+  ability: 1
+  counterDamage: 25
+  counterType: 1

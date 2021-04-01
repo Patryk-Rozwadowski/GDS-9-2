@@ -120,11 +120,15 @@ public class UnitCombatSystem : MonoBehaviour {
     }
 
     public bool CanMeleeAttack(UnitCombatSystem unitGridCombat) {
-        return Vector3.Distance(GetPosition(), unitGridCombat.GetPosition()) < 20f;
+        // Number depends on grid tile size
+        return Vector3.Distance(GetPosition(), unitGridCombat.GetPosition()) < 18f;
     }
 
     public bool CanDistanceAttack(UnitCombatSystem unitGridCombat) {
-        return Vector3.Distance(GetPosition(), unitGridCombat.GetPosition()) < 50f;
+        // Number depends on grid tile size
+        Debug.Log(Vector3.Distance(GetPosition() / 2, unitGridCombat.GetPosition() / 2));
+        Debug.Log($"Range {unitStats.attackRange * 18f / 2}");
+        return Vector3.Distance(GetPosition() / 2f, unitGridCombat.GetPosition() / 2f) < (unitStats.attackRange ) * 18f / 2;
     }
 
     private enum State {
