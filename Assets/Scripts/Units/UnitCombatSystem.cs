@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using Object = UnityEngine.Object;
 
 public class UnitCombatSystem : MonoBehaviour {
     public enum Team {
@@ -39,6 +40,15 @@ public class UnitCombatSystem : MonoBehaviour {
     private void Start() {
         _movePositionPathfinding = GetComponent<MovePositionPathfinding>();
         Debug.Log($"MOVE POSITION PATH FINDING {_movePositionPathfinding}");
+        OnActiveChanged += ActiveUnitChanged;
+    }
+
+    public event EventHandler OnActiveChanged;
+
+    private void ActiveUnitChanged(object sender, EventArgs e) {
+        if (_isUnitActive)
+            _sr.sprite = unitStats.SelectedSprite;
+        else _sr.sprite = unitStats.sprite;
     }
 
     private void Update() {
@@ -52,9 +62,6 @@ public class UnitCombatSystem : MonoBehaviour {
         }
 
         // TODO move it from update
-        if (_isUnitActive)
-            _sr.sprite = unitStats.SelectedSprite;
-        else _sr.sprite = unitStats.sprite;
     }
 
     public UnitStatsSO GetUnitStats() {
@@ -64,10 +71,12 @@ public class UnitCombatSystem : MonoBehaviour {
     public void SetActive() {
         // TODO active sprite
         _isUnitActive = true;
+        OnActiveChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public void SetInactive() {
         _isUnitActive = false;
+        OnActiveChanged?.Invoke(this, EventArgs.Empty);
     }
 
     public void AttackUnit(UnitCombatSystem unitCombatSystem, Action onAttackComplete) {
@@ -128,7 +137,8 @@ public class UnitCombatSystem : MonoBehaviour {
         // Number depends on grid tile size
         Debug.Log(Vector3.Distance(GetPosition() / 2, unitGridCombat.GetPosition() / 2));
         Debug.Log($"Range {unitStats.attackRange * 18f / 2}");
-        return Vector3.Distance(GetPosition() / 2f, unitGridCombat.GetPosition() / 2f) < (unitStats.attackRange ) * 18f / 2;
+        return Vector3.Distance(GetPosition() / 2f, unitGridCombat.GetPosition() / 2f) <
+               (unitStats.attackRange) * 18f / 2;
     }
 
     private enum State {

@@ -6,6 +6,7 @@ TagManager:
   tags:
   - RightRespawn
   - LeftRespawn
+  - UnitCounterInfo
   layers:
   - Default
   - TransparentFX
