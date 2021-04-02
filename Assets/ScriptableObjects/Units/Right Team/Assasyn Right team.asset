@@ -12,8 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00148c9b881516145886b1bf8315f871, type: 3}
   m_Name: Assasyn Right team
   m_EditorClassIdentifier: 
+  unitType: 0
   unitName: Assasin
-  maxHealth: 60
+  maxHealth: 65
   damage: 35
   sprite: {fileID: 21300000, guid: 744823ebb81d4864ca7eb3fd8d2b89b3, type: 3}
   SelectedSprite: {fileID: 21300000, guid: 1e221f4c148d8c44d9e0a6fedaf22de1, type: 3}
@@ -25,5 +26,10 @@ MonoBehaviour:
   designerModeUnitSprite: {fileID: 21300000, guid: 317d5029a78f02440bf13e15f32e471c,
     type: 3}
   attackTags:
-  - Tank
-  - Hunter
+  - tagName: Sniper
+    tagDamage: 18
+  - tagName: 
+    tagDamage: 0
+  ability: 0
+  counterDamage: 0
+  counterType: 0

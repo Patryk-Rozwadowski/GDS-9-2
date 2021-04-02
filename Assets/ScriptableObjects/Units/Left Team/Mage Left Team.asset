@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitType: 1
   unitName: Mage
-  maxHealth: 70
+  maxHealth: 90
   damage: 15
   sprite: {fileID: 21300000, guid: 6d6fc5bac321eff469167475bc7ba590, type: 3}
   SelectedSprite: {fileID: 21300000, guid: 9b67380bebc2fc8499baaa82c8b546f8, type: 3}
@@ -26,6 +26,6 @@ MonoBehaviour:
   designerModeUnitSprite: {fileID: 21300000, guid: 19f8e0a587ea09f498af9eb7243a1570,
     type: 3}
   attackTags: []
-  ability: 0
-  counterDamage: 0
-  counteredByType: 0
+  ability: 1
+  counterDamage: 25
+  counterType: 0

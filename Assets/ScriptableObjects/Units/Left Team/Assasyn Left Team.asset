@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitType: 0
   unitName: Assasin
-  maxHealth: 60
+  maxHealth: 65
   damage: 35
   sprite: {fileID: 21300000, guid: e5021d5f44433d941895f07a91915781, type: 3}
   SelectedSprite: {fileID: 21300000, guid: 498a0d54a4af8a04092c1ceb42143778, type: 3}
@@ -32,6 +32,6 @@ MonoBehaviour:
     tagDamage: 20
   - tagName: Mage
     tagDamage: 20
-  ability: 1
-  counterDamage: 25
-  counterType: 1
+  ability: 0
+  counterDamage: 0
+  counterType: 2

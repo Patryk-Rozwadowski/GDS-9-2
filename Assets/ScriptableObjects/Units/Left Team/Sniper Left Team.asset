@@ -18,8 +18,8 @@ MonoBehaviour:
   damage: 25
   sprite: {fileID: 21300000, guid: 3380691f2ddca824d885188ba4915762, type: 3}
   SelectedSprite: {fileID: 21300000, guid: 582b05db8ec074445991a392cd8cf609, type: 3}
-  movementRange: 2
-  attackRange: 6
+  movementRange: 1
+  attackRange: 8
   attackSound: {fileID: 8300000, guid: 7314f122e847f494499df52b7b5fd637, type: 3}
   TakeDamageSound: {fileID: 8300000, guid: f9167cda254bcf34382bf4b1abb5ef8e, type: 3}
   deathSound: {fileID: 8300000, guid: 03300f9fa66f3b04f916b18a1840d498, type: 3}
@@ -27,5 +27,5 @@ MonoBehaviour:
     type: 3}
   attackTags: []
   ability: 0
-  counterDamage: 30
-  counteredByType: 1
+  counterDamage: 0
+  counterType: 2

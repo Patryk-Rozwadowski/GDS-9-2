@@ -12,20 +12,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00148c9b881516145886b1bf8315f871, type: 3}
   m_Name: Hunter Left Team
   m_EditorClassIdentifier: 
-  unitType: 1
+  unitType: 0
   unitName: Hunter
   maxHealth: 70
   damage: 25
   sprite: {fileID: 21300000, guid: 66baff6c91faa484db34abaa43276247, type: 3}
   SelectedSprite: {fileID: 21300000, guid: e79d72ec61b4a9b49a46e0fda860e766, type: 3}
-  movementRange: 4
-  attackRange: 2
+  movementRange: 5
+  attackRange: 1
   attackSound: {fileID: 8300000, guid: 442643761f75e5743a6c7ef495dbb17b, type: 3}
   TakeDamageSound: {fileID: 8300000, guid: 78ee45437c5ecb648934ace6ddf1229a, type: 3}
   deathSound: {fileID: 8300000, guid: e5b2fc45eef0ebd419ffa05ca6c4a86f, type: 3}
   designerModeUnitSprite: {fileID: 21300000, guid: 35b69bf6eab276349b7839031f584013,
     type: 3}
   attackTags: []
-  ability: 0
-  counterDamage: 0
-  counteredByType: 0
+  ability: 1
+  counterDamage: 25
+  counterType: 1

@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 00148c9b881516145886b1bf8315f871, type: 3}
   m_Name: Thieve Left Team
   m_EditorClassIdentifier: 
+  unitType: 0
   unitName: Thieve
-  maxHealth: 70
-  damage: 20
+  maxHealth: 75
+  damage: 24
   sprite: {fileID: 21300000, guid: 7fe33bfda1484524da7c458d38abe234, type: 3}
   SelectedSprite: {fileID: 21300000, guid: f78aecccf770cf64aaa8bfd923530282, type: 3}
   movementRange: 5
@@ -24,3 +25,7 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 03300f9fa66f3b04f916b18a1840d498, type: 3}
   designerModeUnitSprite: {fileID: 21300000, guid: 1c8f68ab20d64ef4d9bbaada9cc1ac2d,
     type: 3}
+  attackTags: []
+  ability: 0
+  counterDamage: 0
+  counterType: 2
