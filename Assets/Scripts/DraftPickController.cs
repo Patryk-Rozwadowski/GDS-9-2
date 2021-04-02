@@ -110,8 +110,9 @@ public class DraftPickController : MonoBehaviour {
             _draftPickPoint++;
             if (_draftPickPoint == 3 || _draftPickPoint == 7) {
                 HideRespawn();
-                _teamPicking = UnitCombatSystem.Team.Left;
                 _unitStatsControllerUI.HidePanelPlayerPanel(_teamPicking, GameModeEnum.DraftPick);
+                _unitStatsControllerUI.HidePanelPlayerPanel(UnitCombatSystem.Team.Right, GameModeEnum.DraftPick);
+                _teamPicking = UnitCombatSystem.Team.Left;
                 Debug.Log($"DRAFT PICK POINT: {_draftPickPoint} NEXT PICK: {_teamPicking}");
             }
         }
