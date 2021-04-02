@@ -5,10 +5,7 @@ public class MainMenu : MonoBehaviour {
     [SerializeField] private GameObject CanvasCredits;
     [SerializeField] private GameObject CanvasHowToPlay;
 
-    private void Awake() {
-        CanvasCredits = GetComponent<Canvas>().gameObject;
-        CanvasHowToPlay = GetComponent<Canvas>().gameObject;
-    }
+
 
 
     public void PlayGame() {
