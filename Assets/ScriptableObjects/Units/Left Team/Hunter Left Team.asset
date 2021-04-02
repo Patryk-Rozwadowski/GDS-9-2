@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   unitType: 0
   unitName: Hunter
-  maxHealth: 70
+  maxHealth: 75
   damage: 25
   sprite: {fileID: 21300000, guid: 66baff6c91faa484db34abaa43276247, type: 3}
   SelectedSprite: {fileID: 21300000, guid: e79d72ec61b4a9b49a46e0fda860e766, type: 3}
@@ -25,7 +25,11 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: e5b2fc45eef0ebd419ffa05ca6c4a86f, type: 3}
   designerModeUnitSprite: {fileID: 21300000, guid: 35b69bf6eab276349b7839031f584013,
     type: 3}
-  attackTags: []
+  attackTags:
+  - tagName: Assasin
+    tagDamage: 13
+  - tagName: Thieve
+    tagDamage: 13
   ability: 1
   counterDamage: 25
   counterType: 1

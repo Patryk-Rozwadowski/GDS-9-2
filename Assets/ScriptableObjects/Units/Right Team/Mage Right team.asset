@@ -25,7 +25,13 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 03300f9fa66f3b04f916b18a1840d498, type: 3}
   designerModeUnitSprite: {fileID: 21300000, guid: 71a26522373aebd49ae0d0d1d9cea2e2,
     type: 3}
-  attackTags: []
+  attackTags:
+  - tagName: Tank
+    tagDamage: 8
+  - tagName: Range
+    tagDamage: 8
+  - tagName: Repetetive
+    tagDamage: 8
   ability: 1
-  counterDamage: 25
+  counterDamage: 15
   counterType: 2

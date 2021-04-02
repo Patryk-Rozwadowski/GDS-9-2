@@ -25,7 +25,13 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 03300f9fa66f3b04f916b18a1840d498, type: 3}
   designerModeUnitSprite: {fileID: 21300000, guid: 1c8f68ab20d64ef4d9bbaada9cc1ac2d,
     type: 3}
-  attackTags: []
-  ability: 0
-  counterDamage: 0
-  counterType: 2
+  attackTags:
+  - tagName: Mage
+    tagDamage: 12
+  - tagName: Warrior
+    tagDamage: 12
+  - tagName: Repetetive
+    tagDamage: 12
+  ability: 1
+  counterDamage: 24
+  counterType: 1

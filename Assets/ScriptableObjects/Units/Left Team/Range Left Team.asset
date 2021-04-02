@@ -19,13 +19,19 @@ MonoBehaviour:
   sprite: {fileID: 21300000, guid: 861133ec898f616458691e13683bfed3, type: 3}
   SelectedSprite: {fileID: 21300000, guid: 5472a8b28e2dbdf40b80f0df9ff55a34, type: 3}
   movementRange: 3
-  attackRange: 4
+  attackRange: 5
   attackSound: {fileID: 8300000, guid: 412e9afe59063fb49bf65311aefb56ac, type: 3}
   TakeDamageSound: {fileID: 8300000, guid: e5b2fc45eef0ebd419ffa05ca6c4a86f, type: 3}
   deathSound: {fileID: 8300000, guid: e5b2fc45eef0ebd419ffa05ca6c4a86f, type: 3}
   designerModeUnitSprite: {fileID: 21300000, guid: 67dbfa4fffaa65c4fbe1a60597d414f4,
     type: 3}
-  attackTags: []
+  attackTags:
+  - tagName: Assasin
+    tagDamage: 10
+  - tagName: Partisant
+    tagDamage: 10
+  - tagName: Sniper
+    tagDamage: 10
   ability: 1
   counterDamage: 20
   counterType: 1

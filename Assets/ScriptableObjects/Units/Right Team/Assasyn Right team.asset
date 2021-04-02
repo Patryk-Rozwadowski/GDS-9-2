@@ -28,8 +28,10 @@ MonoBehaviour:
   attackTags:
   - tagName: Sniper
     tagDamage: 18
-  - tagName: 
-    tagDamage: 0
-  ability: 0
-  counterDamage: 0
+  - tagName: Mage
+    tagDamage: 18
+  - tagName: Partisant
+    tagDamage: 18
+  ability: 1
+  counterDamage: 35
   counterType: 0

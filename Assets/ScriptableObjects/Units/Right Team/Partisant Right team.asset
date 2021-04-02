@@ -25,7 +25,13 @@ MonoBehaviour:
   deathSound: {fileID: 8300000, guid: 03300f9fa66f3b04f916b18a1840d498, type: 3}
   designerModeUnitSprite: {fileID: 21300000, guid: ee112348e78b0db4d87d87f0a23e0ec7,
     type: 3}
-  attackTags: []
+  attackTags:
+  - tagName: Thieve
+    tagDamage: 13
+  - tagName: Warrior
+    tagDamage: 13
+  - tagName: Hunter
+    tagDamage: 13
   ability: 1
   counterDamage: 25
   counterType: 0
