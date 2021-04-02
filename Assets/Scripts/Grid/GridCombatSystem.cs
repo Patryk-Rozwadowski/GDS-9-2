@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
+using System.Linq;
 
 public class GridCombatSystem : MonoBehaviour {
     [SerializeField] public List<UnitCombatSystem> leftTeam, rightTeam;
@@ -119,9 +120,19 @@ public class GridCombatSystem : MonoBehaviour {
             _unitStatsControllerUI.ViewActiveUnitInGame(leftTeam[_lefTeamActiveUnitIndex].GetUnitStats(),
                 UnitCombatSystem.Team.Left);
 
+            if (leftTeam.Count(x => x != null) == 0)
+            {
+                WinController.Win(false);
+            }
+
             if (leftTeam[_lefTeamActiveUnitIndex] == null)
                 return GetNextActiveUnit(team);
             return leftTeam[_lefTeamActiveUnitIndex];
+        }
+
+        if (rightTeam.Count(x => x != null) == 0)
+        {
+            WinController.Win(true);
         }
 
         _rightTeamActiveUnitIndex = (_rightTeamActiveUnitIndex + 1) % rightTeam.Count;
