@@ -5,6 +5,7 @@ public class PauseMenu : MonoBehaviour {
     public static bool GameIsPaused;
 
     public GameObject PauseMenuUI;
+    [SerializeField] GameObject InformatioScreen;
 
     private void Update() {
         if (Input.GetKeyDown(KeyCode.Escape)) {
@@ -13,6 +14,14 @@ public class PauseMenu : MonoBehaviour {
             else
                 Pause();
         }
+    }
+
+    public void ShowStats() {
+        InformatioScreen.SetActive(true);
+    }
+
+    public void HideStats() {
+        InformatioScreen.SetActive(false);
     }
 
     public void Resume() {

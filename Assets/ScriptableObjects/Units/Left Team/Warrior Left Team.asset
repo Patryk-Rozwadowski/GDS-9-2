@@ -28,4 +28,4 @@ MonoBehaviour:
   attackTags: []
   ability: 0
   counterDamage: 0
-  counterType: 2
+  counterType: 0
