@@ -9,8 +9,12 @@ public class SpriteController : MonoBehaviour {
     private SpriteRenderer spriteRenderer;
 
     private void Start() {
-        TryGetComponent(out spriteRenderer);
-        if (TryGetComponent(out image)) normalMode = image.sprite;
+
+        if(TryGetComponent(out spriteRenderer)){ 
+
+            normalMode = spriteRenderer.sprite;
+        }
+        else if(TryGetComponent(out image)) normalMode = image.sprite;
 
         InvokeRepeating(nameof(ChcekMode), 0f, 0.2f);
     }
@@ -32,6 +36,7 @@ public class SpriteController : MonoBehaviour {
             image.sprite = sprite;
             image.SetNativeSize();
         }
+
         else {
             Debug.LogWarning("Missing Image or SpriteRenderer");
         }
