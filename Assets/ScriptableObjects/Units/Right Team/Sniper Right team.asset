@@ -18,7 +18,7 @@ MonoBehaviour:
   damage: 30
   sprite: {fileID: 21300000, guid: 7d4a32b95017d8240abae8de5d67e7dd, type: 3}
   SelectedSprite: {fileID: 21300000, guid: 2fd5c6f90fa75584e92cca2af6b67000, type: 3}
-  movementRange: 1
+  movementRange: 2
   attackRange: 8
   attackSound: {fileID: 8300000, guid: 7314f122e847f494499df52b7b5fd637, type: 3}
   TakeDamageSound: {fileID: 8300000, guid: 78ee45437c5ecb648934ace6ddf1229a, type: 3}

@@ -4,6 +4,7 @@ using UnityEngine;
 public class HealthSystem {
     private float _health;
     private readonly float _maxHealth;
+    public float MaxHealth { get => _maxHealth; }
 
     public HealthSystem(int maxHealth) {
         _maxHealth = maxHealth;
