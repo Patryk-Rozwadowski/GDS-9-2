@@ -830,7 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: d6e0eeb2a0d1f2a4a8b19ee91b1ea4b3, type: 3}
 --- !u!114 &84079553
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -850,7 +850,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db1ec55a5fd80dc4b801517e7d255cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bda5d56e105c95e4e91b2f6cd0dda072, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -878,6 +878,7 @@ GameObject:
   m_Component:
   - component: {fileID: 84199237}
   - component: {fileID: 84199238}
+  - component: {fileID: 84199239}
   m_Layer: 0
   m_Name: RightTank Images
   m_TagString: Untagged
@@ -929,6 +930,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &84199239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 84199236}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &85617697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1320,7 +1343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 67dbfa4fffaa65c4fbe1a60597d414f4, type: 3}
+  designMode: {fileID: 21300000, guid: 398aebde829c33043b75906cf513d3a3, type: 3}
 --- !u!114 &116838162
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1340,7 +1363,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6c9e8c5ca9b84f546acb81befc1708b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0aa75e7c0bd6e841ba96177d7c2f6a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -1656,6 +1679,7 @@ GameObject:
   m_Component:
   - component: {fileID: 136369239}
   - component: {fileID: 136369240}
+  - component: {fileID: 136369241}
   m_Layer: 0
   m_Name: RightThieve Images
   m_TagString: Untagged
@@ -1707,6 +1731,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &136369241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 136369238}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &140546562
 GameObject:
   m_ObjectHideFlags: 0
@@ -1819,6 +1865,7 @@ GameObject:
   m_Component:
   - component: {fileID: 141294825}
   - component: {fileID: 141294826}
+  - component: {fileID: 141294827}
   m_Layer: 0
   m_Name: LeftHunter Images
   m_TagString: Untagged
@@ -1870,6 +1917,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 1
   m_TargetDisplay: 0
+--- !u!114 &141294827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 141294824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &146542298
 GameObject:
   m_ObjectHideFlags: 0
@@ -2142,7 +2211,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 1c8f68ab20d64ef4d9bbaada9cc1ac2d, type: 3}
+  designMode: {fileID: 21300000, guid: cdd0bf860991f0e48b0b021adbe0b29a, type: 3}
 --- !u!114 &169609551
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2162,7 +2231,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 194ea71531f458e4dab8b543421161f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8cb93c5c2673724982b80c1e728ed42, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2912,6 +2981,7 @@ GameObject:
   m_Component:
   - component: {fileID: 238829248}
   - component: {fileID: 238829249}
+  - component: {fileID: 238829250}
   m_Layer: 0
   m_Name: LeftSniper Images
   m_TagString: Untagged
@@ -2963,6 +3033,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &238829250
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238829247}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &248892685
 GameObject:
   m_ObjectHideFlags: 0
@@ -3228,7 +3320,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: c5b4aec0d6c22da40b8af354f95e1815, type: 3}
 --- !u!114 &276083130
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3248,7 +3340,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db1ec55a5fd80dc4b801517e7d255cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8f89365853e0064793bafae60faff83, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -3496,13 +3588,14 @@ GameObject:
   m_Component:
   - component: {fileID: 309291614}
   - component: {fileID: 309291613}
+  - component: {fileID: 309291615}
   m_Layer: 0
   m_Name: LeftWarrior Images
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!223 &309291613
 Canvas:
   m_ObjectHideFlags: 0
@@ -3547,6 +3640,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &309291615
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 309291612}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &315724502
 GameObject:
   m_ObjectHideFlags: 0
@@ -3732,6 +3847,7 @@ GameObject:
   m_Component:
   - component: {fileID: 350646020}
   - component: {fileID: 350646021}
+  - component: {fileID: 350646022}
   m_Layer: 0
   m_Name: RightPartisant Images
   m_TagString: Untagged
@@ -3783,6 +3899,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &350646022
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350646019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &353254988
 GameObject:
   m_ObjectHideFlags: 0
@@ -3960,6 +4098,7 @@ GameObject:
   m_Component:
   - component: {fileID: 376092295}
   - component: {fileID: 376092296}
+  - component: {fileID: 376092297}
   m_Layer: 0
   m_Name: RightSniper Images
   m_TagString: Untagged
@@ -4011,6 +4150,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &376092297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 376092294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &390992887
 GameObject:
   m_ObjectHideFlags: 0
@@ -4089,6 +4250,34 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 390992887}
   m_CullTransparentMesh: 0
+--- !u!1 &391807324 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 9096485667509503368, guid: 173bcb42027f15e4f8f3022b5a17dbbb,
+    type: 3}
+  m_PrefabInstance: {fileID: 1673692753}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &391807327
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 391807324}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &413419980
 GameObject:
   m_ObjectHideFlags: 0
@@ -4218,7 +4407,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: 56ba92abb55e4eb4b935b6bf96bace3b, type: 3}
 --- !u!114 &418331022
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4238,7 +4427,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db1ec55a5fd80dc4b801517e7d255cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2c778f74322753f4083368345ab5f18f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -4266,6 +4455,7 @@ GameObject:
   m_Component:
   - component: {fileID: 419484531}
   - component: {fileID: 419484530}
+  - component: {fileID: 419484532}
   m_Layer: 0
   m_Name: RightWarrior Images
   m_TagString: Untagged
@@ -4317,6 +4507,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &419484532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 419484529}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &421178847
 GameObject:
   m_ObjectHideFlags: 0
@@ -5693,6 +5905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 546188359}
   - component: {fileID: 546188360}
+  - component: {fileID: 546188361}
   m_Layer: 0
   m_Name: RightRange Images
   m_TagString: Untagged
@@ -5744,6 +5957,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &546188361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 546188358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &555025280
 GameObject:
   m_ObjectHideFlags: 0
@@ -6223,7 +6458,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: ac048c519bb39c84cb7cc81e08a7fc15, type: 3}
 --- !u!114 &587295003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6431,7 +6666,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: 08d688f8bb3af8f44877ef0f2a90ddc7, type: 3}
 --- !u!114 &599885207
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6451,7 +6686,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db1ec55a5fd80dc4b801517e7d255cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e3fd1c15f318724b8e726da03b86277, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6872,7 +7107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 67dbfa4fffaa65c4fbe1a60597d414f4, type: 3}
+  designMode: {fileID: 21300000, guid: 0200811d49a89da4cadf28b45990f5ee, type: 3}
 --- !u!114 &616521448
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6892,7 +7127,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6c9e8c5ca9b84f546acb81befc1708b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d99f2a6c686967e4b9f7d2424cd8719f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -6971,7 +7206,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &629590140
 RectTransform:
   m_ObjectHideFlags: 0
@@ -7841,6 +8076,7 @@ GameObject:
   m_Component:
   - component: {fileID: 696758594}
   - component: {fileID: 696758595}
+  - component: {fileID: 696758596}
   m_Layer: 0
   m_Name: RightRanger Images
   m_TagString: Untagged
@@ -7892,6 +8128,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &696758596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696758593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &703462046
 GameObject:
   m_ObjectHideFlags: 0
@@ -7942,6 +8200,7 @@ GameObject:
   m_Component:
   - component: {fileID: 709809017}
   - component: {fileID: 709809018}
+  - component: {fileID: 709809019}
   m_Layer: 0
   m_Name: LeftPartisant Images
   m_TagString: Untagged
@@ -7993,6 +8252,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &709809019
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 709809016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &711472485
 GameObject:
   m_ObjectHideFlags: 0
@@ -8133,7 +8414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 67dbfa4fffaa65c4fbe1a60597d414f4, type: 3}
+  designMode: {fileID: 21300000, guid: d6e0eeb2a0d1f2a4a8b19ee91b1ea4b3, type: 3}
 --- !u!114 &712033276
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9013,7 +9294,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 194ea71531f458e4dab8b543421161f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 4a5cf5a5fa0694c4d893ee30522eebee, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9283,7 +9564,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: 08d688f8bb3af8f44877ef0f2a90ddc7, type: 3}
 --- !u!114 &773495865
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9303,7 +9584,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db1ec55a5fd80dc4b801517e7d255cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e3fd1c15f318724b8e726da03b86277, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9619,7 +9900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: 735a5d552d82be94c84e7f30900e2d59, type: 3}
 --- !u!114 &801007560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9639,7 +9920,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db1ec55a5fd80dc4b801517e7d255cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1805d522298ee3f4b9ffc61dfc40dcc2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -9821,7 +10102,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!114 &827160588
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10316,7 +10597,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.400024, y: 27}
+  m_AnchoredPosition: {x: -0.3, y: 27}
   m_SizeDelta: {x: 109.51654, y: 37.389008}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &856967888
@@ -10343,9 +10624,9 @@ MonoBehaviour:
     m_FontSize: 24
     m_FontStyle: 0
     m_BestFit: 0
-    m_MinSize: 2
+    m_MinSize: 0
     m_MaxSize: 40
-    m_Alignment: 0
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -10619,7 +10900,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: 4242eaca5d7352945aee453a8ae56e42, type: 3}
 --- !u!114 &882661931
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10942,7 +11223,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 67dbfa4fffaa65c4fbe1a60597d414f4, type: 3}
+  designMode: {fileID: 21300000, guid: 0200811d49a89da4cadf28b45990f5ee, type: 3}
 --- !u!114 &915434635
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10962,7 +11243,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6c9e8c5ca9b84f546acb81befc1708b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d99f2a6c686967e4b9f7d2424cd8719f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11186,7 +11467,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 1c8f68ab20d64ef4d9bbaada9cc1ac2d, type: 3}
+  designMode: {fileID: 21300000, guid: b4b0b4d79fab1e84ea5c4a8cc86a51f9, type: 3}
 --- !u!114 &927398803
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11206,7 +11487,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 194ea71531f458e4dab8b543421161f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fba7f5b365977bb4c87b5cc725e4dd69, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -11544,7 +11825,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &953123023
 RectTransform:
   m_ObjectHideFlags: 0
@@ -11981,6 +12262,7 @@ GameObject:
   m_Component:
   - component: {fileID: 969103189}
   - component: {fileID: 969103190}
+  - component: {fileID: 969103191}
   m_Layer: 0
   m_Name: LeftRanger Images
   m_TagString: Untagged
@@ -12032,6 +12314,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &969103191
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 969103188}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &975295936
 GameObject:
   m_ObjectHideFlags: 0
@@ -12475,7 +12779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 1c8f68ab20d64ef4d9bbaada9cc1ac2d, type: 3}
+  designMode: {fileID: 21300000, guid: edd962aeb5c77e649989ac31055686b6, type: 3}
 --- !u!114 &1023509973
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12495,7 +12799,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 194ea71531f458e4dab8b543421161f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f119b221a74386e49875d66c664b68f0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -12523,6 +12827,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1036790748}
   - component: {fileID: 1036790749}
+  - component: {fileID: 1036790750}
   m_Layer: 0
   m_Name: LeftShield Images
   m_TagString: Untagged
@@ -12574,6 +12879,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1036790750
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1036790747}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &1043557495
 GameObject:
   m_ObjectHideFlags: 0
@@ -12625,7 +12952,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 67dbfa4fffaa65c4fbe1a60597d414f4, type: 3}
+  designMode: {fileID: 21300000, guid: 08d688f8bb3af8f44877ef0f2a90ddc7, type: 3}
 --- !u!114 &1043557498
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12645,7 +12972,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6c9e8c5ca9b84f546acb81befc1708b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1e3fd1c15f318724b8e726da03b86277, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -13230,6 +13557,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1111588114}
   - component: {fileID: 1111588115}
+  - component: {fileID: 1111588116}
   m_Layer: 0
   m_Name: RightAssasin Images
   m_TagString: Untagged
@@ -13281,6 +13609,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1111588116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1111588113}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &1126195889
 GameObject:
   m_ObjectHideFlags: 0
@@ -13466,6 +13816,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1134392679}
   - component: {fileID: 1134392680}
+  - component: {fileID: 1134392681}
   m_Layer: 0
   m_Name: LeftRange Images
   m_TagString: Untagged
@@ -13517,6 +13868,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1134392681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1134392678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &1140304999
 GameObject:
   m_ObjectHideFlags: 0
@@ -14464,6 +14837,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1177164357}
   - component: {fileID: 1177164358}
+  - component: {fileID: 1177164359}
   m_Layer: 0
   m_Name: RightHunter Images
   m_TagString: Untagged
@@ -14515,6 +14889,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1177164359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1177164356}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &1181497351
 GameObject:
   m_ObjectHideFlags: 0
@@ -14565,7 +14961,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 1c8f68ab20d64ef4d9bbaada9cc1ac2d, type: 3}
+  designMode: {fileID: 21300000, guid: 19f8e0a587ea09f498af9eb7243a1570, type: 3}
 --- !u!114 &1181497354
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14585,7 +14981,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 194ea71531f458e4dab8b543421161f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: aee3f2489244c1f458957e39b426a7a6, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -14838,7 +15234,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 194ea71531f458e4dab8b543421161f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8e0b1692634fec24dbf6683ac643cfe0, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -15141,7 +15537,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: 398aebde829c33043b75906cf513d3a3, type: 3}
 --- !u!114 &1235586675
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15161,7 +15557,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db1ec55a5fd80dc4b801517e7d255cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0aa75e7c0bd6e841ba96177d7c2f6a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -16509,7 +16905,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1314130170
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16720,7 +17116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 67dbfa4fffaa65c4fbe1a60597d414f4, type: 3}
+  designMode: {fileID: 21300000, guid: dedf335db8e289241b47b968f0cf1c20, type: 3}
 --- !u!114 &1321449356
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17117,7 +17513,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: da548e4c658d5b4439a2efc11cff7e61, type: 3}
 --- !u!114 &1361894557
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -17819,6 +18215,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1462354374}
   - component: {fileID: 1462354375}
+  - component: {fileID: 1462354376}
   m_Layer: 0
   m_Name: RightShield Images
   m_TagString: Untagged
@@ -17870,6 +18267,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1462354376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1462354373}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &1468135956
 GameObject:
   m_ObjectHideFlags: 0
@@ -17880,6 +18299,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1468135957}
   - component: {fileID: 1468135958}
+  - component: {fileID: 1468135959}
   m_Layer: 0
   m_Name: LeftTank Images
   m_TagString: Untagged
@@ -17931,6 +18351,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1468135959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1468135956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &1472946575
 GameObject:
   m_ObjectHideFlags: 0
@@ -17982,7 +18424,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: c5b4aec0d6c22da40b8af354f95e1815, type: 3}
 --- !u!114 &1472946578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18002,7 +18444,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db1ec55a5fd80dc4b801517e7d255cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b8f89365853e0064793bafae60faff83, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18266,6 +18708,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1502002942}
   - component: {fileID: 1502002943}
+  - component: {fileID: 1502002944}
   m_Layer: 0
   m_Name: LeftAsssasin Images
   m_TagString: Untagged
@@ -18317,6 +18760,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 0
   m_TargetDisplay: 0
+--- !u!114 &1502002944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1502002941}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &1503049031
 GameObject:
   m_ObjectHideFlags: 0
@@ -18518,7 +18983,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 194ea71531f458e4dab8b543421161f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 9fdc0c6677f5ef641beba8b119c341fb, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -18949,7 +19414,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 194ea71531f458e4dab8b543421161f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d29853533c77fbf4b83c9bf75f6d3ba8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -20576,7 +21041,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1688431460
 RectTransform:
   m_ObjectHideFlags: 0
@@ -21958,7 +22423,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 67dbfa4fffaa65c4fbe1a60597d414f4, type: 3}
+  designMode: {fileID: 21300000, guid: 398aebde829c33043b75906cf513d3a3, type: 3}
 --- !u!114 &1795442776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -21978,7 +22443,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6c9e8c5ca9b84f546acb81befc1708b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: b0aa75e7c0bd6e841ba96177d7c2f6a8, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -22047,7 +22512,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: ac048c519bb39c84cb7cc81e08a7fc15, type: 3}
 --- !u!114 &1798585341
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23175,7 +23640,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 67dbfa4fffaa65c4fbe1a60597d414f4, type: 3}
+  designMode: {fileID: 21300000, guid: d6e0eeb2a0d1f2a4a8b19ee91b1ea4b3, type: 3}
 --- !u!114 &1883942932
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -23195,7 +23660,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6c9e8c5ca9b84f546acb81befc1708b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bda5d56e105c95e4e91b2f6cd0dda072, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -23460,13 +23925,14 @@ GameObject:
   m_Component:
   - component: {fileID: 1914092120}
   - component: {fileID: 1914092121}
+  - component: {fileID: 1914092122}
   m_Layer: 0
   m_Name: LeftThieve Images
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1914092120
 RectTransform:
   m_ObjectHideFlags: 0
@@ -23511,6 +23977,28 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 10
   m_TargetDisplay: 0
+--- !u!114 &1914092122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1914092119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_UiScaleMode: 1
+  m_ReferencePixelsPerUnit: 100
+  m_ScaleFactor: 1
+  m_ReferenceResolution: {x: 1920, y: 1080}
+  m_ScreenMatchMode: 0
+  m_MatchWidthOrHeight: 0
+  m_PhysicalUnit: 3
+  m_FallbackScreenDPI: 96
+  m_DefaultSpriteDPI: 96
+  m_DynamicPixelsPerUnit: 1
 --- !u!1 &1923393136
 GameObject:
   m_ObjectHideFlags: 0
@@ -23786,7 +24274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 67dbfa4fffaa65c4fbe1a60597d414f4, type: 3}
+  designMode: {fileID: 21300000, guid: dedf335db8e289241b47b968f0cf1c20, type: 3}
 --- !u!114 &1928905568
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24039,10 +24527,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -24254,7 +24742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: d6e0eeb2a0d1f2a4a8b19ee91b1ea4b3, type: 3}
 --- !u!114 &1974085751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24274,7 +24762,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db1ec55a5fd80dc4b801517e7d255cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: bda5d56e105c95e4e91b2f6cd0dda072, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -24381,7 +24869,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: 56ba92abb55e4eb4b935b6bf96bace3b, type: 3}
 --- !u!114 &1987375979
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -24401,7 +24889,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db1ec55a5fd80dc4b801517e7d255cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2c778f74322753f4083368345ab5f18f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25059,7 +25547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 1c8f68ab20d64ef4d9bbaada9cc1ac2d, type: 3}
+  designMode: {fileID: 21300000, guid: 1d17712ed409df4419955d5d6484f6ec, type: 3}
 --- !u!114 &2014337291
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25079,7 +25567,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 194ea71531f458e4dab8b543421161f4, type: 3}
+  m_Sprite: {fileID: 21300000, guid: af76f1c72df04d24d86f144c618f519c, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25236,7 +25724,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 18ac60ee2b1a9c74ab36ee027db5c7bc, type: 3}
+  designMode: {fileID: 21300000, guid: 56ba92abb55e4eb4b935b6bf96bace3b, type: 3}
 --- !u!114 &2020422300
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -25256,7 +25744,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: db1ec55a5fd80dc4b801517e7d255cc0, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 2c778f74322753f4083368345ab5f18f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -25973,7 +26461,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2105303117
 RectTransform:
   m_ObjectHideFlags: 0
@@ -26297,7 +26785,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cde5ed8051034a4782473a02e796931, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  designMode: {fileID: 21300000, guid: 67dbfa4fffaa65c4fbe1a60597d414f4, type: 3}
+  designMode: {fileID: 21300000, guid: 735a5d552d82be94c84e7f30900e2d59, type: 3}
 --- !u!114 &2141671751
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -26317,7 +26805,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 6c9e8c5ca9b84f546acb81befc1708b8, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 1805d522298ee3f4b9ffc61dfc40dcc2, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

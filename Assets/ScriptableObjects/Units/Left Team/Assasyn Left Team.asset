@@ -27,7 +27,7 @@ MonoBehaviour:
     type: 3}
   attackTags:
   - tagName: Tank
-    tagDamage: 50
+    tagDamage: 10
   - tagName: Hunter
     tagDamage: 20
   - tagName: Mage
