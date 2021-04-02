@@ -7,7 +7,7 @@ public class DraftPickController : MonoBehaviour {
     [SerializeField] private GameObject _leftTeamRespawn, _rightTeamRespawn;
     [SerializeField] private GridCombatSystem _gridCombatSystem;
 
-    private readonly bool _debug = true;
+    private readonly bool _debug = false;
     private int _draftPickPoint;
     private Grid<GridCombatSystem.GridObject> _grid;
 
