@@ -34,12 +34,14 @@ public class DraftPickController : MonoBehaviour {
         _teamsState.areTeamsReady = false;
 
         _rightTeamRespawn.SetActive(false);
-
+        
         _teamsState.leftTeam.Clear();
         _teamsState.rightTeam.Clear();
         _teamsState.allUnitsInBothTeams.Clear();
 
         _unitStatsControllerUI.HideGamePanels();
+        _teamPicking = UnitCombatSystem.Team.Left;
+        _unitStatsControllerUI.HidePanelPlayerPanel(_teamPicking, GameModeEnum.DraftPick);
         Debug.LogWarning($"START INIT: TEAM PICKING : {_teamPicking}");
         if (_debug) _numberOfUnitsInTeam = 1;
     }
@@ -63,7 +65,7 @@ public class DraftPickController : MonoBehaviour {
             var pickedUnit = Instantiate(_pickedUnit, CursorUtils.GetMouseWorldPosition(), Quaternion.identity);
             pickedUnit.transform.localScale = _unitScale;
             pickedUnit.transform.position = GridUtils.SetUnitOnTileCenter(pickedUnit.gameObject);
-
+            _unitStatsControllerUI.HidePanelPlayerPanel(_teamPicking, GameModeEnum.DraftPick);
 
             _teamsState.leftTeam.Add(pickedUnit);
             _teamsState.allUnitsInBothTeams.Add(pickedUnit);
@@ -110,9 +112,8 @@ public class DraftPickController : MonoBehaviour {
             _draftPickPoint++;
             if (_draftPickPoint == 3 || _draftPickPoint == 7) {
                 HideRespawn();
-                _unitStatsControllerUI.HidePanelPlayerPanel(_teamPicking, GameModeEnum.DraftPick);
-                _unitStatsControllerUI.HidePanelPlayerPanel(UnitCombatSystem.Team.Right, GameModeEnum.DraftPick);
                 _teamPicking = UnitCombatSystem.Team.Left;
+                _unitStatsControllerUI.HidePanelPlayerPanel(_teamPicking, GameModeEnum.DraftPick);
                 Debug.Log($"DRAFT PICK POINT: {_draftPickPoint} NEXT PICK: {_teamPicking}");
             }
         }
