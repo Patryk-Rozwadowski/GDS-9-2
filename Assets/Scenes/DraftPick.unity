@@ -337,7 +337,7 @@ GameObject:
   - component: {fileID: 20410806}
   - component: {fileID: 20410805}
   m_Layer: 0
-  m_Name: RightRanger Images (1)
+  m_Name: RightRepetetive Images (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1681,7 +1681,7 @@ RectTransform:
   - {fileID: 770542966}
   - {fileID: 2106032486}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1992,7 +1992,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &168052307
 GameObject:
@@ -3337,7 +3337,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!223 &309291613
 Canvas:
   m_ObjectHideFlags: 0
@@ -6125,7 +6125,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &596908302
 GameObject:
@@ -6687,7 +6687,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &629590139
 GameObject:
@@ -8900,7 +8900,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &740747667
 GameObject:
@@ -10001,7 +10001,7 @@ RectTransform:
   - {fileID: 752383270}
   - {fileID: 1976682720}
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11997,7 +11997,7 @@ GameObject:
   - component: {fileID: 969103190}
   - component: {fileID: 969103191}
   m_Layer: 0
-  m_Name: LeftRanger Images
+  m_Name: LeftRepetetive Images
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12651,7 +12651,7 @@ GameObject:
   - component: {fileID: 1036790749}
   - component: {fileID: 1036790750}
   m_Layer: 0
-  m_Name: LeftShield Images
+  m_Name: LeftMage Images
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13445,7 +13445,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1133733209
 GameObject:
@@ -17766,7 +17766,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1400512516
 GameObject:
@@ -17901,7 +17901,7 @@ Transform:
   - {fileID: 1997236595}
   - {fileID: 111825376}
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1458427738
 GameObject:
@@ -19399,7 +19399,7 @@ Transform:
   - {fileID: 837080837}
   - {fileID: 1400512520}
   m_Father: {fileID: 0}
-  m_RootOrder: 18
+  m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1560676115
 GameObject:
@@ -20396,7 +20396,7 @@ PrefabInstance:
     - target: {fileID: 9096485667509503370, guid: 173bcb42027f15e4f8f3022b5a17dbbb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 14
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 9096485667509503370, guid: 173bcb42027f15e4f8f3022b5a17dbbb,
         type: 3}
@@ -23053,7 +23053,7 @@ RectTransform:
   - {fileID: 443971768}
   - {fileID: 36674936}
   m_Father: {fileID: 0}
-  m_RootOrder: 17
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -23631,75 +23631,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1904776080}
   m_CullTransparentMesh: 0
---- !u!1001 &1907183584
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 1804663713242103323, guid: 335db85eb49c94a44a9cc7247cbc511b,
-        type: 3}
-      propertyPath: m_Name
-      value: Assasin Left Team
-      objectReference: {fileID: 0}
-    - target: {fileID: 1804663713242103333, guid: 335db85eb49c94a44a9cc7247cbc511b,
-        type: 3}
-      propertyPath: m_RootOrder
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1804663713242103333, guid: 335db85eb49c94a44a9cc7247cbc511b,
-        type: 3}
-      propertyPath: m_LocalPosition.x
-      value: -70.98733
-      objectReference: {fileID: 0}
-    - target: {fileID: 1804663713242103333, guid: 335db85eb49c94a44a9cc7247cbc511b,
-        type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 34.13701
-      objectReference: {fileID: 0}
-    - target: {fileID: 1804663713242103333, guid: 335db85eb49c94a44a9cc7247cbc511b,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1804663713242103333, guid: 335db85eb49c94a44a9cc7247cbc511b,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 1804663713242103333, guid: 335db85eb49c94a44a9cc7247cbc511b,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1804663713242103333, guid: 335db85eb49c94a44a9cc7247cbc511b,
-        type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1804663713242103333, guid: 335db85eb49c94a44a9cc7247cbc511b,
-        type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1804663713242103333, guid: 335db85eb49c94a44a9cc7247cbc511b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1804663713242103333, guid: 335db85eb49c94a44a9cc7247cbc511b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1804663713242103333, guid: 335db85eb49c94a44a9cc7247cbc511b,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 335db85eb49c94a44a9cc7247cbc511b, type: 3}
 --- !u!1 &1914092119
 GameObject:
   m_ObjectHideFlags: 0
@@ -24346,7 +24277,7 @@ RectTransform:
   - {fileID: 1142500655}
   - {fileID: 609131471}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -24463,7 +24394,7 @@ Transform:
   - {fileID: 630776819}
   - {fileID: 960088383}
   m_Father: {fileID: 0}
-  m_RootOrder: 2
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1974085748
 GameObject:
@@ -25109,7 +25040,7 @@ Transform:
   - {fileID: 640000922}
   - {fileID: 703462047}
   m_Father: {fileID: 0}
-  m_RootOrder: 16
+  m_RootOrder: 15
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2007288708
 GameObject:
@@ -25229,7 +25160,7 @@ RectTransform:
   m_LocalScale: {x: 0.14629629, y: 0.14629629, z: 0.14629629}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -25883,7 +25814,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2040177509
 RectTransform:
   m_ObjectHideFlags: 0
@@ -25978,7 +25909,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2044091774
 GameObject:
@@ -26363,7 +26294,7 @@ GameObject:
   - component: {fileID: 2072815695}
   - component: {fileID: 2072815694}
   m_Layer: 0
-  m_Name: RightShield Images (1)
+  m_Name: RightMage Images (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
