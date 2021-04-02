@@ -508,7 +508,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 0.65
-  m_Text: "Programista\nPatryk Rozwodowski\n\nGrafik\nWojtek Kr\xF3lik\n\nLead  Game
+  m_Text: "Programmer\nPatryk Rozwodowski\n\nArtist\nWojtek Kr\xF3lik\n\nLead  Game
     Designer\nPawe\u0142 Lewandowski\n\nGame  designer\nMaciej Marcinkowski\n\n\n"
 --- !u!222 &478606605
 CanvasRenderer:
@@ -536,7 +536,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &481916723
 MonoBehaviour:
   m_ObjectHideFlags: 0
