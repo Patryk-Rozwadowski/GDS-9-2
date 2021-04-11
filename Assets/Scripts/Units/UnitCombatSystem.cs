@@ -10,9 +10,11 @@ public class UnitCombatSystem : MonoBehaviour {
 
     [SerializeField] private Team team;
     [SerializeField] public UnitStatsSO unitStats;
+    
     public bool _isUnitActive;
     private HealthBar _healthbar;
     private HealthSystem _healthSystem;
+    private GridCombatSystem _gridCombatSystem;
 
     private int
         _hp,
@@ -24,10 +26,11 @@ public class UnitCombatSystem : MonoBehaviour {
     private MovePositionPathfinding _movePositionPathfinding;
     private SpriteRenderer _sr;
     private State _state;
-
+    private Grid<GridCombatSystem.GridObject> _grid;
 
     private void Awake() {
         _healthbar = GetComponentInChildren<HealthBar>();
+        _gridCombatSystem = GameObject.Find("GridCombatSystem").GetComponent<GridCombatSystem>();
         _state = State.Normal;
         _isUnitActive = false;
         if (unitStats == null) return;
@@ -35,6 +38,7 @@ public class UnitCombatSystem : MonoBehaviour {
         _healthbar.Init(_healthSystem);
         _sr = GetComponent<SpriteRenderer>();
         _sr.sprite = unitStats.sprite;
+        _grid = GameController_GridCombatSystem.Instance.GetGrid();
     }
 
     private void Start() {
@@ -60,8 +64,6 @@ public class UnitCombatSystem : MonoBehaviour {
             case State.Attacking:
                 break;
         }
-
-        // TODO move it from update
     }
 
     public UnitStatsSO GetUnitStats() {
@@ -69,7 +71,6 @@ public class UnitCombatSystem : MonoBehaviour {
     }
 
     public void SetActive() {
-        // TODO active sprite
         _isUnitActive = true;
         OnActiveChanged?.Invoke(this, EventArgs.Empty);
     }
@@ -84,11 +85,19 @@ public class UnitCombatSystem : MonoBehaviour {
 
         AttackWithAdditionalDamage(unitCombatSystem);
         unitCombatSystem._healthSystem.Damage(unitStats.damage);
+        if (unitCombatSystem.IsDead()) {
+            var grid = GameController_GridCombatSystem.Instance.GetGrid();
+            grid.SetGridObject(transform.position, null);
+        }
         Debug.Log(
             $"Attack unit {unitCombatSystem.name}, normal damage: {unitStats.damage}, tag damage: none, overall dmg: {unitStats.damage}");
         onAttackComplete();
     }
 
+    public bool IsDead() {
+        return _healthSystem.GetHealth() <= 0;
+    }
+    
     private void AttackWithAdditionalDamage(UnitCombatSystem unitCombatSystem) {
         var attackedUnitStats = unitCombatSystem.GetUnitStats();
         var attackedUnitName = attackedUnitStats.unitName;
@@ -112,6 +121,7 @@ public class UnitCombatSystem : MonoBehaviour {
     }
 
     public Vector3 GetPosition() {
+        
         return transform.position;
     }
 

@@ -120,9 +120,12 @@ public class GridCombatSystem : MonoBehaviour {
             _unitStatsControllerUI.ViewActiveUnitInGame(leftTeam[_lefTeamActiveUnitIndex].GetUnitStats(),
                 UnitCombatSystem.Team.Left);
 
-            if (leftTeam.Count(x => x != null) == 0)
-            {
+            if (leftTeam.Count(x => x != null) == 0) {
                 WinController.Win(false);
+            }
+
+            if (leftTeam[_lefTeamActiveUnitIndex] == null || leftTeam[_lefTeamActiveUnitIndex].IsDead()) {
+                return GetNextActiveUnit(team);
             }
 
             if (leftTeam[_lefTeamActiveUnitIndex] == null)
@@ -130,8 +133,7 @@ public class GridCombatSystem : MonoBehaviour {
             return leftTeam[_lefTeamActiveUnitIndex];
         }
 
-        if (rightTeam.Count(x => x != null) == 0)
-        {
+        if (rightTeam.Count(x => x != null) == 0) {
             WinController.Win(true);
         }
 
@@ -140,7 +142,7 @@ public class GridCombatSystem : MonoBehaviour {
         _unitStatsControllerUI.ViewActiveUnitInGame(rightTeam[_rightTeamActiveUnitIndex].GetUnitStats(),
             UnitCombatSystem.Team.Right);
 
-        if (rightTeam[_rightTeamActiveUnitIndex] == null)
+        if (rightTeam[_rightTeamActiveUnitIndex] == null || rightTeam[_rightTeamActiveUnitIndex].IsDead())
             return GetNextActiveUnit(team);
         return rightTeam[_rightTeamActiveUnitIndex];
     }
@@ -199,7 +201,6 @@ public class GridCombatSystem : MonoBehaviour {
 
                         grid.GetGridObject(x, y).SetIsValidMovePosition(true);
                     }
-                 
                 }
 
 
@@ -211,11 +212,11 @@ public class GridCombatSystem : MonoBehaviour {
                         if (gridPathfinding.GetPath(unitX, unitY, x, y).Count - 1 <= maxAttackRange)
                             RenderUnitRangeGrid(x, y);
                     }
+
                     if (gridPathfinding.GetPath(unitX, unitY, x, y).Count <= maxAttackRange)
                         RenderUnitRangeGrid(x, y);
                 }
             }
-            
     }
 
     private void RenderUnitRangeGrid(int x, int y) {
